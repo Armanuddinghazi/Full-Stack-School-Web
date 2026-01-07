@@ -1,0 +1,15 @@
+import axios from "axios";
+
+const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
+
+apiClient.interceptors.response.use(
+  res => res,
+  err => {
+    console.error("API Error:", err.response);
+    return Promise.reject(err);
+  }
+);
+
+export default apiClient;
