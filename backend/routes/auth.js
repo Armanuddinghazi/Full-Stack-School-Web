@@ -3,23 +3,23 @@ const Admin = require("../models/Admin");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-router.post("/register", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const existingAdmin = await Admin.findOne({ email: email.toLowerCase() });
-    if (existingAdmin) {
-      return res.status(400).json("Admin already exists");
-    }
-    await Admin.create({
-      email,
-      password: password,
-    });
+// router.post("/register", async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+//     const existingAdmin = await Admin.findOne({ email: email.toLowerCase() });
+//     if (existingAdmin) {
+//       return res.status(400).json("Admin already exists");
+//     }
+//     await Admin.create({
+//       email,
+//       password: password,
+//     });
 
-    res.json({ message: "Admin created" });
-  } catch (err) {
-    res.status(500).json(err.message);
-  }
-});
+//     res.json({ message: "Admin created" });
+//   } catch (err) {
+//     res.status(500).json(err.message);
+//   }
+// });
 
 router.post("/login", async (req, res) => {
   try {
