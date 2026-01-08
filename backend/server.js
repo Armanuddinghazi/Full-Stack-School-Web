@@ -8,7 +8,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: "school_Project"
+})
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err.message));
 
