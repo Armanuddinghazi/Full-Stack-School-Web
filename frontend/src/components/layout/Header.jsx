@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import apiClient from '../../api/apiClient';
 
 const Header = () => {
 
     const [isSticky, setIsSticky] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
+
+    const [notices, setNotices] = useState([]);
+
+    useEffect(() => {
+        apiClient.get("/notices")
+            .then(res => setNotices(res.data))
+            .catch(err => console.error(err));
+    }, []);
+
 
     // ESC key close
     useEffect(() => {
@@ -106,7 +116,7 @@ const Header = () => {
                                             <li><Link to="/scholarship" className="dropdown-item">Scholarships</Link></li>
                                         </ul>
                                     </li>
-                                                                     
+
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
                                         <ul className="dropdown-menu fade-down">
@@ -140,7 +150,22 @@ const Header = () => {
                         </div>
                     </nav>
                 </div>
+                <div className="notice-bar">
+                    <div className="notice-track">
+                        {/* <span> Admission Open for Session 2026–27 |</span>
+                        <span> Annual Exams start from 10 March |</span>
+                        <span> Parent-Teacher Meeting on 5 February |</span>
+                        <span> School will remain closed on Sunday |</span>
+                        <span> Bus facility available for all routes |</span> */}
+                        {notices.map((item) => (
+                            <span key={item._id}> {item.text} |</span>
+                        ))}
+                    </div>
+                </div>
             </header>
+
+
+
 
             {/* popup search  */}
             <div className={`search-popup ${searchOpen ? "search-active" : ""}`}>

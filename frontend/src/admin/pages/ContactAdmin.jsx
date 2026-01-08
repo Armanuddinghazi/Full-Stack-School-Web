@@ -113,7 +113,7 @@ const ContactAdmin = () => {
             </div>
 
             <div className="row">
-                <div className="col-lg-8">
+                <div className="col-lg-8 m-auto">
                     {/* Form Card */}
                     <div className="card custom-card mb-4">
                         <div className="card-header card-header-custom d-flex align-items-center bg-primary text-white fw-semibold">

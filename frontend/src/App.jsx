@@ -32,6 +32,8 @@ import AdminLayout from './admin/AdminLayout';
 import AboutAdmin from './admin/pages/AboutAdmin';
 import CounterAdmin from './admin/pages/CounterAdmin';
 import BlogAdmin from './admin/pages/BlogAdmin';
+import NoticeAdmin from './admin/pages/NoticeAdmin';
+import FeatureAdmin from './admin/pages/FeatureAdmin';
 
 
 const PrivateRoute = ({ children }) => {
@@ -45,11 +47,6 @@ function App() {
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith("/admin");
-  // const adminRoutes = ["/admin/login", "/admin", "/course-admin", "/contact-admin", "/team-admin", "/gallery-admin"];
-  // const isAdminRoute = adminRoutes.some(route =>
-  //   location.pathname.startsWith(route)
-  // );
-
 
   useEffect(() => {
     AOS.init({
@@ -108,6 +105,8 @@ function App() {
           <Route path="gallery-admin" element={<GalleryAdmin />} />
           <Route path="counter-admin" element={<CounterAdmin />} />
           <Route path="blog-admin" element={<BlogAdmin />} />
+          <Route path="notice-admin" element={<NoticeAdmin />} />
+          <Route path="feature-admin" element={<FeatureAdmin />} />
         </Route>
 
       </Routes>

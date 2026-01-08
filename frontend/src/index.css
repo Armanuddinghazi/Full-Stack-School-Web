@@ -14,7 +14,7 @@ Table of contents
 8. Theme button
 9. Container
 10. Scroll top css
-11. Header top css
+11. Header top css 
 12. Navbar css
 13. Mega menu
 14. Multi level dropdown menu
@@ -431,6 +431,9 @@ label {
   padding: 50px 0;
 }
 
+.py-80 {
+  padding: 75px 0;
+}
 .py-120 {
   padding: 120px 0;
 }
@@ -968,6 +971,55 @@ label {
 }
 
 
+
+/*====================
+ Notice css
+======================*/
+
+.notice-bar {
+  width: 100%;
+  background: #0b3d91; /* School blue */
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+  font-size: 16.6px;
+  font-weight: 400;
+}
+
+.notice-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 25s linear infinite;
+}
+
+.notice-track span {
+  margin-right: 40px;
+}
+.notice-track span i {
+  color: var(--theme-color2);
+}
+.notice-bar:hover .notice-track {
+  animation-play-state: paused;
+}
+
+/* Smooth animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .notice-bar {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+}
 
 /*====================
 12. Navbar css
@@ -6577,6 +6629,5 @@ label {
   height: 100%;
   opacity: .95;
 }
-
 
 

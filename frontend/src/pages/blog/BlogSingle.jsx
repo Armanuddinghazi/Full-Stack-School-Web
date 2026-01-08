@@ -6,6 +6,7 @@ import blogImg2 from '../../assets/img/blog/02.jpg'
 import blogImg3 from '../../assets/img/blog/03.jpg'
 
 const BlogSingle = () => {
+    
     return (
         <>
             <Breadcrumb
@@ -20,11 +21,11 @@ const BlogSingle = () => {
              <div className="blog-single-area pt-120 pb-120">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8">
+                    <div className="col-lg-12">
                         <div className="blog-single-wrapper">
                             <div className="blog-single-content">
                                 <div className="blog-thumb-img">
-                                    <img src={blogImg}  alt="thumb"/>
+                                    <img src={blogImg} className='img-fluid' alt="thumb"/>
                                 </div>
                                 <div className="blog-info">
                                     <div className="blog-meta">
@@ -57,7 +58,8 @@ const BlogSingle = () => {
                                     </div>
                                   
                                 </div>
-                                <div className="blog-comments">
+                                <div className="col-lg-6 d-flex align-items-center justify-content-center m-auto">
+                                    <div className="blog-comments">
                                    
                                     <div className="blog-comments-form">
                                         <h3>Leave A Comment</h3>
@@ -83,10 +85,11 @@ const BlogSingle = () => {
                                         </form>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 d-none">
                         <aside className="sidebar-wrapper">
                             {/* search */}
                             <div className="widget search">

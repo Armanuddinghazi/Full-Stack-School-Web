@@ -58,7 +58,7 @@ const Blog = () => {
                     </div>
 
                     <h4 className="blog-title">
-                      <Link to={`/blog-single`}>{item.title}</Link>
+                      <Link to={`/blog-singl`}>{item.title}</Link>
                     </h4>
 
                     <Link className="theme-btn" to={`/blog-single}`}>

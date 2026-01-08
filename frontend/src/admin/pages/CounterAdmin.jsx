@@ -34,7 +34,7 @@ const CounterAdmin = () => {
       setEditId(null);
       fetchCounters();
     } catch {
-      toast.error("Failed team");
+      toast.error("Failed Counter");
     }
   };
 
@@ -51,7 +51,7 @@ const CounterAdmin = () => {
 
   const resetForm = () => {
     setEditId(null);
-    setData({
+    setForm({
       title: "",
       value: "",
       icon: "course"

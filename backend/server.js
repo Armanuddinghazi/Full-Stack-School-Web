@@ -24,6 +24,8 @@ app.use("/api/about", require("./routes/aboutRoutes"));
 app.use("/api/gallery", require("./routes/galleryRoutes"));
 app.use("/api/counter", require("./routes/counterRoutes"));
 app.use("/api/blogs", require("./routes/blogRoutes"));
+app.use("/api/notices", require("./routes/noticeRoutes"));
+app.use("/api/features", require("./routes/featureRoutes"));
 app.use("/api/contactMessage", require("./routes/contactRoutes"));
 
 // module.exports = app; 
