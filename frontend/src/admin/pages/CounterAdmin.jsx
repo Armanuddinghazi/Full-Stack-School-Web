@@ -14,7 +14,6 @@ const CounterAdmin = () => {
   const fetchCounters = () => {
     apiClient.get("/counter")
       .then(res => setCounters(res.data));
-
   };
 
   useEffect(() => {
@@ -134,58 +133,58 @@ const CounterAdmin = () => {
           <div className="col-lg-6">
             {/* Slides List */}
             <div className="card custom-card">
-              <div className="card-header card-header-custom bg-dark text-white fw-semibold">
+              <div className="card-header card-header-custom  d-flex align-items-center bg-dark text-white fw-semibold">
                 <i className="fa-solid fa-list me-2"></i>
-                Existing Counters
+                <h5 className="mb-0">Existing Counters</h5>
               </div>
 
               <div className="card-body">
                 <div className="table-responsive">
-                <table className="table table-hover align-middle mb-0">
-                  <thead className="table-light">
-                    <tr>
-                      <th>Title</th>
-                      <th>Count Value</th>
-                      <th className="text-end">Actions</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {counters.map(counter => (
-                      <tr key={counter._id}>
-                        <td className="fw-semibold">{counter.title}</td>
-                        <td className="fw-semibold">{counter.value}</td>
-                        <td className="text-end">
-                          <button
-                            className="btn btn-sm btn-primary light sharp me-2"
-                            onClick={() => handleEdit(counter)}
-                          >
-                            <i className="fa-solid fa-pen"></i>
-                          </button>
-
-                          <button
-                            className="btn btn-sm btn-danger light sharp"
-                            disabled={editId === counter._id}
-                            onClick={() => handleDelete(counter._id)}
-                          >
-                            <i className="fa-solid fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-
-                    {!counters.length && (
+                  <table className="table table-hover align-middle mb-0">
+                    <thead className="table-light">
                       <tr>
-                        <td colSpan="3" className="text-center text-muted py-4">
-                          <i className="fa-solid fa-circle-info me-2"></i>
-                          No counters found
-                        </td>
+                        <th>Title</th>
+                        <th>Count Value</th>
+                        <th className="text-end">Actions</th>
                       </tr>
-                    )}
-                  </tbody>
+                    </thead>
 
-                </table>
-              </div>
+                    <tbody>
+                      {counters.map(counter => (
+                        <tr key={counter._id}>
+                          <td className="fw-semibold">{counter.title}</td>
+                          <td className="fw-semibold">{counter.value}</td>
+                          <td className="text-end">
+                            <button
+                              className="btn btn-sm btn-primary light sharp me-2"
+                              onClick={() => handleEdit(counter)}
+                            >
+                              <i className="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button
+                              className="btn btn-sm btn-danger light sharp"
+                              disabled={editId === counter._id}
+                              onClick={() => handleDelete(counter._id)}
+                            >
+                              <i className="fa-solid fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+
+                      {!counters.length && (
+                        <tr>
+                          <td colSpan="3" className="text-center text-muted py-4">
+                            <i className="fa-solid fa-circle-info me-2"></i>
+                            No counters found
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+
+                  </table>
+                </div>
               </div>
             </div>
           </div>

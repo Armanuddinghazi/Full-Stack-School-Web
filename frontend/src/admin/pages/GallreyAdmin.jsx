@@ -116,58 +116,60 @@ const GalleryAdmin = () => {
                 </div>
                 <div className="col-lg-5">
                     <div className="card custom-card">
-                        <div className="card-header card-header-custom bg-dark text-white fw-semibold">
+                        <div className="card-header card-header-custom 
+                                d-flex align-items-center
+                                bg-dark text-white fw-semibold">
                             <i className="fa-solid fa-list me-2"></i>
-                            Existing Galleis Images
+                            <h5 className="mb-0">Existing Gallery Images</h5>
                         </div>
 
                         <div className="card-body">
                             <div className="table-responsive">
-                            <table className="table table-hover align-middle mb-0">
-                                <thead className="table-light">
-                                    <tr>
-                                        <th>Image</th>
-                                        <th className="text-end">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {gallery.map(g => (
-                                        <tr key={g._id}>
-                                            <td><img
-                                                src={`${API_URL}${g.image}`}
-                                                className="img-fluid mb-2"
-                                                width={50}
-                                            /></td>
-                                            <td className="text-end">
-                                                <button
-                                                    className="btn btn-sm btn-primary light sharp me-2"
-                                                    onClick={() => edit(g)}
-                                                >
-                                                    <i className="fa-solid fa-pen"></i>
-                                                </button>
-
-                                                <button
-                                                    className="btn btn-sm btn-danger light sharp"
-                                                    disabled={editId === g._id}
-                                                    onClick={() => del(g._id)}
-                                                >
-                                                    <i className="fa-solid fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
-
-                                    {!gallery.length && (
+                                <table className="table table-hover align-middle mb-0">
+                                    <thead className="table-light">
                                         <tr>
-                                            <td colSpan="3" className="text-center text-muted py-4">
-                                                <i className="fa-solid fa-circle-info me-2"></i>
-                                                No images found
-                                            </td>
+                                            <th>Image</th>
+                                            <th className="text-end">Actions</th>
                                         </tr>
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        {gallery.map(g => (
+                                            <tr key={g._id}>
+                                                <td><img
+                                                    src={`${API_URL}${g.image}`}
+                                                    className="img-fluid mb-2"
+                                                    width={50}
+                                                /></td>
+                                                <td className="text-end">
+                                                    <button
+                                                        className="btn btn-sm btn-primary light sharp me-2"
+                                                        onClick={() => edit(g)}
+                                                    >
+                                                        <i className="fa-solid fa-pen"></i>
+                                                    </button>
+
+                                                    <button
+                                                        className="btn btn-sm btn-danger light sharp"
+                                                        disabled={editId === g._id}
+                                                        onClick={() => del(g._id)}
+                                                    >
+                                                        <i className="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+
+                                        {!gallery.length && (
+                                            <tr>
+                                                <td colSpan="3" className="text-center text-muted py-4">
+                                                    <i className="fa-solid fa-circle-info me-2"></i>
+                                                    No images found
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 

@@ -39,13 +39,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                     <span>Home Features</span>
                   </NavLink>
                 </li>
-{/* 
+
                 <li>
-                    <NavLink to="/admin/headercontact-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                      <i className="fa-sharp fa-solid fa-circle-star"></i>
+                    <NavLink to="/admin/headertop-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                      <i class="fa-sharp fa-solid fa-address-book"></i>
                       <span>Header Contact</span>
                     </NavLink>
-                </li> */}
+                </li>
+                <li>
+                    <NavLink to="/admin/choose-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                      <i class="fa-sharp fa-solid fa-address-book"></i>
+                      <span>Why Choose Us</span>
+                    </NavLink>
+                </li>
               </ul>
             )}
           </li>

@@ -29,7 +29,7 @@ const Hero = () => {
       nav: true,
       dots: false,
       autoplay: true,
-      autoplayTimeout: 5000,
+      autoplayTimeout: 4000,
       autoplayHoverPause: true,
       items: 1,
       navText: [

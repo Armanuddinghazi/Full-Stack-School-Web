@@ -126,10 +126,10 @@ const FeatureAdmin = () => {
                     <div className="col-lg-6">
                         {/* Slides List */}
                         <div className="card custom-card">
-                            <div className="card-header card-header-custom bg-dark text-white fw-semibold">
-                                <i className="fa-solid fa-list me-2"></i>
-                                Existing Features
-                            </div>
+                            <div className="card-header card-header-custom  d-flex align-items-center bg-dark text-white fw-semibold">
+                <i className="fa-solid fa-list me-2"></i>
+                <h5 className="mb-0">Existing Features</h5>
+              </div>
 
                             <div className="card-body">
                                 <div className="table-responsive">

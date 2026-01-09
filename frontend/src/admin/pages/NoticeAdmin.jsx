@@ -115,7 +115,7 @@ const NoticeAdmin = () => {
                                             placeholder="Enter notice"
                                         />
                                     </div>
-                        
+
                                 </div>
                             </div>
 
@@ -137,9 +137,9 @@ const NoticeAdmin = () => {
                     <div className="col-lg-6">
                         {/* Slides List */}
                         <div className="card custom-card">
-                            <div className="card-header card-header-custom bg-dark text-white fw-semibold">
+                            <div className="card-header card-header-custom  d-flex align-items-center bg-dark text-white fw-semibold">
                                 <i className="fa-solid fa-list me-2"></i>
-                                Existing Notices
+                                <h5 className="mb-0">Existing Notices</h5>
                             </div>
 
                             <div className="card-body">

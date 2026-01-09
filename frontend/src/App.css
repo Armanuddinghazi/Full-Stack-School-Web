@@ -19,7 +19,7 @@ body {
 .dashboard_bar {
   color: #111;
 }
-.dashboard_bar  span{
+.dashboard_bar span {
   color: #ff6746;
 }
 /* Sidebar */
@@ -55,31 +55,31 @@ body {
   color: #ff6d59;
   background: #ff6c592b;
 } */
- .sidebar ul li a.active:hover{
+.sidebar ul li a.active:hover {
   color: #fff;
- }
+}
 .sidebar ul li a:hover {
   color: #ff6d59;
   /* background: #ff6c592b; */
 }
 .sidebar ul li a:hover i {
-	-webkit-animation: shake-top 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-	        animation: shake-top 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  -webkit-animation: shake-top 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: shake-top 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
-.sidebar ul li a span{
+.sidebar ul li a span {
   margin-left: 14px;
 }
-.sidebar .submenu{
+.sidebar .submenu {
   background-color: #f3f1f1;
   border-radius: 15px;
 }
-.sidebar .submenu li a{
+.sidebar .submenu li a {
   padding: 5px 10px;
   margin-left: 10px;
 }
 .sidebar .submenu li a.active {
   background: none;
-  color: #111!important;
+  color: #111 !important;
 }
 /* dark-night button  */
 
@@ -118,8 +118,25 @@ body {
   border-radius: 14px !important;
   padding-bottom: 5px;
 }
+.custom-card input.form-control {
+  box-shadow: none !important;
+  height: 45px;
+  border-radius: 8px;
+  font-size: 16px !important;
+}
+.custom-card textarea.form-control {
+  box-shadow: none !important;
+  border-radius: 8px;
+}
+.custom-card input.form-control::placeholder {
+  font-size: 16px !important;
+}
 .card-header-custom {
   border-radius: 14px !important;
+  padding: 12.5px !important;
+}
+.card-header-custom h5{
+  font-size:19px;
 }
 .card-footer {
   border-top: none !important;
@@ -165,12 +182,12 @@ body {
   border-color: rgb(19 98 252 / 10%);
 }
 /* Mobile */
-.cursor-menu{
+.cursor-menu {
   display: none;
   cursor: pointer;
 }
 @media (max-width: 991px) {
-  .cursor-menu{
+  .cursor-menu {
     display: block;
   }
   .sidebar {
@@ -193,8 +210,19 @@ body {
   }
 }
 
+.tiptap-editor {
+  min-height: 200px;
+  cursor: text;
+}
 
+.ProseMirror {
+  min-height: 200px;
+  outline: none;
+}
 
+.ProseMirror p {
+  margin: 0 0 10px;
+}
 
 /* Animation  */
 
@@ -202,65 +230,65 @@ body {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
+    transform-origin: 50% 0;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
 @keyframes shake-top {
   0%,
   100% {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     -webkit-transform-origin: 50% 0;
-            transform-origin: 50% 0;
+    transform-origin: 50% 0;
   }
   10% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
   20%,
   40%,
   60% {
     -webkit-transform: rotate(-4deg);
-            transform: rotate(-4deg);
+    transform: rotate(-4deg);
   }
   30%,
   50%,
   70% {
     -webkit-transform: rotate(4deg);
-            transform: rotate(4deg);
+    transform: rotate(4deg);
   }
   80% {
     -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
+    transform: rotate(-2deg);
   }
   90% {
     -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }

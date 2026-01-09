@@ -9,7 +9,7 @@ const aboutSchema = new mongoose.Schema({
   experienceText: String,
   images: {
     img1: String,
-    img2: String,
+    img2: String, 
     img3: String
   }
 }, { timestamps: true });

@@ -7,7 +7,7 @@ const BlogSchema = new mongoose.Schema({
   date: String,
   content: String,
   image: String,
-  slug: String,
+  slug: { type: String, unique: true },
   createdAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 

@@ -40,6 +40,18 @@ router.put("/:id", upload.single("image"), async (req, res) => {
   res.json(updated);
 });
 
+/* GET SINGLE BLOG BY ID */
+router.get("/:id", async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) return res.status(404).json({ message: "Blog not found" });
+    res.json(blog);
+  } catch {
+    res.status(500).json({ message: "Invalid ID" });
+  }
+});
+
+
 /* DELETE BLOG */
 router.delete("/:id", async (req, res) => {
   await Blog.findByIdAndDelete(req.params.id);

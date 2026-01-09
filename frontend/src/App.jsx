@@ -34,6 +34,9 @@ import CounterAdmin from './admin/pages/CounterAdmin';
 import BlogAdmin from './admin/pages/BlogAdmin';
 import NoticeAdmin from './admin/pages/NoticeAdmin';
 import FeatureAdmin from './admin/pages/FeatureAdmin';
+import HeaderTopAdmin from './admin/pages/HeaderTopAdmin';
+import ChooseAdmin from './admin/pages/ChooseAdmin';
+import RedirectToLatestBlog from './pages/blog/RedirectToLatestBlog';
 
 
 const PrivateRoute = ({ children }) => {
@@ -76,7 +79,8 @@ function App() {
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-single" element={<BlogSingle />} />
+          <Route path="/blog-latest" element={<RedirectToLatestBlog />} />
+          <Route path="/blog/:id" element={<BlogSingle />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
@@ -98,6 +102,7 @@ function App() {
           }
         >
           <Route index element={<HeroAdmin />} />
+          <Route path="headertop-admin" element={<HeaderTopAdmin />} />
           <Route path="about-admin" element={<AboutAdmin />} />
           <Route path="course-admin" element={<CourseAdmin />} />
           <Route path="contact-admin" element={<ContactAdmin />} />
@@ -107,6 +112,7 @@ function App() {
           <Route path="blog-admin" element={<BlogAdmin />} />
           <Route path="notice-admin" element={<NoticeAdmin />} />
           <Route path="feature-admin" element={<FeatureAdmin />} />
+          <Route path="choose-admin" element={<ChooseAdmin />} />
         </Route>
 
       </Routes>

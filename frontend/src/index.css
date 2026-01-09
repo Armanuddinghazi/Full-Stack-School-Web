@@ -889,7 +889,7 @@ label {
   left: 0;
   top: 0;
   bottom: -1px;
-  width: 30%;
+  width: 35%;
   background: var(--theme-color2);
   z-index: -1;
 }
@@ -1085,9 +1085,9 @@ label {
   margin-right: 0;
 }
 
-.navbar-brand img {
+/* .navbar-brand img {
   width: 170px;
-}
+} */
 
 .navbar .dropdown-toggle::after {
   display: inline-block;
@@ -6220,7 +6220,7 @@ label {
 }
 
 .footer-logo img {
-  width: 220px;
+  /* width: 220px; */
   margin-bottom: 25px;
 }
 

@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import apiClient from '../../api/apiClient';
 
 const Footer = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        apiClient.get("/headertop")
+            .then(res => setData(res.data))
+            .catch(err => console.error(err));
+
+    }, []);
+      if (!data || !data.socialLinks) return null;
     return (
         <>
             <footer className="footer-area">
@@ -14,18 +24,18 @@ const Footer = () => {
                         <div className="row footer-widget-wrapper pt-100 pb-70">
                             <div className="col-md-6 col-lg-4" data-aos="fade-right">
                                 <div className="footer-widget-box about-us">
-                                    <Link to="/" className="footer-logo">
-                                        <h2 className="text-white">Logo</h2>
-                                        {/* <img src="assets/img/logo/logo-light.png" alt=""/> */}
+                                    <Link to="/" className="footer-logo" >
+                                        <img src={data.footerLogo} width={100} alt=""/>
                                     </Link>
+                                    
                                     <p className="mb-3">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, quos deserunt? Provident accusamus, temporibus a dolores reiciendis inventore consectetur. Dolorum recusandae laudantium explicabo veniam aliquid eligendi magni voluptates. Quaerat, doloribus?
+                                        {data.footerContent}
                                     </p>
                                     <ul className="footer-contact">
-                                        <li><Link to="/el:+91 123 456 7898"><i className="far fa-phone"></i>+91 123 456 7898</Link></li>
-                                        <li><i className="far fa-map-marker-alt"></i>25/B Lal Qila, New Delhi, India</li>
+                                        <li><Link to="/el:+91 123 456 7898"><i className="far fa-phone"></i>{data.phone}</Link></li>
+                                        <li><i className="far fa-map-marker-alt"></i>{data.address}</li>
                                         <li><Link to="/"><i
-                                            className="far fa-envelope"></i><span className="__cf_email__" >xyz@gmail.com</span></Link></li>
+                                            className="far fa-envelope"></i><span className="__cf_email__" >{data.email}</span></Link></li>
                                     </ul>
                                 </div>
                             </div>

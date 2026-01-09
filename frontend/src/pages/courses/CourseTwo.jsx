@@ -133,7 +133,7 @@ const CourseTwo = () => {
                                                             </span>
                                                         </div>
 
-                                                        <span className="course-price">{course.price}</span>
+                                                        <span className="course-price">₹ {course.price}</span>
                                                     </div>
                                                 </div>
                                             </div>

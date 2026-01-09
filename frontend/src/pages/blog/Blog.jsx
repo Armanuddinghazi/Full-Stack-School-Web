@@ -99,10 +99,10 @@ const Blog = () => {
                                         </div>
 
                                         <h4 className="blog-title">
-                                            <Link to={`/blog-single`}>{item.title}</Link>
+                                            <Link to={`/blog/${item._id}`}>{item.title}</Link>
                                         </h4>
 
-                                        <Link className="theme-btn" to={`/blog-single}`}>
+                                        <Link className="theme-btn" to={`/blog/${item._id}`}>
                                             Read More <i className="fas fa-arrow-right-long"></i>
                                         </Link>
                                     </div>

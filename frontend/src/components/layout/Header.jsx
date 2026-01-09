@@ -2,18 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import apiClient from '../../api/apiClient';
 
+const BASE_URL = import.meta.env.VITE_API_URL_IMG;
+
 const Header = () => {
 
     const [isSticky, setIsSticky] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
+    const [data, setData] = useState(null);
 
     const [notices, setNotices] = useState([]);
+
 
     useEffect(() => {
         apiClient.get("/notices")
             .then(res => setNotices(res.data))
             .catch(err => console.error(err));
+        apiClient.get("/headertop")
+            .then(res => setData(res.data))
+            .catch(err => console.error(err));
+
     }, []);
+
 
 
     // ESC key close
@@ -39,6 +48,8 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    if (!data || !data.socialLinks) return null;
+
     return (
         <>
             <header className={`header ${isSticky ? "sticky-header" : ""}`}>
@@ -47,24 +58,33 @@ const Header = () => {
                         <div className="header-top-wrap">
                             <div className="header-top-left">
                                 <div className="header-top-social">
-                                    <span>Follow Us: </span>
-                                    <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i className="fab fa-instagram"></i></a>
-                                    <a href="#"><i className="fab fa-youtube"></i></a>
-                                    <a href="#"><i className="fab fa-whatsapp"></i></a>
+                                    <span className='me-2'>Follow Us: </span>
+                                    <a href={data.socialLinks.facebook || "#"}>
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href={data.socialLinks.instagram || "#"}>
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                    <a href={data.socialLinks.twitter || "#"}>
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    </a>
+                                    <a href={data.socialLinks.whatsapp ? `https://wa.me/${data.socialLinks.whatsapp}` : "#"}>
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+
                                 </div>
                             </div>
                             <div className="header-top-right">
                                 <div className="header-top-contact">
                                     <ul>
                                         <li>
-                                            <a href="#"><i className="far fa-location-dot"></i> 25/B Lal Qila, New Delhi, India</a>
+                                            <a href="#"><i className="far fa-location-dot"></i>{data.address}</a>
                                         </li>
                                         <li>
-                                            <a href="#"><i className="far fa-envelopes"></i> <span className="__cf_email__" >xyz@gmail.com</span></a>
+                                            <a href="#"><i className="far fa-envelopes"></i> <span className="__cf_email__" >{data.email}</span></a>
                                         </li>
                                         <li>
-                                            <a href="tel:+91 123 456 7898"><i className="far fa-phone-volume"></i> +91 123 456 7898</a>
+                                            <a href="tel:+91 123 456 7898"><i className="far fa-phone-volume"></i> {data.phone}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -77,8 +97,12 @@ const Header = () => {
                     <nav className="navbar navbar-expand-lg">
                         <div className="container position-relative">
                             <Link to="/" className="navbar-brand">
-                                <h2 className='text-dark mb-0'>Logo</h2>
-                                {/* <img src="assets/img/logo/logo.png" alt="logo"/> */}
+                                {/* <h2 className='text-dark mb-0'>Logo</h2> */}
+                                <img src={data.headerLogo}
+                                width={80}
+                                    alt="logo"
+                                />
+
                             </Link>
                             <div className="mobile-menu-right">
                                 <div className="search-btn">
@@ -130,7 +154,7 @@ const Header = () => {
                                         <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog</a>
                                         <ul className="dropdown-menu fade-down">
                                             <li><Link to="/blog" className="dropdown-item" >Blog</Link></li>
-                                            <li><Link to="/blog-single" className="dropdown-item">Blog Single</Link></li>
+                                            <li><Link to="/blog-latest" className="dropdown-item">Blog Single</Link></li>
                                         </ul>
                                     </li>
                                     <li className="nav-item"><Link to="/contact" className="nav-link" >Contact</Link></li>

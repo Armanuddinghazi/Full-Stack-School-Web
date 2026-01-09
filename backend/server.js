@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch(err => console.log(err.message));
 
 app.use("/uploads", express.static("uploads"));
+app.use("/api/headertop", require("./routes/headerTopRoutes"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/hero", require("./routes/heroRoutes"));
 app.use("/api/courses", require("./routes/courseRoutes"));
@@ -26,6 +27,7 @@ app.use("/api/counter", require("./routes/counterRoutes"));
 app.use("/api/blogs", require("./routes/blogRoutes"));
 app.use("/api/notices", require("./routes/noticeRoutes"));
 app.use("/api/features", require("./routes/featureRoutes"));
+app.use("/api/chooseus", require("./routes/chooseusRoutes"));
 app.use("/api/contactMessage", require("./routes/contactRoutes"));
 
 // module.exports = app; 

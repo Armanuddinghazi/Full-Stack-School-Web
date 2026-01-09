@@ -1,8 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
+import JoditEditor from "jodit-react";
 import apiClient from "../../api/apiClient";
 
-const CourseAdmin = () => {
+
+
+const BlogAdmin = () => {
+
+    const editor = useRef(null);
+
     const [blogs, setBlogs] = useState([]);
     const [editingId, setEditingId] = useState(null);
 
@@ -11,10 +17,29 @@ const CourseAdmin = () => {
         author: "",
         comments: "",
         date: "",
-        slug: "",
-        description: "",
+        content: "",
         image: null
     });
+
+    const config = {
+        readonly: false,
+        height: 400,
+
+        // 🔥 PASTE FIX
+        cleanHTML: {
+            removeEmptyElements: true,
+            removeEmptyAttributes: true,
+            removeTags: ["style", "meta", "script", "link"],
+        },
+
+        askBeforePasteHTML: false,
+        askBeforePasteFromWord: false,
+
+        defaultActionOnPaste: "insert_clear_html",
+
+        toolbarSticky: false,
+    };
+
 
 
     const fetchblogs = async () => {
@@ -34,10 +59,19 @@ const CourseAdmin = () => {
             return;
         }
 
+        // const form = new FormData();
+        // Object.keys(data).forEach(key => {
+        //     if (data[key]) form.append(key, data[key]);
+        // });
         const form = new FormData();
-        Object.keys(data).forEach(key => {
-            if (data[key]) form.append(key, data[key]);
-        });
+        form.append("title", data.title);
+        form.append("author", data.author);
+        form.append("date", data.date);
+        form.append("comments", data.comments);
+        form.append("content", data.content);
+        if (data.image) form.append("image", data.image);
+
+
 
         try {
             if (editingId) {
@@ -68,8 +102,6 @@ const CourseAdmin = () => {
     };
 
     const deleteBlog = async (id) => {
-        // if (!window.confirm("Delete this course?")) return;
-
         await apiClient.delete(`/blogs/${id}`);
         fetchblogs();
         toast.success("Blog Deleted Successfully");
@@ -82,8 +114,7 @@ const CourseAdmin = () => {
             author: "",
             comments: "",
             date: "",
-            slug: "",
-            description: "",
+            content: "",
             image: null
         });
     };
@@ -148,6 +179,17 @@ const CourseAdmin = () => {
                                                 onChange={e => setData({ ...data, date: e.target.value })}
                                             />
                                         </div>
+                                        <div className="col-lg-12">
+                                            <JoditEditor
+                                                ref={editor}
+                                                value={data.content}
+                                                config={config}
+                                                onBlur={(newContent) =>
+                                                    setData({ ...data, content: newContent })
+                                                }
+                                            />
+
+                                        </div>
                                         <div className="col-12">
                                             <label className="form-label"> Image</label>
                                             <input type="file" className="form-control mb-3"
@@ -173,13 +215,14 @@ const CourseAdmin = () => {
                                     )}
                                 </div>
                             </div>
+
                         </div>
                         <div className="col-lg-4">
                             {/* Slides List */}
                             <div className="card custom-card">
-                                <div className="card-header card-header-custom bg-dark text-white fw-semibold">
+                                <div className="card-header card-header-custom  d-flex align-items-center bg-dark text-white fw-semibold">
                                     <i className="fa-solid fa-list me-2"></i>
-                                    Existing Banners
+                                    <h5 className="mb-0">Existing Blogs</h5>
                                 </div>
 
                                 <div className="card-body">
@@ -240,4 +283,4 @@ const CourseAdmin = () => {
     );
 };
 
-export default CourseAdmin;
+export default BlogAdmin;
