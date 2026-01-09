@@ -1102,8 +1102,8 @@ label {
 
 @media screen and (max-width: 991px) {
   .navbar{
-    padding-top: 10px!important;
-    padding-bottom: 10px!important;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
   }
 }
 @media all and (max-width: 1199px) {
@@ -1302,9 +1302,9 @@ label {
     padding-left: 10px;
   }
 
-  .navbar-brand img {
+  /* .navbar-brand img {
     width: 130px;
-  }
+  } */
 
   .navbar-collapse {
     max-height: 220px;

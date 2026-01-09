@@ -25,7 +25,7 @@ const Footer = () => {
                             <div className="col-md-6 col-lg-4" data-aos="fade-right">
                                 <div className="footer-widget-box about-us">
                                     <Link to="/" className="footer-logo" >
-                                        <img src={data.footerLogo} width={100} alt=""/>
+                                        <img src={data.footerLogo} width={100} alt="logo"/>
                                     </Link>
                                     
                                     <p className="mb-3">

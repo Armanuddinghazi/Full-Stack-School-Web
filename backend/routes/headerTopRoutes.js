@@ -28,7 +28,7 @@ router.post("/",
   const exists = await HeaderTop.findOne();
   if (exists) return res.status(400).json({ msg: "Already exists" });
 
-  const BASE_URL = `${req.protocol}://${req.get("host")}`;
+const BASE_URL = import.meta.env.VITE_API_URL_IMG;
 
   const data = new HeaderTop({
       email: req.body.email,
@@ -56,7 +56,7 @@ router.put("/:id",
     { name: "headerLogo", maxCount: 1 },
     { name: "footerLogo", maxCount: 1 }
   ]), async (req, res) => {
-     const BASE_URL = `${req.protocol}://${req.get("host")}`;
+     const BASE_URL = import.meta.env.VITE_API_URL_IMG;
      const updateData = {
       email: req.body.email,
       phone: req.body.phone,
