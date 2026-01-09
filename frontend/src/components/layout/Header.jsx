@@ -98,7 +98,8 @@ const Header = () => {
                         <div className="container position-relative">
                             <Link to="/" className="navbar-brand">
                                 {/* <h2 className='text-dark mb-0'>Logo</h2> */}
-                                <img src={data.headerLogo}
+                                <img 
+                                src={`${BASE_URL}${data.headerLogo}`}
                                 width={80}
                                     alt="logo"
                                 />

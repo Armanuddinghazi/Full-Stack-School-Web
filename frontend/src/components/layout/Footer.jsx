@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import apiClient from '../../api/apiClient';
 
+const BASE_URL = import.meta.env.VITE_API_URL_IMG;
+
 const Footer = () => {
     const [data, setData] = useState(null);
 
@@ -25,7 +27,8 @@ const Footer = () => {
                             <div className="col-md-6 col-lg-4" data-aos="fade-right">
                                 <div className="footer-widget-box about-us">
                                     <Link to="/" className="footer-logo" >
-                                        <img src={data.footerLogo} width={100} alt="logo"/>
+                                        <img src={`${BASE_URL}${data.footerLogo}`} width={100} alt="logo"/>
+                                        
                                     </Link>
                                     
                                     <p className="mb-3">

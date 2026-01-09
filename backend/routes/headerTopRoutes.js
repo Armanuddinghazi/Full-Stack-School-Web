@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 const HeaderTop = require("../models/HeaderTop");
 
+
 const storage = multer.diskStorage({
   destination: "uploads/logo",
   filename: (req, file, cb) => {
@@ -28,7 +29,6 @@ router.post("/",
   const exists = await HeaderTop.findOne();
   if (exists) return res.status(400).json({ msg: "Already exists" });
 
-const BASE_URL = import.meta.env.VITE_API_URL_IMG;
 
   const data = new HeaderTop({
       email: req.body.email,
@@ -37,11 +37,11 @@ const BASE_URL = import.meta.env.VITE_API_URL_IMG;
       footerContent: req.body.footerContent,
 
       headerLogo: req.files?.headerLogo
-        ? `${BASE_URL}/uploads/logo/${req.files.headerLogo[0].filename}`
+        ? `/uploads/logo/${req.files.headerLogo[0].filename}`
         : "",
 
       footerLogo: req.files?.footerLogo
-        ? `${BASE_URL}/uploads/logo/${req.files.footerLogo[0].filename}`
+        ? `/uploads/logo/${req.files.footerLogo[0].filename}`
         : "",
 
       socialLinks: JSON.parse(req.body.socialLinks)
@@ -56,7 +56,6 @@ router.put("/:id",
     { name: "headerLogo", maxCount: 1 },
     { name: "footerLogo", maxCount: 1 }
   ]), async (req, res) => {
-     const BASE_URL = import.meta.env.VITE_API_URL_IMG;
      const updateData = {
       email: req.body.email,
       phone: req.body.phone,
@@ -66,11 +65,11 @@ router.put("/:id",
     };
 
     if (req.files?.headerLogo) {
-      updateData.headerLogo = `${BASE_URL}/uploads/logo/${req.files.headerLogo[0].filename}`;
+      updateData.headerLogo = `/uploads/logo/${req.files.headerLogo[0].filename}`;
     }
 
     if (req.files?.footerLogo) {
-      updateData.footerLogo = `${BASE_URL}/uploads/logo/${req.files.footerLogo[0].filename}`;
+      updateData.footerLogo = `/uploads/logo/${req.files.footerLogo[0].filename}`;
     }
 
   const updated = await HeaderTop.findByIdAndUpdate(
