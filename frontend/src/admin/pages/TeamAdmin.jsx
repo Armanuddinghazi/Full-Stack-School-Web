@@ -74,7 +74,7 @@ const TeamAdmin = () => {
                     </h5>
                 </div>
                 <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-lg-7">
                         {/* Form Card */}
                         <div className="card custom-card mb-4">
                             <div className="card-header card-header-custom d-flex align-items-center bg-primary text-white fw-semibold">
@@ -101,10 +101,10 @@ const TeamAdmin = () => {
                                 </div>
                             </div>
                             <div className="card-footer text-end">
-                                 <button className={`btn me-2 py-2 btn-radius-8 ${editId ? "btn-success light" : "btn-primary" }`} onClick={submit}>
-                                        {editId ? <i className="fa-solid fa-rotate me-1"></i> : <i className="fa-solid fa-plus me-1"></i>}
-                                         {editId ? "Update" : "Add"}
-                                    </button>
+                                <button className={`btn me-2 py-2 btn-radius-8 ${editId ? "btn-success light" : "btn-primary"}`} onClick={submit}>
+                                    {editId ? <i className="fa-solid fa-rotate me-1"></i> : <i className="fa-solid fa-plus me-1"></i>}
+                                    {editId ? "Update" : "Add"}
+                                </button>
 
                                 {editId && (
                                     <button className="btn btn-danger light py-2 btn-radius-8" onClick={resetForm}>
@@ -116,67 +116,65 @@ const TeamAdmin = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6">
+                    <div className="col-lg-5">
                         {/* Slides List */}
                         <div className="card custom-card">
-                             <div className="card-header card-header-custom 
+                            <div className="card-header card-header-custom 
                                 d-flex align-items-center
                                 bg-dark text-white fw-semibold">
-                                    <i className="fa-solid fa-list me-2"></i>
-                                    <h5 className="mb-0">Existing Team</h5>
-                                </div>
+                                <i className="fa-solid fa-list me-2"></i>
+                                <h5 className="mb-0">Existing Team</h5>
+                            </div>
 
                             <div className="card-body">
                                 <div className="table-responsive">
-                                <table className="table table-hover align-middle mb-0">
-                                    <thead className="table-light">
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Role</th>
-                                            <th className="text-end">Actions</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        {team.map(t => (
-                                            <tr key={t._id}>
-                                                <td>
-                                                    <img src={`${API_URL}${t.image}`} width="50" />
-                                                </td>
-                                                <td className="fw-semibold">{t.name}</td>
-                                                <td className="fw-semibold">{t.role}</td>
-                                                <td className="text-end">
-                                                    <button
-                                                        className="btn btn-sm btn-primary light sharp me-2"
-                                                        onClick={() => edit(t)}
-                                                    >
-                                                        <i className="fa-solid fa-pen"></i>
-                                                    </button>
-
-                                                    <button
-                                                        className="btn btn-sm btn-danger light sharp"
-                                                        disabled={editId === t._id}
-                                                        onClick={() => del(t._id)}
-                                                    >
-                                                        <i className="fa-solid fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        ))}
-
-                                        {!team.length && (
+                                    <table className="table table-hover align-middle mb-0">
+                                        <thead className="table-light">
                                             <tr>
-                                                <td colSpan="3" className="text-center text-muted py-4">
-                                                    <i className="fa-solid fa-circle-info me-2"></i>
-                                                    No teams found
-                                                </td>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th className="text-end">Actions</th>
                                             </tr>
-                                        )}
-                                    </tbody>
+                                        </thead>
 
-                                </table>
-                            </div>
+                                        <tbody>
+                                            {team.map(t => (
+                                                <tr key={t._id}>
+                                                    <td>
+                                                        <img src={`${API_URL}${t.image}`} width="50" />
+                                                    </td>
+                                                    <td className="fw-semibold">{t.name}</td>
+                                                    <td className="text-end">
+                                                        <button
+                                                            className="btn btn-sm btn-primary light sharp me-2"
+                                                            onClick={() => edit(t)}
+                                                        >
+                                                            <i className="fa-solid fa-pen"></i>
+                                                        </button>
+
+                                                        <button
+                                                            className="btn btn-sm btn-danger light sharp"
+                                                            disabled={editId === t._id}
+                                                            onClick={() => del(t._id)}
+                                                        >
+                                                            <i className="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+
+                                            {!team.length && (
+                                                <tr>
+                                                    <td colSpan="3" className="text-center text-muted py-4">
+                                                        <i className="fa-solid fa-circle-info me-2"></i>
+                                                        No teams found
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

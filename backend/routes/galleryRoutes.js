@@ -5,7 +5,7 @@ const multer = require("multer");
 
 // IMAGE UPLOAD
 const storage = multer.diskStorage({
-  destination: "uploads/",
+  destination: "uploads/gallery",
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
   }
@@ -19,12 +19,18 @@ router.get("/", async (req, res) => {
 });
 
 /* ADD */
+
 router.post("/", upload.single("image"), async (req, res) => {
-  const gallery = await Gallery.create({
-    title: req.body.title,
-    image: `/uploads/${req.file.filename}`
-  });
-  res.json(gallery);
+  try {
+    const gallery = new Gallery({
+      ...req.body,
+      image: req.file ? `/uploads/gallery/${req.file.filename}` : ""
+    });
+    await gallery.save();
+    res.json({ message: "gallery added" });
+  } catch (err) {
+    res.status(500).json({ message: "Add failed" });
+  }
 });
 
 /* UPDATE */

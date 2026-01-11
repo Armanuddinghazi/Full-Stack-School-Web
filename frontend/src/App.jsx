@@ -8,7 +8,7 @@ import About from './pages/about/About'
 import CourseOne from './pages/courses/CourseOne'
 import CourseTwo from './pages/courses/CourseTwo'
 import HowToApply from './pages/apply/HowToApply'
-import ApplicationForm from './pages/appform/ApplicationForm'
+import AdmissionForm from './pages/appform/AdmissionForm';
 import TuitionFee from './pages/tutionfee/TuitionFee'
 import Alumni from './pages/alumni/Alumni'
 import Scholarship from './pages/scholarshipform/Scholarship'
@@ -37,6 +37,12 @@ import FeatureAdmin from './admin/pages/FeatureAdmin';
 import HeaderTopAdmin from './admin/pages/HeaderTopAdmin';
 import ChooseAdmin from './admin/pages/ChooseAdmin';
 import RedirectToLatestBlog from './pages/blog/RedirectToLatestBlog';
+import MandatoryDisclosure from './pages/mandatory/MandatoryDisclosure';
+import ThemeAdmin from './admin/pages/ThemeAdmin';
+import useThemeLoader from './hooks/useThemeLoader';
+import DepartmentAdmin from './admin/pages/DepartmentAdmin';
+import SectionAdmin from './admin/pages/SectionAdmin';
+import DisclosureAdmin from './admin/pages/DisclosureAdmin';
 
 
 const PrivateRoute = ({ children }) => {
@@ -47,6 +53,8 @@ const PrivateRoute = ({ children }) => {
 
 function App() {
 
+  useThemeLoader();
+  
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -74,13 +82,14 @@ function App() {
           <Route path="/course-one" element={<CourseOne />} />
           <Route path="/course-two" element={<CourseTwo />} />
           <Route path="/how-to-apply" element={<HowToApply />} />
-          <Route path="/application-form" element={<ApplicationForm />} />
+          <Route path="/admission-form" element={<AdmissionForm />} />
           <Route path="/tuition-fee" element={<TuitionFee />} />
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog-latest" element={<RedirectToLatestBlog />} />
           <Route path="/blog/:id" element={<BlogSingle />} />
+          <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
@@ -113,6 +122,10 @@ function App() {
           <Route path="notice-admin" element={<NoticeAdmin />} />
           <Route path="feature-admin" element={<FeatureAdmin />} />
           <Route path="choose-admin" element={<ChooseAdmin />} />
+          <Route path="department-admin" element={<DepartmentAdmin />} />
+          <Route path="section-admin" element={<SectionAdmin />} />
+          <Route path="mandatory-admin" element={<DisclosureAdmin />} />
+          <Route path="theme-admin" element={<ThemeAdmin />} />
         </Route>
 
       </Routes>

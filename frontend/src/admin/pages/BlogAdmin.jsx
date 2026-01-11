@@ -147,8 +147,7 @@ const BlogAdmin = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <div className="row g-3">
-
+                                    <div className="row g-3">                                   
                                         <div className="col-md-6">
                                             <label className="form-label">Title</label>
                                             <input className="form-control mb-2" placeholder="Title"

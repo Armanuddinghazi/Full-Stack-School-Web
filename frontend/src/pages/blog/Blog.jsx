@@ -5,21 +5,13 @@ import Breadcrumb from '../../components/ui/Breadcrumb'
 import aboutBg from "../../assets/img/breadcrumb/01.jpg";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
+import useSection from "../../hooks/useSection";
+import { highlightLastWords } from "../../utils/highlightLastWords";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
-
-// const blogs = [
-//     {
-//         img: blog1,
-//         date: "Jan 1, 2026",
-//         author: "Alicia Davis",
-//         comments: "07 Comments",
-//         title: "There are many variations passage have suffered available.",
-//         link: "/blog-single",
-//     },
-
 const Blog = () => {
-    
+
+    const section = useSection('blogs')
     const [blogs, setBlogs] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 6;
@@ -60,16 +52,19 @@ const Blog = () => {
                     <div className="row">
                         <div className="col-lg-6 mx-auto">
                             <div className="site-heading text-center" data-aos="fade-up">
-                                <span className="site-title-tagline">
-                                    <i className="far fa-book-open-reader"></i> Our Blog
-                                </span>
-                                <h2 className="site-title">
-                                    Latest News & <span>Blog</span>
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted
-                                    by the readable content of a page when looking at its layout.
-                                </p>
+                                {section && (
+                                    <>
+                                        <span className="site-title-tagline">
+                                            <i className="far fa-book-open-reader"></i> {section.tagline}
+                                        </span>
+                                        <h2 className="site-title">
+                                            {highlightLastWords(section.heading, 1)}
+                                        </h2>
+                                        <p>
+                                            {section.paragraph}
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>

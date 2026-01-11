@@ -113,14 +113,14 @@ const Contact = () => {
                         <div className="row">
                             <div className="col-lg-5">
                                 <div className="contact-img">
-                                    <img src={contactImg} alt="" />
+                                    <img src={import.meta.env.VITE_API_URL_IMG + contact.image} alt="" />
                                 </div>
                             </div>
                             <div className="col-lg-7 align-self-center">
                                 <div className="contact-form">
                                     <div className="contact-form-header">
-                                        <h2>Get In Touch</h2>
-                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis eius doloremque voluptate, nobis libero dicta, quam fuga obcaecati voluptatibus nam, similique maxime aliquid magnam nisi facere. Ipsa nobis sit dignissimos!</p>
+                                        <h2>{contact.heading}</h2>
+                                        <p>{contact.description}</p>
                                        
                                     </div>
                                     <form onSubmit={submitForm} id="contact-form">

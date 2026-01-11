@@ -29,6 +29,11 @@ app.use("/api/notices", require("./routes/noticeRoutes"));
 app.use("/api/features", require("./routes/featureRoutes"));
 app.use("/api/chooseus", require("./routes/chooseusRoutes"));
 app.use("/api/contactMessage", require("./routes/contactRoutes"));
+app.use("/api/admission", require("./routes/admissionRoutes"));
+app.use("/api/department", require("./routes/departmentRoutes"));
+app.use("/api/sections", require("./routes/sectionRoutes"));
+app.use("/api/disclosure", require("./routes/disclosureRoutes"));
+app.use("/api/theme", require("./routes/themeRoutes"));
 
 // module.exports = app; 
 app.listen(process.env.PORT, () =>

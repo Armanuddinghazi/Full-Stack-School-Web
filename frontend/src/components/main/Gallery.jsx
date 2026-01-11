@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../../api/apiClient";
+import { highlightLastWords } from "../../utils/highlightLastWords";
+import useSection from "../../hooks/useSection";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const Gallery = () => {
 
+    const section = useSection('gallery')
     const [gallery, setGallery] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
 
+    const fetchGallery = async () => {
+        try {
+            const res = await apiClient.get("/gallery");
+            setGallery(res.data);
+        } catch (err) {
+            console.error("gallery fetch error", err);
+        }
+    };
+
     useEffect(() => {
-        apiClient.get("/gallery")
-            .then(res => setGallery(res.data));
+        fetchGallery();
     }, []);
 
     return (
@@ -22,16 +33,19 @@ const Gallery = () => {
                     <div className="row">
                         <div className="col-lg-6 mx-auto">
                             <div className="site-heading text-center" data-aos="fade-up">
-                                <span className="site-title-tagline">
-                                    <i className="far fa-book-open-reader"></i> Gallery
-                                </span>
-                                <h2 className="site-title">
-                                    Our Photo <span>Gallery</span>
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted
-                                    by the readable content of a page when looking at its layout.
-                                </p>
+                                {section && (
+                                    <>
+                                        <span className="site-title-tagline">
+                                            <i className="far fa-book-open-reader"></i> {section.tagline}
+                                        </span>
+                                        <h2 className="site-title">
+                                            {highlightLastWords(section.heading, 1)}
+                                        </h2>
+                                        <p>
+                                            {section.paragraph}
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -69,7 +83,7 @@ const Gallery = () => {
                     </div>
 
                 </div>
-            </div>
+            </div >
 
 
             {activeImage && (
@@ -79,7 +93,8 @@ const Gallery = () => {
                         <span className="close-btn">&times;</span>
                     </div>
                 </div>
-            )}
+            )
+            }
 
         </>
     );

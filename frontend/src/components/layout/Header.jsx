@@ -18,7 +18,10 @@ const Header = () => {
             .then(res => setNotices(res.data))
             .catch(err => console.error(err));
         apiClient.get("/headertop")
-            .then(res => setData(res.data))
+            .then(res => {
+                setData(res.data)
+                console.log('response header', res);
+            })
             .catch(err => console.error(err));
 
     }, []);
@@ -59,17 +62,17 @@ const Header = () => {
                             <div className="header-top-left">
                                 <div className="header-top-social">
                                     <span className='me-2'>Follow Us: </span>
-                                    <a href={data.socialLinks.facebook || "#"}>
-                                        <i class="fa-brands fa-facebook-f"></i>
+                                    <a href={data.socialLinks.facebook || "#"} target="_blank">
+                                        <i className="fa-brands fa-facebook-f"></i>
                                     </a>
-                                    <a href={data.socialLinks.instagram || "#"}>
-                                        <i class="fa-brands fa-instagram"></i>
+                                    <a href={data.socialLinks.instagram || "#"} target="_blank">
+                                        <i className="fa-brands fa-instagram"></i>
                                     </a>
-                                    <a href={data.socialLinks.twitter || "#"}>
-                                        <i class="fa-brands fa-x-twitter"></i>
+                                    <a href={data.socialLinks.twitter || "#"} target="_blank">
+                                        <i className="fa-brands fa-x-twitter"></i>
                                     </a>
-                                    <a href={data.socialLinks.whatsapp ? `https://wa.me/${data.socialLinks.whatsapp}` : "#"}>
-                                        <i class="fa-brands fa-whatsapp"></i>
+                                    <a href={data.socialLinks.whatsapp ? `https://wa.me/${data.socialLinks.whatsapp}` : "#"} target="_blank">
+                                        <i className="fa-brands fa-whatsapp"></i>
                                     </a>
 
                                 </div>
@@ -121,6 +124,9 @@ const Header = () => {
                                     <li className="nav-item ">
                                         <Link to="/" className="nav-link " >Home</Link>
                                     </li>
+                                    <li className="nav-item ">
+                                        <Link to="/about" className="nav-link">About Us</Link>
+                                    </li>
 
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Courses</a>
@@ -135,20 +141,14 @@ const Header = () => {
                                         <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admissions</a>
                                         <ul className="dropdown-menu fade-down">
                                             <li><Link to="/how-to-apply" className="dropdown-item" >How To Apply</Link></li>
-                                            <li><Link to="/application-form" className="dropdown-item" >Application Form</Link></li>
+                                            <li><Link to="/admission-form" className="dropdown-item" >Application Form</Link></li>
                                             <li><Link to="/tuition-fee" className="dropdown-item" >Tuition Fees</Link></li>
+                                            <li><a to="#" className="dropdown-item" >Infrastructure</a></li>
+                                            <li><a to="#" className="dropdown-item" >Events</a></li>
+                                            <li><a to="#" className="dropdown-item" >Online Free Payments</a></li>
+                                            <li><a to="#" className="dropdown-item" >Careers</a></li>
                                             <li><Link to="/alumni" className="dropdown-item">Alumni</Link></li>
                                             <li><Link to="/scholarship" className="dropdown-item">Scholarships</Link></li>
-                                        </ul>
-                                    </li>
-
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
-                                        <ul className="dropdown-menu fade-down">
-                                            <li><Link to="/about" className="dropdown-item ">About Us</Link></li>
-                                            <li><Link to="/login" className="dropdown-item" >Login</Link></li>
-                                            <li><Link to="/register" className="dropdown-item">Register</Link></li>
-                                            <li><Link to="/forgot-password" className="dropdown-item">Forgot Password</Link></li>
                                         </ul>
                                     </li>
                                     <li className="nav-item dropdown">
@@ -158,16 +158,17 @@ const Header = () => {
                                             <li><Link to="/blog-latest" className="dropdown-item">Blog Single</Link></li>
                                         </ul>
                                     </li>
+                                    <li className="nav-item"><Link to="/mandatory-disclosure" className="nav-link" >Mandatory Disclosure</Link></li>
                                     <li className="nav-item"><Link to="/contact" className="nav-link" >Contact</Link></li>
                                 </ul>
                                 <div className="nav-right">
-                                    <div className="search-btn">
+                                    <div className="search-btn d-none">
                                         <button type="button"
                                             onClick={() => setSearchOpen(true)} className="nav-right-link search-box-outer"><i
                                                 className="far fa-search"></i></button>
                                     </div>
                                     <div className="nav-right-btn mt-2">
-                                        <Link to="/application-form" className="theme-btn"><span
+                                        <Link to="/admission-form" className="theme-btn"><span
                                             className="fal fa-pencil"></span>Apply Now</Link>
                                     </div>
                                 </div>

@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 import apiClient from "../../api/apiClient";
+import useSection from "../../hooks/useSection";
+import { highlightLastWords } from "../../utils/highlightLastWords";
 
 
 const CourseTwo = () => {
 
+    const section = useSection('courses')
     const [courses, setCourses] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
@@ -39,11 +42,11 @@ const CourseTwo = () => {
     return (
         <>
             <Breadcrumb
-                title="Our Courses"
+                title="Our Courses Two"
                 bgImage={aboutBg}
                 items={[
                     { label: "Home", path: "/" },
-                    { label: "Our Courses", active: true }
+                    { label: "Our Courses Two", active: true }
                 ]}
             />
             <div className="course-area py-120">
@@ -53,16 +56,19 @@ const CourseTwo = () => {
                     <div className="row">
                         <div className="col-lg-6 mx-auto">
                             <div className="site-heading text-center" data-aos="fade-up">
-                                <span className="site-title-tagline">
-                                    <i className="far fa-book-open-reader"></i> Our Courses
-                                </span>
-                                <h2 className="site-title">
-                                    Let's Check Our <span>Courses</span>
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout.
-                                </p>
+                                {section && (
+                                    <>
+                                        <span className="site-title-tagline">
+                                            <i className="far fa-book-open-reader"></i> {section.tagline}
+                                        </span>
+                                        <h2 className="site-title">
+                                            {highlightLastWords(section.heading, 1)}
+                                        </h2>
+                                        <p>
+                                            {section.paragraph}
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -176,17 +182,17 @@ const CourseTwo = () => {
                                 <div className="widget category" data-aos="fade-left" data-aos-delay="100">
                                     <h4 className="widget-title">Course Category</h4>
                                     <div className="category-list">
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Business And Finance</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Law And Criminology</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>IT And Data Science</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Health And Medicine</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Art And Design</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Information Technology</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Acting And Drama</a>
-                                        <a href="#"><i className="far fa-long-arrow-right"></i>Human Resource</a>
+                                        <span><i className="far fa-long-arrow-right"></i>Business And Finance</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Law And Criminology</span>
+                                        <span><i className="far fa-long-arrow-right"></i>IT And Data Science</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Health And Medicine</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Art And Design</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Information Technology</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Acting And Drama</span>
+                                        <span><i className="far fa-long-arrow-right"></i>Human Resource</span>
                                     </div>
                                 </div>
-                        
+
                             </div>
                         </div>
                     </div>

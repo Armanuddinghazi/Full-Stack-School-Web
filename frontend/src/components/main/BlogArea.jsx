@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from "react";
 import apiClient from "../../api/apiClient";
 import { Link } from "react-router-dom";
+import { highlightLastWords } from "../../utils/highlightLastWords";
+import useSection from "../../hooks/useSection";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const Blog = () => {
+  const section = useSection('blogs')
   const [blogs, setBlogs] = useState([]);
 
+  const fetchBlog = async () => {
+    try {
+      const res = await apiClient.get("/blogs");
+      setBlogs(res.data);
+    } catch (err) {
+      console.error("blogs fetch error", err);
+    }
+  };
+
   useEffect(() => {
-    apiClient.get("/blogs").then(res => setBlogs(res.data));
+    fetchBlog();
   }, []);
 
   return (
@@ -19,16 +31,19 @@ const Blog = () => {
           <div className="row">
             <div className="col-lg-6 mx-auto">
               <div className="site-heading text-center" data-aos="fade-up">
-                <span className="site-title-tagline">
-                  <i className="far fa-book-open-reader"></i> Our Blog
-                </span>
-                <h2 className="site-title">
-                  Latest News & <span>Blog</span>
-                </h2>
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </p>
+                {section && (
+                  <>
+                    <span className="site-title-tagline">
+                      <i className="far fa-book-open-reader"></i> {section.tagline}
+                    </span>
+                    <h2 className="site-title">
+                      {highlightLastWords(section.heading, 1)}
+                    </h2>
+                    <p>
+                      {section.paragraph}
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

@@ -3,7 +3,16 @@ const router = express.Router();
 const Contact = require("../models/Contact");
 const auth = require("../middleware/authMiddleware");
 const ContactMessage = require("../models/ContactMessage");
+const multer = require("multer");
 
+const storage = multer.diskStorage({
+  destination: "uploads/contact",
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage });
 
 /* GET CONTACT DATA */
 router.get("/", async (req, res) => {
@@ -11,17 +20,27 @@ router.get("/", async (req, res) => {
   res.json(contact);
 });
 
-router.post("/", async (req, res) => {
-  let contact = await Contact.findOne();
-
-  if (contact) {
-    await Contact.findByIdAndUpdate(contact._id, req.body);
-  } else {
-    await Contact.create(req.body);
+/* CREATE / UPDATE CONTACT WITH IMAGE */
+router.post("/", upload.single("image"), async (req, res) => {
+  try {
+    let contact = await Contact.findOne();
+    const payload = {
+      ...req.body,
+    };
+    if (req.file) {
+      payload.image = `/uploads/contact/${req.file.filename}`;
+    }
+    if (contact) {
+      await Contact.findByIdAndUpdate(contact._id, payload);
+    } else {
+      await Contact.create(payload);
+    }
+    res.json({ message: "Contact updated successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Contact update failed" });
   }
-
-  res.json({ message: "Contact updated" });
 });
+
 
 router.delete("/", auth, async (req, res) => {
   await Contact.deleteMany({});

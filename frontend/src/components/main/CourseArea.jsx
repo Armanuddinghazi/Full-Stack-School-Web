@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import apiClient from "../../api/apiClient";
+import { highlightLastWords } from "../../utils/highlightLastWords";
+import useSection from "../../hooks/useSection";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const CourseArea = () => {
 
+  const section = useSection("courses");
   const [courses, setCourses] = useState([]);
 
   const fetchCourses = async () => {
@@ -31,16 +34,19 @@ const CourseArea = () => {
           <div className="row">
             <div className="col-lg-6 mx-auto">
               <div className="site-heading text-center" data-aos="fade-up">
-                <span className="site-title-tagline">
-                  <i className="far fa-book-open-reader"></i> Our Courses
-                </span>
-                <h2 className="site-title">
-                  Let's Check Our <span>Courses</span>
-                </h2>
-                <p>
-                  It is a long established fact that a reader will be distracted by
-                  the readable content of a page when looking at its layout.
-                </p>
+                {section && (
+                  <>
+                    <span className="site-title-tagline">
+                      <i className="far fa-book-open-reader"></i> {section.tagline}
+                    </span>
+                    <h2 className="site-title">
+                      {highlightLastWords(section.heading, 1)}
+                    </h2>
+                    <p>
+                      {section.paragraph}
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

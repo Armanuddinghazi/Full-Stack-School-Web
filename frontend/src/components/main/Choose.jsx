@@ -3,8 +3,8 @@ import teacherImg from '../../assets/img/icon/teacher-2.svg'
 import courseMaterial from '../../assets/img/icon/course-material.svg'
 import onlineCourse from '../../assets/img/icon/online-course.svg'
 import moneyImg from '../../assets/img/icon/money.svg'
-import chooseImg from '../../assets/img/choose/01.jpg'
 import apiClient from "../../api/apiClient";
+import { highlightLastWords } from "../../utils/highlightLastWords";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
@@ -67,7 +67,7 @@ const Choose = () => {
                     <i className="far fa-book-open-reader"></i>  {data.tagline}
                   </span>
                   <h2 className="site-title text-white mb-10">
-                    {data.heading}
+                    {highlightLastWords(data.heading, 2)}
                     {/* We Are Expert & <span>Do Our Best</span> For Your Goal */}
                   </h2>
                   <p className="text-white">

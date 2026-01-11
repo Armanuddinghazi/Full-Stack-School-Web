@@ -7,7 +7,7 @@ const CounterAdmin = () => {
   const [form, setForm] = useState({
     title: "",
     value: "",
-    icon: "course"
+    icon: null
   });
   const [editId, setEditId] = useState(null);
 
@@ -22,14 +22,19 @@ const CounterAdmin = () => {
 
   const handleSubmit = async () => {
     try {
+       const data = new FormData();
+        Object.keys(form).forEach(key => {
+            if (form[key]) data.append(key, form[key]);
+        });
+
       if (editId) {
-        await apiClient.put(`/counter/${editId}`, form);
+        await apiClient.put(`/counter/${editId}`, data);
         toast.success("Counter updated successfully");
       } else {
-        await apiClient.post("/counter", form);
+        await apiClient.post("/counter", data);
         toast.success("Counter added successfully");
       }
-      setForm({ title: "", value: "", icon: "course" });
+      setForm({ title: "", value: "", icon: null });
       setEditId(null);
       fetchCounters();
     } catch {
@@ -53,7 +58,7 @@ const CounterAdmin = () => {
     setForm({
       title: "",
       value: "",
-      icon: "course"
+      icon: null
     });
   };
 
@@ -100,16 +105,7 @@ const CounterAdmin = () => {
                   </div>
                   <div className="col-lg-12">
                     <label htmlFor="form-label">Icons Name</label>
-                    <select
-                      className="form-select"
-                      value={form.icon}
-                      onChange={e => setForm({ ...form, icon: e.target.value })}
-                    >
-                      <option value="course">Course</option>
-                      <option value="graduation">Graduation</option>
-                      <option value="teacher">Teacher</option>
-                      <option value="award">Award</option>
-                    </select>
+                    <input className="form-control" type="file" onChange={e => setForm({ ...form, icon: e.target.files[0] })} />
                   </div>
                 </div>
               </div>

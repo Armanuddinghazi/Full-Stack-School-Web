@@ -7,9 +7,12 @@ const API_URL = import.meta.env.VITE_API_URL_IMG;
 const GalleryAdmin = () => {
 
     const [gallery, setGallery] = useState([]);
-    const [title, setTitle] = useState("");
+    // const [title, setTitle] = useState("");
     const [image, setImage] = useState(null);
     const [editId, setEditId] = useState(null);
+    const [form, setForm] = useState({
+        title: " ",
+    });
 
     const fetchGallery = async () => {
         const res = await apiClient.get("/gallery");
@@ -21,19 +24,22 @@ const GalleryAdmin = () => {
     }, []);
 
     const submit = async () => {
+        // const fd = new FormData();
+        // fd.append("title", title);
         const fd = new FormData();
-        fd.append("title", title);
+        Object.keys(form).forEach(k => fd.append(k, form[k]));
         if (image) fd.append("image", image);
 
         if (editId) {
             await apiClient.put(`/gallery/${editId}`, fd);
-            toast.success("Updated");
+            toast.success("Gallery Updated");
         } else {
-            await apiClient.post("/gallery", fd);
-            toast.success("Added");
+            const saveGallery = await apiClient.post("/gallery", fd);
+            console.log('save gallery', saveGallery);
+            toast.success("Gallery Added");
         }
 
-        setTitle("");
+        setForm({ tagline: "", heading: "", paragraph: "", title: "", });
         setImage(null);
         setEditId(null);
         fetchGallery();
@@ -41,21 +47,19 @@ const GalleryAdmin = () => {
 
     const edit = (g) => {
         setEditId(g._id);
-        setTitle(g.title || "");
+        setForm(g);
     };
 
     const del = async (id) => {
         await apiClient.delete(`/gallery/${id}`);
-        toast.success("Deleted");
+        toast.success("Gallery Deleted");
         fetchGallery();
     };
 
     const resetForm = () => {
         setEditId(null);
-        setData({
-            title: "",
-            image: null
-        });
+        setForm({ title: "" });
+        setImage(null);
     };
 
 
@@ -77,14 +81,14 @@ const GalleryAdmin = () => {
                             <h5 className="mb-0">{editId ? "Update Gallery" : "Add Gallery"}</h5>
                         </div>
                         <div className="card-body">
-                            <div className="row g-3">
+                            <div className="row g-3">                           
                                 <div className="col-md-6">
                                     <label htmlFor="form-label">Title</label>
                                     <input
                                         className="form-control mb-2"
                                         placeholder="Title (optional)"
-                                        value={title}
-                                        onChange={e => setTitle(e.target.value)}
+                                         value={form.title}
+                                        onChange={(e) => setForm({ ...form, title: e.target.value })}
                                     />
                                 </div>
 

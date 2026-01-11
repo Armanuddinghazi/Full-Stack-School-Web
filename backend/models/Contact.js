@@ -6,7 +6,8 @@ const ContactSchema = new mongoose.Schema({
   email: String,
   openTime: String,
   heading: String,
-  description: String
+  description: String,
+  image: String,
 }, { timestamps: true });
 
 module.exports = mongoose.model("Contact", ContactSchema);

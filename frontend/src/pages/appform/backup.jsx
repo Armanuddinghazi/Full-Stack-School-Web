@@ -22,22 +22,28 @@ const ApplicationForm = () => {
                         <h3>Application Form</h3>
                         <form action="#">
                             <div className="row">
-                                <h5 className="mb-3">Basic Information</h5>
+                                <h5 className="mb-3">Student Details</h5>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" className="form-control" name="firstname" placeholder="Your First Name" />
+                                        <label>Student First Name</label>
+                                        <input type="text" className="form-control" name="firstname" placeholder="Enter Student First Name" />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" className="form-control" name="lastname" placeholder="Your Last Name" />
+                                        <label>Student Last Name</label>
+                                        <input type="text" className="form-control" name="lastname" placeholder="Enter Student Last Name" />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Program Type</label>
+                                        <label>Student Date Of Birth</label>
+                                        <input type="date" className="form-control" name="dob" />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Previous Class</label>
                                         <select className="form-select" name="program">
                                             <option value="">Choose Program Type</option>
                                             <option value="1">Program Type 01</option>
@@ -48,13 +54,84 @@ const ApplicationForm = () => {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
-                                        <label>Degree Level</label>
+                                        <label>Applying For Class</label>
                                         <select className="form-select" name="degree">
-                                            <option value="">Choose Degree Level</option>
-                                            <option value="1">Degree Level 01</option>
-                                            <option value="2">Degree Level 02</option>
-                                            <option value="3">Degree Level 03</option>
+                                            <option value="">Select Applying For Class</option>
+                                            <option value="1">Play Group</option>
+                                            <option value="2">Nursury</option>
+                                            <option value="3">LKG</option>
+                                            <option value="4">UKG</option>
+                                            <option value="5">Class 1</option>
+                                            <option value="6">Class 2</option>
+                                            <option value="7">Class 3</option>
+                                            <option value="8">Class 4</option>
+                                            <option value="9">Class 5</option>
+                                            <option value="10">Class 6</option>
+                                            <option value="11">Class 7</option>
+                                            <option value="12">Class 8</option>
+                                            <option value="13">Class 9</option>
+                                            <option value="14">Class 10</option>
+                                            <option value="15">Class 11</option>
+                                            <option value="16">Class 12</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Previous School</label>
+                                        <input type="text" className="form-control" name="lastname" placeholder="Enter Previous School" />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Student Gender</label>
+                                        <select className="form-select" name="program">
+                                            <option value="">Select Student Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Student Blood Group</label>
+                                        <select className="form-select" name="program">
+                                            <option value="">Select Student Blood Group</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Source Of Information</label>
+                                        <select className="form-select" name="program">
+                                            <option value="">Select Source Of Information</option>
+                                            <option value="Newspaper">Newspaper</option>
+                                            <option value="Word Of Mouth">Word Of Mouth</option>
+                                            <option value="Hoardings">Hoardings</option>
+                                            <option value="Radio FM">Radio FM</option>
+                                            <option value="Social Media">Social Media</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Age As On 1st April</label>
+                                        <input type="text" className="form-control" name="" placeholder="Age As On 1st April" />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Have You Studied In Any Of Gd Goenka School Earlier</label>
+                                        <input type="text" className="form-control" name="" placeholder="Have You Studied In Any Of Gd  School Earlier" />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -102,12 +179,7 @@ const ApplicationForm = () => {
                                         <input type="text" className="form-control" name="address" placeholder="Your Present Address" />
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
-                                    <div className="form-group">
-                                        <label>Date Of Birth</label>
-                                        <input type="date" className="form-control" name="dob" />
-                                    </div>
-                                </div>
+
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>National ID Or Passport ID</label>

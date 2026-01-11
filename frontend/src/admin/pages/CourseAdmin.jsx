@@ -18,7 +18,6 @@ const CourseAdmin = () => {
         image: null
     });
 
-
     const fetchCourses = async () => {
         const res = await apiClient.get("/courses");
         setCourses(res.data);
@@ -41,12 +40,14 @@ const CourseAdmin = () => {
             if (data[key]) form.append(key, data[key]);
         });
 
+
         try {
             if (editingId) {
-                await apiClient.put(
+              const edit=  await apiClient.put(
                     `/courses/${editingId}`,
                     form
                 );
+
                 toast.success("Course Updated Successfully");
             } else {
                 await apiClient.post(
@@ -98,8 +99,6 @@ const CourseAdmin = () => {
 
     return (
 
-
-        <>
             <>
                 <div className="container py-4">
                     {/* Header */}
@@ -121,7 +120,7 @@ const CourseAdmin = () => {
 
                                 <div className="card-body">
                                     <div className="row g-3">
-
+                                     
                                         <div className="col-md-6">
                                             <label className="form-label">Title</label>
                                             <input className="form-control mb-2" placeholder="Title"
@@ -185,9 +184,9 @@ const CourseAdmin = () => {
                                 </div>
 
                                 <div className="card-footer text-end">
-                                    <button className={`btn me-2 py-2 btn-radius-8 ${editingId ? "btn-success light" : "btn-primary" }`} onClick={saveCourse}>
+                                    <button className={`btn me-2 py-2 btn-radius-8 ${editingId ? "btn-success light" : "btn-primary"}`} onClick={saveCourse}>
                                         {editingId ? <i className="fa-solid fa-rotate me-1"></i> : <i className="fa-solid fa-plus me-1"></i>}
-                                         {editingId ? "Update" : "Add"}
+                                        {editingId ? "Update" : "Add"}
                                     </button>
 
                                     {editingId && (
@@ -209,60 +208,58 @@ const CourseAdmin = () => {
                                     <h5 className="mb-0">Existing Courses</h5>
                                 </div>
 
-                               <div className="card-body">
-                                 <div className="table-responsive">
-                                    <table className="table table-hover align-middle mb-0">
-                                        <thead className="table-light">
-                                            <tr>
-                                                <th>Title</th>
-                                                <th className="text-end">Actions</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            {courses.map(course => (
-                                                <tr key={course._id} className="py-5">
-                                                    <td className="fw-semibold text-nowrap">{course.title}</td>
-                                                    <td className="text-end ">
-                                                        <button
-                                                            className="btn btn-sm btn-primary light sharp me-2"
-                                                            onClick={() => editCourse(course)}
-                                                        >
-                                                            <i className="fa-solid fa-pen"></i>
-                                                        </button>
-
-                                                        <button
-                                                            className="btn btn-sm btn-danger light sharp"
-                                                            disabled={editingId === course._id}
-                                                            onClick={() => deleteCourse(course._id)}
-                                                        >
-                                                            <i className="fa-solid fa-trash"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            ))}
-
-                                            {!courses.length && (
+                                <div className="card-body">
+                                    <div className="table-responsive">
+                                        <table className="table table-hover align-middle mb-0">
+                                            <thead className="table-light">
                                                 <tr>
-                                                    <td colSpan="3" className="text-center text-muted py-4">
-                                                        <i className="fa-solid fa-circle-info me-2"></i>
-                                                        No courses found
-                                                    </td>
+                                                    <th>Title</th>
+                                                    <th className="text-end">Actions</th>
                                                 </tr>
-                                            )}
-                                        </tbody>
+                                            </thead>
 
-                                    </table>
+                                            <tbody>
+                                                {courses.map(course => (
+                                                    <tr key={course._id} className="py-5">
+                                                        <td className="fw-semibold text-nowrap">{course.title}</td>
+                                                        <td className="text-end ">
+                                                            <button
+                                                                className="btn btn-sm btn-primary light sharp me-2"
+                                                                onClick={() => editCourse(course)}
+                                                            >
+                                                                <i className="fa-solid fa-pen"></i>
+                                                            </button>
+
+                                                            <button
+                                                                className="btn btn-sm btn-danger light sharp"
+                                                                disabled={editingId === course._id}
+                                                                onClick={() => deleteCourse(course._id)}
+                                                            >
+                                                                <i className="fa-solid fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+
+                                                {!courses.length && (
+                                                    <tr>
+                                                        <td colSpan="3" className="text-center text-muted py-4">
+                                                            <i className="fa-solid fa-circle-info me-2"></i>
+                                                            No courses found
+                                                        </td>
+                                                    </tr>
+                                                )}
+                                            </tbody>
+
+                                        </table>
+                                    </div>
                                 </div>
-                               </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </>
-
-        </>
 
     );
 };

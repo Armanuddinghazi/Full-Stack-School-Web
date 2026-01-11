@@ -38,7 +38,7 @@ const CounterItem = ({ icon, end, title }) => {
     <div className="col-lg-3 col-sm-6">
       <div className="counter-box">
         <div className="icon">
-          <img src={icon} alt={title} />
+          <img src={import.meta.env.VITE_API_URL_IMG + icon} alt="" />
         </div>
         <div>
           <span className="counter">{count}</span>
@@ -65,16 +65,11 @@ const Counter = () => {
           {counters.map(counter => (
             <CounterItem
               key={counter._id}
-              icon={iconMap[counter.icon]}
+              icon={counter.icon}
               end={counter.value}
               title={counter.title}
             />
           ))}
-          {/* <CounterItem icon={courseIcon} end={500} title="Total Courses" />
-          <CounterItem icon={graduationIcon} end={1900} title="Our Students" />
-          <CounterItem icon={teacherIcon} end={750} title="Skilled Lecturers" />
-          <CounterItem icon={awardIcon} end={30} title="Win Awards" /> */}
-
         </div>
       </div>
     </div>

@@ -12,11 +12,19 @@ const ContactAdmin = () => {
         description: ""
     });
 
+    const [image, setImage] = useState(null);
+    const [hasData, setHasData] = useState(false);
     /* 🔹 FETCH CONTACT */
     const fetchContact = async () => {
         try {
             const res = await apiClient.get("/contact");
-            if (res.data) setData(res.data);
+
+            if (res.data) {
+                setData(res.data);
+                setHasData(true);
+            } else {
+                setHasData(false);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -25,6 +33,8 @@ const ContactAdmin = () => {
     useEffect(() => {
         fetchContact();
     }, []);
+
+
 
     /* 🔹 SAVE / UPDATE */
     const saveContact = async () => {
@@ -41,65 +51,86 @@ const ContactAdmin = () => {
         }
 
         try {
-            await apiClient.post("/contact", data, {
-                headers: {
-                    Authorization: localStorage.getItem("token")
-                }
+            const fd = new FormData();
+
+            Object.keys(data).forEach((key) => {
+                fd.append(key, data[key]);
             });
 
-            toast.success("Contact details saved / updated");
+            if (image) {
+                fd.append("image", image);
+            }
+
+            await apiClient.post("/contact", fd);
+            toast.success(hasData ? "Contact updated successfully" : "Contact added successfully");
+
             fetchContact();
         } catch (err) {
             toast.error("Something went wrong");
         }
     };
 
+    const cancelForm = () => {
+        setData({
+            address: "",
+            phone: "",
+            email: "",
+            openTime: "",
+            heading: "",
+            description: "",
+        });
+
+        setImage(null);
+        setHasData(false);
+    };
+
+
 
     /* 🔹 DELETE WITH CONFIRM */
-    const deleteContact = () => {
-        toast.warn(
-            ({ closeToast }) => (
-                <div>
-                    <p className="mb-2">
-                        Are you sure you want to delete contact details?
-                    </p>
+    // const deleteContact = () => {
+    //     toast.warn(
+    //         ({ closeToast }) => (
+    //             <div>
+    //                 <p className="mb-2">
+    //                     Are you sure you want to delete contact details?
+    //                 </p>
 
-                    <button
-                        className="btn btn-danger btn-sm me-2"
-                        onClick={async () => {
-                            await apiClient.delete("/api/contact", {
-                                headers: {
-                                    Authorization: localStorage.getItem("token")
-                                }
-                            });
+    //                 <button
+    //                     className="btn btn-danger btn-sm me-2"
+    //                     onClick={async () => {
+    //                         await apiClient.delete("/api/contact", {
+    //                             headers: {
+    //                                 Authorization: localStorage.getItem("token")
+    //                             }
+    //                         });
 
-                            setData({
-                                address: "",
-                                phone: "",
-                                email: "",
-                                openTime: "",
-                                heading: "",
-                                description: ""
-                            });
+    //                         setData({
+    //                             address: "",
+    //                             phone: "",
+    //                             email: "",
+    //                             openTime: "",
+    //                             heading: "",
+    //                             description: ""
+    //                         });
 
-                            toast.success("Contact deleted");
-                            closeToast();
-                        }}
-                    >
-                        Yes
-                    </button>
+    //                         toast.success("Contact deleted");
+    //                         closeToast();
+    //                     }}
+    //                 >
+    //                     Yes
+    //                 </button>
 
-                    <button
-                        className="btn btn-secondary btn-sm"
-                        onClick={closeToast}
-                    >
-                        No
-                    </button>
-                </div>
-            ),
-            { autoClose: false }
-        );
-    };
+    //                 <button
+    //                     className="btn btn-secondary btn-sm"
+    //                     onClick={closeToast}
+    //                 >
+    //                     No
+    //                 </button>
+    //             </div>
+    //         ),
+    //         { autoClose: false }
+    //     );
+    // };
 
     return (
 
@@ -139,7 +170,8 @@ const ContactAdmin = () => {
                                 <div className="col-md-6">
                                     <label htmlFor="">Phone</label>
                                     <input
-                                        type="text"
+                                        required
+                                        pattern="[0-9]{10}"
                                         className="form-control mb-2"
                                         placeholder="Phone Number"
                                         value={data.phone}
@@ -163,7 +195,7 @@ const ContactAdmin = () => {
                                 <div className="col-md-6">
                                     <label htmlFor=""> Time</label>
                                     <input
-                                        type="text"
+                                        type="time"
                                         className="form-control mb-2"
                                         placeholder=" Time "
                                         value={data.openTime}
@@ -172,7 +204,7 @@ const ContactAdmin = () => {
                                 </div>
 
 
-                                <div className="col-md-12 d-none">
+                                <div className="col-md-12 ">
                                     <label htmlFor="">Heading</label>
                                     <input
                                         type="text"
@@ -182,9 +214,17 @@ const ContactAdmin = () => {
                                         onChange={e => setData({ ...data, heading: e.target.value })}
                                     />
                                 </div>
+                                <div className="col-md-12 ">
+                                    <label htmlFor="">Contact Image</label>
+                                    <input
+                                        type="file"
+                                        className="form-control mb-2"
+                                        onChange={e => setImage(e.target.files[0])}
+                                    />
+                                </div>
 
 
-                                <div className="col-md-12 d-none">
+                                <div className="col-md-12 ">
                                     <label htmlFor="">Description</label>
                                     <textarea
                                         className="form-control mb-3"
@@ -199,13 +239,17 @@ const ContactAdmin = () => {
 
 
                                 <div className="d-flex gap-2">
-                                    <button className="btn btn-primary py-2 btn-radius-8" onClick={saveContact}>
-                                        <i className="fas fa-save"></i> Save /Update
+                                    <button className={`btn me-2 py-2 btn-radius-8 ${hasData ? "btn-success light" : "btn-primary"}`} onClick={saveContact}>
+                                        {hasData ? <i className="fa-solid fa-rotate me-1"></i> : <i className="fa-solid fa-plus me-1"></i>}
+                                        {hasData ? "Update Contact" : "Add Contact"}
                                     </button>
 
-                                    <button className="btn btn-danger light py-2 btn-radius-8" onClick={deleteContact}>
-                                        <i className="fas fa-trash"></i> Delete
-                                    </button>
+                                    {hasData && (
+                                        <button className="btn btn-danger light py-2 btn-radius-8" onClick={cancelForm}>
+                                            <i className="fa-solid fa-xmark me-1"></i>
+                                            Cancel
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>

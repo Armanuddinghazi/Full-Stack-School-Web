@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 import apiClient from "../../api/apiClient";
+import useSection from "../../hooks/useSection";
+import { highlightLastWords } from "../../utils/highlightLastWords";
 
 
 
 const CourseOne = () => {
 
+    const section = useSection('courses')
     const [courses, setCourses] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 6;
@@ -35,11 +38,11 @@ const CourseOne = () => {
     return (
         <>
             <Breadcrumb
-                title="Our Courses"
+                title="Our Courses One"
                 bgImage={aboutBg}
                 items={[
                     { label: "Home", path: "/" },
-                    { label: "Our Courses", active: true }
+                    { label: "Our Courses One", active: true }
                 ]}
             />
             <div className="course-area py-120">
@@ -49,16 +52,19 @@ const CourseOne = () => {
                     <div className="row">
                         <div className="col-lg-6 mx-auto">
                             <div className="site-heading text-center" data-aos="fade-up">
-                                <span className="site-title-tagline">
-                                    <i className="far fa-book-open-reader"></i> Our Courses
-                                </span>
-                                <h2 className="site-title">
-                                    Let's Check Our <span>Courses</span>
-                                </h2>
-                                <p>
-                                    It is a long established fact that a reader will be distracted by
-                                    the readable content of a page when looking at its layout.
-                                </p>
+                                {section && (
+                                    <>
+                                        <span className="site-title-tagline">
+                                            <i className="far fa-book-open-reader"></i> {section.tagline}
+                                        </span>
+                                        <h2 className="site-title">
+                                            {highlightLastWords(section.heading, 1)}
+                                        </h2>
+                                        <p>
+                                            {section.paragraph}
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -146,7 +152,7 @@ const CourseOne = () => {
                             showLessItems
                         />
                     </div>
-                  
+
                     {/* pagination end  */}
 
                 </div>

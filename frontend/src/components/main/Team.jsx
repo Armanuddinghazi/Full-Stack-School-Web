@@ -1,34 +1,55 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../../api/apiClient";
+import { highlightLastWords } from "../../utils/highlightLastWords";
+import useSection from "../../hooks/useSection";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const Team = () => {
 
+  const section = useSection('team')
   const [team, setTeam] = useState([]);
+  const [data, setData] = useState(null);
+
+    const fetchTeam = async () => {
+      try {
+        const res = await apiClient.get("/team");
+        setTeam(res.data);
+      } catch (err) {
+        console.error("team fetch error", err);
+      }
+    };
+  
+    useEffect(() => {
+      fetchTeam();
+    }, []);
 
   useEffect(() => {
-    apiClient.get("/team")
-      .then(res => setTeam(res.data));
+    apiClient.get("/headertop")
+      .then(res => setData(res.data))
+      .catch(err => console.error(err));
   }, []);
 
-
+  if (!data || !data.socialLinks) return null;
   return (
     <div className="team-area py-120">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mx-auto">
             <div className="site-heading text-center" data-aos="fade-up">
-              <span className="site-title-tagline">
-                <i className="far fa-book-open-reader"></i> Our Teachers
-              </span>
-              <h2 className="site-title">
-                Meet With Our <span>Teachers</span>
-              </h2>
-              <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-              </p>
+              {section && (
+                <>
+                  <span className="site-title-tagline">
+                    <i className="far fa-book-open-reader"></i> {section.tagline}
+                  </span>
+                  <h2 className="site-title">
+                    {highlightLastWords(section.heading, 1)}
+                  </h2>
+                  <p>
+                    {section.paragraph}
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -50,10 +71,18 @@ const Team = () => {
                 </div>
 
                 <div className="team-social">
-                   <a href="#"><i className="fab fa-facebook-f"></i></a>
-                   <a href="#"><i className="fab fa-whatsapp"></i></a>
-                   <a href="#"><i className="fab fa-linkedin-in"></i></a>
-                   <a href="#"><i className="fab fa-youtube"></i></a>
+                  <a href={data.socialLinks.facebook || "#"} target="_blank">
+                    <i className="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href={data.socialLinks.instagram || "#"} target="_blank">
+                    <i className="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href={data.socialLinks.twitter || "#"} target="_blank">
+                    <i className="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a href={data.socialLinks.whatsapp ? `https://wa.me/${data.socialLinks.whatsapp}` : "#"} target="_blank">
+                    <i className="fa-brands fa-whatsapp"></i>
+                  </a>
                   {/* {item.facebook && <a href={item.facebook}><i className="fab fa-facebook-f"></i></a>}
                   {item.whatsapp && <a href={item.whatsapp}><i className="fab fa-whatsapp"></i></a>}
                   {item.linkedin && <a href={item.linkedin}><i className="fab fa-linkedin-in"></i></a>}

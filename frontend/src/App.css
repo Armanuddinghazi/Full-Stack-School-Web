@@ -67,7 +67,7 @@ body {
   animation: shake-top 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 .sidebar ul li a span {
-  margin-left: 14px;
+  margin-left: 10px;
 }
 .sidebar .submenu {
   background-color: #f3f1f1;
@@ -118,6 +118,7 @@ body {
   border-radius: 14px !important;
   padding-bottom: 5px;
 }
+.custom-card select.form-select,
 .custom-card input.form-control {
   box-shadow: none !important;
   height: 45px;
@@ -223,6 +224,97 @@ body {
 .ProseMirror p {
   margin: 0 0 10px;
 }
+
+
+/* Theme css  */
+
+.theme-admin {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 14px;
+}
+
+.theme-admin h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.color-card {
+  background: #e0dfdfa5;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.color-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  /* box-shadow: var(--box-shadow2); */
+}
+
+.color-card span {
+  color: #545353;
+}
+
+.color-card input {
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.theme-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.save-btn,
+.reset-btn {
+  padding: 10px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+.save-btn i,
+.reset-btn i{
+  margin-right: 10px;
+}
+.save-btn {
+  background: #02c72c;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background: #44db65;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  background: #d63031;
+  color: #fff;
+}
+
+.reset-btn:hover {
+  background: #ff7675;
+  transform: scale(1.05);
+}
+
 
 /* Animation  */
 

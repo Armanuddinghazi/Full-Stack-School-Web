@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import scholarshipIcon from "../../assets/img/icon/scholarship.svg";
-import teacherIcon from "../../assets/img/icon/teacher.svg";
-import libraryIcon from "../../assets/img/icon/library.svg";
-import moneyIcon from "../../assets/img/icon/money.svg";
 import apiClient from "../../api/apiClient";
 
 const FeatureArea = () => {
@@ -34,21 +29,7 @@ const FeatureArea = () => {
                 </div>
               </div>
             ))}
-            {/* Feature 01 */ }
-            {/* <div className="col-md-6 col-lg-3" >
-              <div className="feature-item">
-                <span className="count">01</span>
-                <div className="feature-icon">
-                  <img src={scholarshipIcon} alt="Scholarship Facility" />
-                </div>
-                <div className="feature-content">
-                  <h4 className="feature-title">Scholarship Facility</h4>
-                  <p>
-                    It is a long established fact that a reader will be distracted.
-                  </p>
-                </div>
-              </div>
-            </div> */}
+ 
           </div>
         </div>
       </div>

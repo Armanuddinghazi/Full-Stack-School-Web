@@ -6,7 +6,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <>
-      <div className={`sidebar ${sidebarOpen ? "active" : ""}`}>
+      <div className={`sidebar sidebar-scroll ${sidebarOpen ? "active" : ""}`}>
 
         <ul className="nav flex-column admin-sidebar">
 
@@ -34,23 +34,46 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             {openDashboard && (
               <ul className="submenu">
                 <li>
+                  <NavLink to="/admin/section-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i class="fa-solid fa-book-section"></i>
+                    <span>Section Admin</span>
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/admin/feature-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                     <i className="fa-sharp fa-solid fa-circle-star"></i>
                     <span>Home Features</span>
                   </NavLink>
                 </li>
-
                 <li>
-                    <NavLink to="/admin/headertop-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                      <i class="fa-sharp fa-solid fa-address-book"></i>
-                      <span>Header Contact</span>
-                    </NavLink>
+                  <NavLink to="/admin/headertop-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i className="fa-sharp fa-solid fa-address-book"></i>
+                    <span>Header Contact</span>
+                  </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/admin/choose-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                      <i class="fa-sharp fa-solid fa-address-book"></i>
-                      <span>Why Choose Us</span>
-                    </NavLink>
+                  <NavLink to="/admin/choose-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i className="fa-sharp fa-solid fa-address-book"></i>
+                    <span>Why Choose Us</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/department-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i class="fa-solid fa-building"></i>
+                    <span>Department </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/mandatory-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i class="fa-brands fa-discourse"></i>
+                    <span> Mandatory  </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/theme-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Theme</span>
+                  </NavLink>
                 </li>
               </ul>
             )}
@@ -110,7 +133,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <span>Notice</span>
             </NavLink>
           </li>
-
         </ul>
 
       </div>
