@@ -33,6 +33,11 @@ app.use("/api/admission", require("./routes/admissionRoutes"));
 app.use("/api/department", require("./routes/departmentRoutes"));
 app.use("/api/sections", require("./routes/sectionRoutes"));
 app.use("/api/disclosure", require("./routes/disclosureRoutes"));
+app.use("/api/applypage", require("./routes/applyPageRoutes"));
+app.use("/api/infrastructure", require("./routes/infraRoutes"));
+app.use("/api/scholarshipSection", require("./routes/scholarshipSectionRoutes"));
+app.use("/api/scholarshipCards", require("./routes/scholarshipCardRoutes"));
+app.use("/api/careers", require("./routes/careerRoutes"));
 app.use("/api/theme", require("./routes/themeRoutes"));
 
 // module.exports = app; 

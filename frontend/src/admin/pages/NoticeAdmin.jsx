@@ -178,8 +178,8 @@ const NoticeAdmin = () => {
                                             {!text.length && (
                                                 <tr>
                                                     <td colSpan="3" className="text-center text-muted py-4">
-                                                        <i className="fa-solid fa-circle-info me-2"></i>
-                                                        No notices found
+                                                        <i className="fa-duotone fa-solid fa-face-frown me-1"></i>
+                                                        No data found
                                                     </td>
                                                 </tr>
                                             )}

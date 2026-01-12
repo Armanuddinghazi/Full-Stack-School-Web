@@ -101,9 +101,9 @@ const Header = () => {
                         <div className="container position-relative">
                             <Link to="/" className="navbar-brand">
                                 {/* <h2 className='text-dark mb-0'>Logo</h2> */}
-                                <img 
-                                src={`${BASE_URL}${data.headerLogo}`}
-                                width={80}
+                                <img
+                                    src={`${BASE_URL}${data.headerLogo}`}
+                                    width={80}
                                     alt="logo"
                                 />
 
@@ -143,11 +143,20 @@ const Header = () => {
                                             <li><Link to="/how-to-apply" className="dropdown-item" >How To Apply</Link></li>
                                             <li><Link to="/admission-form" className="dropdown-item" >Application Form</Link></li>
                                             <li><Link to="/tuition-fee" className="dropdown-item" >Tuition Fees</Link></li>
-                                            <li><a to="#" className="dropdown-item" >Infrastructure</a></li>
-                                            <li><a to="#" className="dropdown-item" >Events</a></li>
-                                            <li><a to="#" className="dropdown-item" >Online Free Payments</a></li>
-                                            <li><a to="#" className="dropdown-item" >Careers</a></li>
-                                            <li><Link to="/alumni" className="dropdown-item">Alumni</Link></li>
+                                            <li><Link to="/free-structure" className="dropdown-item" >Free Structure</Link></li>
+                                            <li><Link to="/infrastructure" className="dropdown-item" >Infrastructure</Link></li>
+                                            <li><Link to="/careers" className="dropdown-item">Careers</Link></li>
+                                            {/* <li className="dropdown-submenu">
+                                                <a className="dropdown-item dropdown-toggle" href="#">Infrastructure</a>
+                                                <ul className="dropdown-menu">
+                                                    <li><a className="dropdown-item" href="#">Primary Wings</a></li>
+                                                    <li><a className="dropdown-item" href="#">Campus Single</a></li>
+                                                    <li><a className="dropdown-item" href="#">Pre Primary Wings</a></li>
+                                                    <li><a className="dropdown-item" href="#">Facilities</a></li>
+                                                </ul>
+                                            </li> */}
+                                            {/* <li><a to="#" className="dropdown-item" >Events</a></li> */}
+                                            {/* <li><a to="#" className="dropdown-item" >Online Free Payments</a></li> */}
                                             <li><Link to="/scholarship" className="dropdown-item">Scholarships</Link></li>
                                         </ul>
                                     </li>

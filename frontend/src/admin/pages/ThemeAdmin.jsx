@@ -48,7 +48,7 @@ const ThemeAdmin = () => {
 
         setTheme(DEFAULT_THEME);
 
-        toast.success("Theme reset to website default 🎨");
+        toast.success("Theme reset successfully");
     };
 
 
@@ -84,7 +84,7 @@ const ThemeAdmin = () => {
 
                             <div className="theme-actions">
                                 <button className="save-btn " onClick={saveTheme}>
-                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i className="fa-regular fa-bookmark"></i>
                                     Save</button>
                                 <button className="reset-btn " onClick={resetTheme}>
                                     <i className="fa-solid fa-rotate "></i>

@@ -93,7 +93,10 @@ const SectionAdmin = () => {
                       <option value="department">Department</option>
                       <option value="blogs">Blog</option>
                       <option value="features">Feature</option>
+                      <option value="applypage">How To Apply</option>
+                      <option value="infrastructure">Infrastructure</option>
                     </select>
+                   
                   </div>
                   <div className="col-lg-6">
                     <label htmlFor="">Tagline</label>

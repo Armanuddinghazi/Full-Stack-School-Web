@@ -3,12 +3,13 @@ import $ from '../../utils/jquery'
 import "owl.carousel/dist/owl.carousel.min.js";
 import { Link } from "react-router-dom";
 import apiClient from "../../api/apiClient";
+import { highlightLastWords } from "../../utils/highlightLastWords";
 
 const Hero = () => {
 
   const [slides, setSlides] = useState([]);
 
- useEffect(() => {
+  useEffect(() => {
     apiClient.get("/hero")
       .then(res => setSlides(Array.isArray(res.data) ? res.data : []))
       .catch(() => setSlides([]));
@@ -31,15 +32,22 @@ const Hero = () => {
       autoplay: true,
       autoplayTimeout: 4000,
       autoplayHoverPause: true,
+      smartSpeed: 900,
       items: 1,
       navText: [
         "<i class='fas fa-angle-left'></i>",
         "<i class='fas fa-angle-right'></i>",
       ],
+      onInitialized: addAnimation,
+      onTranslated: addAnimation,
     });
+    function addAnimation() {
+      $(".hero-content").removeClass("animate");
+      $(".owl-item.active .hero-content").addClass("animate");
+    }
   }, [slides]);
 
-  // if (!hero) return <p>Loading...</p>;
+  if (!slides) return <p>Loading...</p>;
 
 
   return (
@@ -59,25 +67,20 @@ const Hero = () => {
                   <div className="hero-content">
                     <h6 className="hero-sub-title">
                       <i className="far fa-book-open-reader"></i>
-                      {/* Welcome To College! */}
                       {slide.title}
                     </h6>
-                    <h1 className="hero-title">
-                      {slide.subtitle}
-                      {/* Start Your Beautiful And Bright Future */}
-                    </h1>
+                    <h2 className="hero-title">
+                      {highlightLastWords(slide.subtitle, 1)}
+                    </h2>
                     <p>
                       {slide.description}
-                      {/* There are many variations of passages orem psum available but
-                      the majority have suffered alteration in some repeat predefined
-                      chunks form injected humour. */}
                     </p>
                     <div className="hero-btn">
                       <Link to="/about" className="theme-btn">
                         About More <i className="fas fa-arrow-right-long"></i>
                       </Link>
                       <Link to="/contact" className="theme-btn theme-btn2">
-                        Learn More <i className="fas fa-arrow-right-long"></i>
+                        Contact Us <i className="fas fa-arrow-right-long"></i>
                       </Link>
                     </div>
                   </div>

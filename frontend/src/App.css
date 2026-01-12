@@ -79,7 +79,7 @@ body {
 }
 .sidebar .submenu li a.active {
   background: none;
-  color: #111 !important;
+  color: var(--theme-color2) !important;
 }
 /* dark-night button  */
 
@@ -165,7 +165,19 @@ body {
   border-color: #ffd4cb;
   color: #ff6746;
 }
+.dark.btn-success {
+  background-color: #02ce2e;
+  border-color: #02ce2e;
+  color: #fff;
+}
 .light.btn-success {
+  background-color: #c8f2d1;
+  /* border-color: #c8f2d1; */
+  border-color: #bdf0c8;
+  /* color: #37d159; */
+  color: #03d531;
+}
+.dark.btn-success:hover {
   background-color: #c8f2d1;
   border-color: #c8f2d1;
   color: #37d159;

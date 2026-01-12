@@ -160,7 +160,7 @@ const DepartmentAdmin = () => {
                                             {!department.length && (
                                                 <tr>
                                                     <td colSpan="3" className="text-center text-muted py-4">
-                                                        <i className="fa-solid fa-circle-info me-2"></i>
+                                                       <i className="fa-duotone fa-solid fa-face-frown me-1"></i>
                                                         No department found
                                                     </td>
                                                 </tr>

@@ -25,17 +25,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               }}>
               <div className="d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="fa-solid fa-circle-ellipsis-vertical"></i>
+                  <i className="fa-solid fa-circle-ellipsis-vertical"></i>
                   <span>Info</span>
                 </div>
-                <span class="fa-regular fa-chevron-right "></span>
+                <span className="fa-regular fa-chevron-right "></span>
               </div>
             </a>
             {openDashboard && (
               <ul className="submenu">
                 <li>
                   <NavLink to="/admin/section-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                    <i class="fa-solid fa-book-section"></i>
+                    <i className="fa-solid fa-book-section"></i>
                     <span>Section Admin</span>
                   </NavLink>
                 </li>
@@ -59,19 +59,37 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 </li>
                 <li>
                   <NavLink to="/admin/department-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                    <i class="fa-solid fa-building"></i>
+                    <i className="fa-solid fa-building"></i>
                     <span>Department </span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/admin/mandatory-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                    <i class="fa-brands fa-discourse"></i>
+                    <i className="fa-brands fa-discourse"></i>
                     <span> Mandatory  </span>
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink to="/admin/applypage-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i className="fa-sharp fa-solid fa-fill"></i>
+                    <span> How To Apply  </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/infra-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                   <i className="fa-sharp fa-solid fa-cloud-binary"></i>
+                    <span> Infrastructure  </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/scholarship-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                  <i class="fa-solid fa-graduation-cap"></i>
+                    <span> Scholarship </span>
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/admin/theme-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                    <i class="fa-solid fa-palette"></i>
+                    <i className="fa-solid fa-palette"></i>
                     <span>Theme</span>
                   </NavLink>
                 </li>

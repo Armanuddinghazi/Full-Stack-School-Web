@@ -1,4 +1,4 @@
-import react, { useEffect } from 'react'
+import react, {useState, useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -43,6 +43,13 @@ import useThemeLoader from './hooks/useThemeLoader';
 import DepartmentAdmin from './admin/pages/DepartmentAdmin';
 import SectionAdmin from './admin/pages/SectionAdmin';
 import DisclosureAdmin from './admin/pages/DisclosureAdmin';
+import AdminApplyPage from './admin/pages/ApplyPageAdmin';
+import PreLoader from './components/ui/PreLoader';
+import Infrastructure from './pages/infrastructure/Infrastructure';
+import InfraAdmin from './admin/pages/InfraAdmin';
+import ScholarShipAdmin from './admin/pages/ScholarShipAdmin';
+import Careers from './pages/careers/Career';
+import FreeStructure from './pages/infrastructure/FreeStructure';
 
 
 const PrivateRoute = ({ children }) => {
@@ -55,6 +62,7 @@ function App() {
 
   useThemeLoader();
   
+  const [uploadedResume, setUploadedResume] = useState(null);
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -69,8 +77,11 @@ function App() {
       mirror: false,
     });
   }, []);
+
+
   return (
     <>
+       {/* <PreLoader /> */}
       {!isAdminRoute && <Header />}
       <main className="main">
         <Routes>
@@ -90,12 +101,14 @@ function App() {
           <Route path="/blog-latest" element={<RedirectToLatestBlog />} />
           <Route path="/blog/:id" element={<BlogSingle />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
+          <Route path="/infrastructure" element={<Infrastructure />} />
+          <Route path="/careers" element={<Careers setUploadedResume={setUploadedResume}/>} />
+          <Route path="/free-structure" element={<FreeStructure uploadedResume={uploadedResume}/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}
       <ScrollToTop />
-
       <Routes>
 
         {/* ===== ADMIN LOGIN (NO SIDEBAR) ===== */}
@@ -125,6 +138,9 @@ function App() {
           <Route path="department-admin" element={<DepartmentAdmin />} />
           <Route path="section-admin" element={<SectionAdmin />} />
           <Route path="mandatory-admin" element={<DisclosureAdmin />} />
+          <Route path="applypage-admin" element={<AdminApplyPage />} />
+          <Route path="infra-admin" element={<InfraAdmin />} />
+          <Route path="scholarship-admin" element={<ScholarShipAdmin />} />
           <Route path="theme-admin" element={<ThemeAdmin />} />
         </Route>
 
