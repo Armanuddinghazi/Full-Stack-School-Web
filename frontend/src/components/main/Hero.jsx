@@ -47,7 +47,7 @@ const Hero = () => {
     }
   }, [slides]);
 
-  if (!slides) return <p>Loading...</p>;
+  // if (!slides) return <p>Loading...</p>;
 
 
   return (

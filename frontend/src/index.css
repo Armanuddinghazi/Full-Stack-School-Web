@@ -5921,7 +5921,13 @@ label {
 }
 
 
+.upload-resume h4{
+  color: var(--theme-color2);
+}
 
+.text-lable{
+  color: var(--theme-color2)!important;
+}
 /*====================
 62. Club css 
 ======================*/

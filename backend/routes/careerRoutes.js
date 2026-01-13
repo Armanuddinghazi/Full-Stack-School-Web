@@ -6,11 +6,12 @@ const upload = require("../utils/resumeUpload");
 /* CREATE */
 router.post("/", upload.single("resume"), async (req, res) => {
   try {
-    console.log("BODY:", req.body);
-    console.log("FILE:", req.file);
-
     if (!req.file) {
-      return res.status(400).json({ message: "Resume required (PDF/DOC)" });
+      return res.status(400).json({ message: "Resume required" });
+    }
+
+    if (!req.body.post) {
+      return res.status(400).json({ message: "Post is required" });
     }
 
     const data = await Career.create({
@@ -26,10 +27,17 @@ router.post("/", upload.single("resume"), async (req, res) => {
       resume: `/uploads/resumes/${req.file.filename}`,
     });
 
-    res.json(data);
+    res.status(201).json({
+      success: true,
+      resume: data.resume,
+      message: "Application submitted successfully"
+    });
+
   } catch (err) {
     console.error("CAREER ERROR:", err);
-    res.status(500).json({ message: err.message });
+    res.status(400).json({
+      message: err.message || "Validation error"
+    });
   }
 });
 
