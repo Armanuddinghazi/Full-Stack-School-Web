@@ -5,6 +5,7 @@ import graduationIcon from "../../assets/img/icon/graduation.svg";
 import teacherIcon from "../../assets/img/icon/teacher-2.svg";
 import awardIcon from "../../assets/img/icon/award.svg";
 import apiClient from "../../api/apiClient";
+import CounterSkeleton from "../ui/CounterSkeletonItem";
 
 export const iconMap = {
   course: courseIcon,
@@ -52,24 +53,38 @@ const CounterItem = ({ icon, end, title }) => {
 const Counter = () => {
 
   const [counters, setCounters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   apiClient.get("/counter")
+  //     .then(res => setCounters(res.data));
+  // }, []);
 
   useEffect(() => {
     apiClient.get("/counter")
-      .then(res => setCounters(res.data));
+      .then(res => setCounters(Array.isArray(res.data) ? res.data : []))
+      .catch(() => setCounters([]))
+      .finally(() => {
+          setLoading(false)
+      });
   }, []);
 
   return (
     <div className="counter-area pt-60 pb-60">
       <div className="container">
         <div className="row">
-          {counters.map(counter => (
+          {loading ? (
+            <CounterSkeleton />
+          ) : (
+          counters.map(counter => (
             <CounterItem
               key={counter._id}
               icon={counter.icon}
               end={counter.value}
               title={counter.title}
             />
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

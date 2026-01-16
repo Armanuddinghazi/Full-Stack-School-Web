@@ -4,7 +4,7 @@ import aboutBg from "../../assets/img/breadcrumb/01.jpg";
 import { toast } from "react-toastify";
 import apiClient from '../../api/apiClient';
 
-const Careers = ({ setUploadedResume }) => {
+const Careers = () => {
 
     const initialFormState = {
         fullName: "",
@@ -20,42 +20,6 @@ const Careers = ({ setUploadedResume }) => {
     const [form, setForm] = useState(initialFormState);
     const [resume, setResume] = useState(null);
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     if (!resume) {
-    //         toast.error("Resume required");
-    //         return;
-    //     }
-
-    //     const fd = new FormData();
-    //     Object.entries(form).forEach(([k, v]) => fd.append(k, v));
-    //     fd.append("resume", resume);
-
-    //     try {
-    //         const res = await apiClient.post("/careers", fd);
-
-    //         if (res.status === 200 || res.status === 201) {
-    //             const resumeName = res.data.resume; 
-
-    //             localStorage.setItem("uploadedResume", resumeName);
-    //             setUploadedResume(resumeName);
-
-    //             toast.success("Application submitted successfully");
-
-    //             setForm(initialFormState);
-    //             setResume(null);
-    //             document.getElementById("resumeInput").value = "";
-    //         } else {
-    //             toast.error("Submission failed");
-    //         }
-
-    //     } catch (error) {
-    //         toast.error(
-    //             error?.response?.data?.message || "Submission failed"
-    //         );
-    //     }
-    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -85,7 +49,7 @@ const Careers = ({ setUploadedResume }) => {
             toast.success(res.data.message);
 
             localStorage.setItem("uploadedResume", res.data.resume);
-            setUploadedResume(res.data.resume);
+            // setUploadedResume(res.data.resume);
 
             setForm(initialFormState);
             setResume(null);

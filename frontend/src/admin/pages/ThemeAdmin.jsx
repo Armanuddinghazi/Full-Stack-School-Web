@@ -8,6 +8,7 @@ import { THEME_FIELDS } from "../../utils/themeKeys";
 const ThemeAdmin = () => {
     const [theme, setTheme] = useState(DEFAULT_THEME);
     const [themeId, setThemeId] = useState(null);
+    const [saving, setSaving] = useState(false);
 
     useEffect(() => {
         const localTheme = localStorage.getItem("theme");
@@ -31,12 +32,21 @@ const ThemeAdmin = () => {
     }, [theme]);
 
     const saveTheme = async () => {
-        await apiClient.post("/theme", {
-            _id: themeId,
-            ...theme
-        });
-        localStorage.setItem("theme", JSON.stringify(theme));
-        toast.success("Theme Saved Successfully ");
+        try {
+            setSaving(true);
+            await apiClient.post("/theme", {
+                _id: themeId,
+                ...theme
+            });
+            localStorage.setItem("theme", JSON.stringify(theme));
+            toast.success("Theme Saved Successfully ");
+        }
+        catch (error) {
+            console.error('error',error);
+            toast.error("Failed to save theme");
+        } finally {
+            setSaving(false);
+        }
     };
 
     const resetTheme = () => {
@@ -83,9 +93,18 @@ const ThemeAdmin = () => {
                             </div>
 
                             <div className="theme-actions">
-                                <button className="save-btn " onClick={saveTheme}>
-                                    <i className="fa-regular fa-bookmark"></i>
-                                    Save</button>
+                                <button className="save-btn " onClick={saveTheme}
+                                    disabled={saving}>
+                                    {saving ? (
+                                        <>
+                                            <i className="fa fa-spinner fa-spin"></i> Saving...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <i className="fa-regular fa-bookmark"></i> Save
+                                        </>
+                                    )}
+                                    </button>
                                 <button className="reset-btn " onClick={resetTheme}>
                                     <i className="fa-solid fa-rotate "></i>
                                     Reset</button>
@@ -104,6 +123,6 @@ export default ThemeAdmin;
 
 function extractTheme(data) {
     const clean = {};
-    THEME_KEYS.forEach(k => clean[k] = data[k] || DEFAULT_THEME[k]);
+    THEME_FIELDS.forEach(k => clean[k] = data[k] || DEFAULT_THEME[k]);
     return clean;
 }

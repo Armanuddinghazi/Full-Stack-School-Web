@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import apiClient from "../../api/apiClient";
 import { highlightLastWords } from "../../utils/highlightLastWords";
 import useSection from "../../hooks/useSection";
+import GallerySkeleton from "../ui/GallerySkeleton";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
@@ -10,6 +11,7 @@ const Gallery = () => {
     const section = useSection('gallery')
     const [gallery, setGallery] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const fetchGallery = async () => {
         try {
@@ -17,12 +19,18 @@ const Gallery = () => {
             setGallery(res.data);
         } catch (err) {
             console.error("gallery fetch error", err);
+        } finally {
+            setTimeout(() => {
+                setLoading(false);
+            }, 5000);
         }
     };
 
     useEffect(() => {
         fetchGallery();
     }, []);
+
+    if (loading) return <GallerySkeleton />;
 
     return (
         <>

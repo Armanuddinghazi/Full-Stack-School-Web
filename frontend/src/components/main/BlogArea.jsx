@@ -3,12 +3,14 @@ import apiClient from "../../api/apiClient";
 import { Link } from "react-router-dom";
 import { highlightLastWords } from "../../utils/highlightLastWords";
 import useSection from "../../hooks/useSection";
+import BlogSkeleton from "../ui/BlogSkeleton";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const Blog = () => {
   const section = useSection('blogs')
   const [blogs, setBlogs] = useState([]);
+   const [loading, setLoading] = useState(true);
 
   const fetchBlog = async () => {
     try {
@@ -16,12 +18,16 @@ const Blog = () => {
       setBlogs(res.data);
     } catch (err) {
       console.error("blogs fetch error", err);
+    } finally {
+        setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchBlog();
   }, []);
+
+  if (loading) return <BlogSkeleton />;
 
   return (
     <>

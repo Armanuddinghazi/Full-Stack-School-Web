@@ -62,7 +62,6 @@ function App() {
 
   useThemeLoader();
   
-  const [uploadedResume, setUploadedResume] = useState(null);
   const location = useLocation();
 
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -102,8 +101,8 @@ function App() {
           <Route path="/blog/:id" element={<BlogSingle />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
           <Route path="/infrastructure" element={<Infrastructure />} />
-          <Route path="/careers" element={<Careers setUploadedResume={setUploadedResume}/>} />
-          <Route path="/free-structure" element={<FreeStructure uploadedResume={uploadedResume}/>} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/free-structure" element={<FreeStructure/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

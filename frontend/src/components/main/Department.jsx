@@ -7,24 +7,32 @@ import "swiper/css/pagination";
 import { highlightLastWords } from "../../utils/highlightLastWords";
 import apiClient from "../../api/apiClient";
 import useSection from "../../hooks/useSection";
+import DepartmentSkeleton from "../ui/DepartmentSkeleton";
 
 const Department = () => {
 
   const section = useSection('department')
   const [department, setDepartment] = useState([]);
+   const [loading, setLoading] = useState(true);
 
-  const fetchDepartment = async () => {
+   const fetchDepartment = async () => {
     try {
       const res = await apiClient.get("/department");
       setDepartment(res.data);
     } catch (err) {
       console.error("department fetch error", err);
+    } finally {
+        setLoading(false);
     }
   };
+
+
 
   useEffect(() => {
     fetchDepartment();
   }, []);
+
+  if (loading) return <DepartmentSkeleton />;
 
   return (
     <>
@@ -72,11 +80,6 @@ const Department = () => {
                       <a href="#">{item.title}</a>
                     </h4>
                     <p>{item.content}</p>
-                    {/* <div className="department-btn">
-                    <a href="#">
-                      Read More <i className="fas fa-arrow-right-long"></i>
-                    </a>
-                  </div> */}
                   </div>
                 </div>
               </SwiperSlide>

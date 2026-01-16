@@ -2,18 +2,28 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ideaIcon from "../../assets/img/icon/exchange-idea.svg";
 import apiClient from "../../api/apiClient";
+import AboutSkeleton from "../ui/AboutSkeleton";
 
 const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const AboutArea = () => {
 
   const [about, setAbout] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    apiClient.get("/about").then(res => setAbout(res.data));
+    apiClient.get("/about")
+      .then(res => setAbout(res.data))
+      .catch(() => setAbout(null))
+      .finally(() => {
+          setLoading(false)
+      }
+      );
   }, []);
 
-  if (!about) return null;
+  // if (!about) return null;
+  if (loading) return <AboutSkeleton />;
+if (!about) return null;
 
   return (
     <div className="about-area py-120">
@@ -33,10 +43,9 @@ const AboutArea = () => {
                         <img src={ideaIcon} alt="Experience" />
                       </div>
                       <div>
-                         <b className="text-start">
-                        {/* 30 Years Of <br /> Quality Service */}
-                        {about.experienceText}
-                      </b>
+                        <b className="text-start">
+                          {about.experienceText}
+                        </b>
                       </div>
                     </div>
                   </div>
@@ -58,15 +67,11 @@ const AboutArea = () => {
                   <i className="far fa-book-open-reader"></i> {about.tagline}
                 </span>
                 <h2 className="site-title">
-                  {/* Our Education System <span>Inspires</span> You More. */}
                   {about.heading}
                 </h2>
               </div>
 
               <p className="about-text">
-                {/* There are many variations of passages available but the majority have
-                suffered alteration in some form by injected humour randomised words
-                which don't look even slightly believable. If you are going to use passage. */}
                 {about.description}
               </p>
 
@@ -75,7 +80,6 @@ const AboutArea = () => {
                   <div className="col-lg-12">
                     <div className="about-quote">
                       <p>
-                        {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, voluptas illo possimus nisi perferendis sunt facere blanditiis, quos vel eos expedita fugit nulla maiores, aliquid consequuntur fuga provident enim. Alias consectetur libero beatae fuga illo? */}
                         {about.quote}
                       </p>
                       <i className="far fa-quote-right"></i>
