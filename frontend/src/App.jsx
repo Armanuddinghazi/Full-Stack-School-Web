@@ -50,6 +50,8 @@ import InfraAdmin from './admin/pages/InfraAdmin';
 import ScholarShipAdmin from './admin/pages/ScholarShipAdmin';
 import Careers from './pages/careers/Career';
 import FreeStructure from './pages/infrastructure/FreeStructure';
+import FooterAdmin from './admin/pages/FooterAdmin';
+import HeaderAdmin from './admin/pages/HeaderAdmin';
 
 
 const PrivateRoute = ({ children }) => {
@@ -123,6 +125,7 @@ function App() {
           }
         >
           <Route index element={<HeroAdmin />} />
+          <Route path="header-admin" element={<HeaderAdmin />} />
           <Route path="headertop-admin" element={<HeaderTopAdmin />} />
           <Route path="about-admin" element={<AboutAdmin />} />
           <Route path="course-admin" element={<CourseAdmin />} />
@@ -140,6 +143,7 @@ function App() {
           <Route path="applypage-admin" element={<AdminApplyPage />} />
           <Route path="infra-admin" element={<InfraAdmin />} />
           <Route path="scholarship-admin" element={<ScholarShipAdmin />} />
+          <Route path="footer-admin" element={<FooterAdmin />} />
           <Route path="theme-admin" element={<ThemeAdmin />} />
         </Route>
 

@@ -1,44 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import apiClient from '../../api/apiClient';
 
-const BASE_URL = import.meta.env.VITE_API_URL_IMG;
-
 const Header = () => {
-
-    const [isSticky, setIsSticky] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(false);
     const [data, setData] = useState(null);
-
+    const [isSticky, setIsSticky] = useState(false);
     const [notices, setNotices] = useState([]);
 
+    const BASE_URL = import.meta.env.VITE_API_URL_IMG;
 
     useEffect(() => {
         apiClient.get("/notices")
             .then(res => setNotices(res.data))
             .catch(err => console.error(err));
-        apiClient.get("/headertop")
-            .then(res => {
-                setData(res.data)
-                console.log('response header', res);
-            })
-            .catch(err => console.error(err));
-
     }, []);
 
-
-
-    // ESC key close
+    // 1. Fetch Data
     useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") setSearchOpen(false);
+        const fetchHeader = async () => {
+            try {
+                const res = await apiClient.get('/header');
+                setData(res.data);
+            } catch (error) {
+                console.error("Header load failed", error);
+            }
         };
-        window.addEventListener("keydown", handleEsc);
-        return () => window.removeEventListener("keydown", handleEsc);
-    }, []);
+        fetchHeader();
 
-
-    useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 120) {
                 setIsSticky(true);
@@ -51,170 +39,111 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    if (!data || !data.socialLinks) return null;
+    if (!data) return null; // Or a loader
 
     return (
-        <>
-            <header className={`header ${isSticky ? "sticky-header" : ""}`}>
-                <div className={`header-top ${isSticky ? "hide-top" : ""}`}>
-                    <div className="container">
-                        <div className="header-top-wrap">
-                            <div className="header-top-left">
-                                <div className="header-top-social">
-                                    <span className='me-2'>Follow Us: </span>
-                                    <a href={data.socialLinks.facebook || "#"} target="_blank">
-                                        <i className="fa-brands fa-facebook-f"></i>
+        <header className={`header ${isSticky ? "sticky-header" : ""}`}>
+            {/* TOP BAR */}
+            <div className={`header-top ${isSticky ? "hide-top" : ""}`}>
+                <div className="container">
+                    <div className="header-top-wrap">
+                        <div className="header-top-left">
+                            <div className="header-top-social">
+                                <span className='me-2'>Follow Us: </span>
+                                {/* DYNAMIC SOCIAL ICONS */}
+                                {data.socialLinks?.map((social, index) => (
+                                    <a key={index} href={social.url} target="_blank" rel="noreferrer">
+                                        <i className={social.icon}></i>
                                     </a>
-                                    <a href={data.socialLinks.instagram || "#"} target="_blank">
-                                        <i className="fa-brands fa-instagram"></i>
-                                    </a>
-                                    <a href={data.socialLinks.twitter || "#"} target="_blank">
-                                        <i className="fa-brands fa-x-twitter"></i>
-                                    </a>
-                                    <a href={data.socialLinks.whatsapp ? `https://wa.me/${data.socialLinks.whatsapp}` : "#"} target="_blank">
-                                        <i className="fa-brands fa-whatsapp"></i>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div className="header-top-right">
-                                <div className="header-top-contact">
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i className="far fa-location-dot"></i>{data.address}</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i className="far fa-envelopes"></i> <span className="__cf_email__" >{data.email}</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="tel:+91 123 456 7898"><i className="far fa-phone-volume"></i> {data.phone}</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                ))}
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div className="main-navigation">
-                    <nav className="navbar navbar-expand-lg">
-                        <div className="container position-relative">
-                            <Link to="/" className="navbar-brand">
-                                {/* <h2 className='text-dark mb-0'>Logo</h2> */}
-                                <img
-                                    src={`${BASE_URL}${data.headerLogo}`}
-                                    width={80}
-                                    alt="logo"
-                                />
-
-                            </Link>
-                            <div className="mobile-menu-right">
-                                <div className="search-btn">
-                                    <button type="button" className="nav-right-link search-box-outer"
-                                        onClick={() => setSearchOpen(true)}>
-                                        <i className="far fa-search"></i></button>
-                                </div>
-                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-mobile-icon"><i className="far fa-bars"></i></span>
-                                </button>
-                            </div>
-                            <div className="collapse navbar-collapse" id="main_nav">
-                                <ul className="navbar-nav">
-                                    <li className="nav-item ">
-                                        <Link to="/" className="nav-link " >Home</Link>
-                                    </li>
-                                    <li className="nav-item ">
-                                        <Link to="/about" className="nav-link">About Us</Link>
-                                    </li>
-
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Courses</a>
-                                        <ul className="dropdown-menu fade-down">
-                                            <li><Link to="/course-one" className="dropdown-item">Courses One</Link></li>
-                                            <li><Link to="/course-two" className="dropdown-item">Courses Two</Link></li>
-                                        </ul>
-                                    </li>
-
-
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admissions</a>
-                                        <ul className="dropdown-menu fade-down">
-                                            <li><Link to="/how-to-apply" className="dropdown-item" >How To Apply</Link></li>
-                                            <li><Link to="/admission-form" className="dropdown-item" >Application Form</Link></li>
-                                            <li><Link to="/tuition-fee" className="dropdown-item" >Tuition Fees</Link></li>
-                                            <li><Link to="/free-structure" className="dropdown-item" >Free Structure</Link></li>
-                                            <li><Link to="/infrastructure" className="dropdown-item" >Infrastructure</Link></li>
-                                            <li><Link to="/careers" className="dropdown-item">Careers</Link></li>
-                                            {/* <li className="dropdown-submenu">
-                                                <a className="dropdown-item dropdown-toggle" href="#">Infrastructure</a>
-                                                <ul className="dropdown-menu">
-                                                    <li><a className="dropdown-item" href="#">Primary Wings</a></li>
-                                                    <li><a className="dropdown-item" href="#">Campus Single</a></li>
-                                                    <li><a className="dropdown-item" href="#">Pre Primary Wings</a></li>
-                                                    <li><a className="dropdown-item" href="#">Facilities</a></li>
-                                                </ul>
-                                            </li> */}
-                                            {/* <li><a to="#" className="dropdown-item" >Events</a></li> */}
-                                            {/* <li><a to="#" className="dropdown-item" >Online Free Payments</a></li> */}
-                                            <li><Link to="/scholarship" className="dropdown-item">Scholarships</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Blog</a>
-                                        <ul className="dropdown-menu fade-down">
-                                            <li><Link to="/blog" className="dropdown-item" >Blog</Link></li>
-                                            <li><Link to="/blog-latest" className="dropdown-item">Blog Single</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li className="nav-item"><Link to="/mandatory-disclosure" className="nav-link" >Mandatory Disclosure</Link></li>
-                                    <li className="nav-item"><Link to="/contact" className="nav-link" >Contact</Link></li>
+                        <div className="header-top-right">
+                            <div className="header-top-contact">
+                                <ul>
+                                    {data.contact?.address && (
+                                        <li><a href="#"><i className="far fa-location-dot"></i>{data.contact.address}</a></li>
+                                    )}
+                                    {data.contact?.email && (
+                                        <li><a href={`mailto:${data.contact.email}`}><i className="far fa-envelopes"></i> {data.contact.email}</a></li>
+                                    )}
+                                    {data.contact?.phone && (
+                                        <li><a href={`tel:${data.contact.phone}`}><i className="far fa-phone-volume"></i> {data.contact.phone}</a></li>
+                                    )}
                                 </ul>
-                                <div className="nav-right">
-                                    <div className="search-btn d-none">
-                                        <button type="button"
-                                            onClick={() => setSearchOpen(true)} className="nav-right-link search-box-outer"><i
-                                                className="far fa-search"></i></button>
-                                    </div>
-                                    <div className="nav-right-btn mt-2">
-                                        <Link to="/admission-form" className="theme-btn"><span
-                                            className="fal fa-pencil"></span>Apply Now</Link>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* MAIN NAVIGATION */}
+            <div className="main-navigation">
+                <nav className="navbar navbar-expand-lg">
+                    <div className="container position-relative">
+                        <Link to="/" className="navbar-brand">
+                            {data.logo ? (
+                                <img src={`${BASE_URL}${data.logo}`} width={68} alt="logo" />
+                            ) : <h2>Logo</h2>}
+                        </Link>
+
+                        <div className="mobile-menu-right">
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
+                                <span className="navbar-toggler-mobile-icon"><i className="far fa-bars"></i></span>
+                            </button>
+                        </div>
+
+                        <div className="collapse navbar-collapse" id="main_nav">
+                            <ul className="navbar-nav">
+                                {/* DYNAMIC MENUS LOOP */}
+                                {data.menuItems?.map((menu, index) => {
+                                    const hasDropdown = menu.children && menu.children.length > 0;
+
+                                    return (
+                                        <li key={index} className={`nav-item ${hasDropdown ? "dropdown" : ""}`}>
+                                            {hasDropdown ? (
+                                                <>
+                                                    <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{menu.label}</a>
+                                                    <ul className="dropdown-menu fade-down">
+                                                        {menu.children.map((child, cIndex) => (
+                                                            <li key={cIndex}>
+                                                                <Link to={child.path} className="dropdown-item">{child.label}</Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </>
+                                            ) : (
+                                                <Link to={menu.path} className="nav-link">{menu.label}</Link>
+                                            )}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+
+                            {/* RIGHT SIDE BUTTON */}
+                            <div className="nav-right">
+                                <div className="nav-right-btn mt-2">
+                                    <Link to={data.actionButton?.url || '#'} className="theme-btn">
+                                        <span className="fal fa-pencil"></span> {data.actionButton?.text}
+                                    </Link>
                                 </div>
                             </div>
                         </div>
-                    </nav>
-                </div>
-                <div className="notice-bar">
-                    <div className="notice-track">
-                        {/* <span> Admission Open for Session 2026–27 |</span>
-                        <span> Annual Exams start from 10 March |</span>
-                        <span> Parent-Teacher Meeting on 5 February |</span>
-                        <span> School will remain closed on Sunday |</span>
-                        <span> Bus facility available for all routes |</span> */}
-                        {notices.map((item) => (
-                            <span key={item._id}> {item.text} |</span>
-                        ))}
                     </div>
-                </div>
-            </header>
-
-
-
-
-            {/* popup search  */}
-            <div className={`search-popup ${searchOpen ? "search-active" : ""}`}>
-                <button className="close-search" onClick={() => setSearchOpen(false)}><span className="far fa-times"></span></button>
-                <form action="#" onSubmit={(e) => e.preventDefault()}>
-                    <div className="form-group">
-                        <input type="search" name="search-field" placeholder="Search Here..." required />
-                        <button type="submit"><i className="far fa-search"></i></button>
-                    </div>
-                </form>
+                </nav>
             </div>
-            {/* popup search end  */}
-        </>
-    )
-}
 
-export default Header
+            <div className="notice-bar">
+                <div className="notice-track">
+                    {notices.map((item) => (
+                        <span key={item._id}> {item.text} |</span>
+                    ))}
+                </div>
+            </div>
+        </header>
+    );
+};
+
+export default Header;
+
+

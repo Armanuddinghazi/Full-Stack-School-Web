@@ -11,7 +11,6 @@
   );
   background-size: 400% 100%;
   animation: shimmer 1.4s linear infinite;
-  border-radius: 6px;
 }
 
 /* Animation */
@@ -82,7 +81,7 @@
 }
 
 /* shimmer animation */
-.skeleton-card::after {
+/* .skeleton-card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -99,14 +98,14 @@
 }
 
 /* keyframes */
-@keyframes shimmer {
+/* @keyframes shimmer {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(100%);
   }
-}
+}  */
 
 /* skeleton elements */
 .skeleton-count,
@@ -146,11 +145,11 @@
 }
 
 /* optional: smooth rounded edges */
-.skeleton-card .skeleton-count,
+/* .skeleton-card .skeleton-count,
 .skeleton-card .skeleton-icon,
 .skeleton-card .skeleton-line {
   border-radius: 8px;
-}
+} */
 
 /* ABOUT SEKELOTON SHIMMER */
 
@@ -162,11 +161,11 @@
   position: relative;
   background: #e0e0e0;
   overflow: hidden;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 /* ===== SHIMMER EFFECT ===== */
-.skeleton-img-skeleton::after,
+/* .skeleton-img-skeleton::after,
 .skeleton-line::after,
 .skeleton-circle::after,
 .skeleton-btn::after {
@@ -189,21 +188,21 @@
   100% {
     transform: translateX(300%);
   }
-}
+} */
 
 /* ===== IMAGE SIZES (MATCH DESIGN) ===== */
 .img-1-skeleton {
   height: 370px;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 80px 80px 0 80px!important;
 }
 .img-2-skeleton {
   height: 270px;
   width: 270px;
-  border-radius: 50%;
+  border-radius: 50%!important;
 }
 .img-3-skeleton {
   height: 280px;
-  border-radius: 0 80px 80px 80px;
+  border-radius: 0 80px 80px 80px!important;
 }
 
 .about-experience-skeleton {
@@ -260,12 +259,13 @@
 
 /* Counter skeleton css  */
 
-.skeleton-circle-counter,
-.skeleton-line-counter {
+.counter-box-skeleton {
   position: relative;
-  background: #e0e0e0;
+  background: #f0f0f070;
   overflow: hidden;
-  border-radius: 50%;
+  padding: 20px;
+  border-radius: 12px;
+  /* border-radius: 50%; */
 }
 
 /* shimmer */
@@ -487,7 +487,7 @@
 
 /* Choose Skeleton css  */
 
-.skeleton {
+/* .skeleton {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.08) 25%,
@@ -500,14 +500,14 @@
 }
 
 /* Anim */
-@keyframes shimmer {
+/* @keyframes shimmer {
   0% {
     background-position: 100% 0;
   }
   100% {
     background-position: -100% 0;
   }
-}
+}  */
 
 /* Specific Sizes */
 .skeleton-tagline {

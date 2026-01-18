@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch(err => console.log(err.message));
 
 app.use("/uploads", express.static("uploads"));
+app.use("/api/header", require("./routes/headerRoutes"));
 app.use("/api/headertop", require("./routes/headerTopRoutes"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/hero", require("./routes/heroRoutes"));
@@ -39,6 +40,7 @@ app.use("/api/scholarshipSection", require("./routes/scholarshipSectionRoutes"))
 app.use("/api/scholarshipCards", require("./routes/scholarshipCardRoutes"));
 app.use("/api/careers", require("./routes/careerRoutes"));
 app.use("/api/theme", require("./routes/themeRoutes"));
+app.use("/api/footer", require("./routes/footerRoutes"));
 
 // module.exports = app; 
 app.listen(process.env.PORT, () =>

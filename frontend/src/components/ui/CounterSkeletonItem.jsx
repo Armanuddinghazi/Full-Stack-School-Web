@@ -6,12 +6,12 @@ const CounterSkeletonItem = () => {
       <div className="counter-box-skeleton ">
 
          <div className="icon mb-4 d-flex">
-          <div className="skeleton-circle-counter"></div>
+          <div className="skeleton skeleton-circle-counter"></div>
         </div>
 
         <div className="mb-4">
-          <div className="skeleton-line-counter w-50 h-lg mb-3"></div>
-          <div className="skeleton-line-counter w-70"></div>
+          <div className="skeleton skeleton-line-counter w-50 h-lg mb-3"></div>
+          <div className="skeleton skeleton-line-counter w-70"></div>
         </div>
        </div>
     </div>

@@ -13,19 +13,19 @@ const AboutSkeleton = () => {
                                 <div className="row g-4">
 
                                     <div className="col-md-6">
-                                        <div className="skeleton-img-skeleton img-1-skeleton"></div>
+                                        <div className="skeleton skeleton-img-skeleton img-1-skeleton"></div>
 
                                         <div className="about-experience-skeleton mt-4">
                                             <div className="d-flex justify-content-between align-items-center">
-                                                <div className="skeleton-circle"></div>
-                                                <div className="skeleton-line w-90 "></div>
+                                                <div className="skeleton skeleton-circle"></div>
+                                                <div className="skeleton skeleton-line w-90 "></div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="col-md-6">
-                                        <div className="skeleton-img-skeleton img-2-skeleton"></div>
-                                        <div className="skeleton-img-skeleton img-3-skeleton mt-4"></div>
+                                        <div className="skeleton skeleton-img-skeleton img-2-skeleton"></div>
+                                        <div className="skeleton skeleton-img-skeleton img-3-skeleton mt-4"></div>
                                     </div>
 
                                 </div>
@@ -37,29 +37,29 @@ const AboutSkeleton = () => {
                     <div className="col-lg-6">
                         <div className="about-right">
                             <div className="site-heading-skeleton mb-3">
-                                <div className="skeleton-line w-40"></div>
-                                <div className="skeleton-line w-90 h-lg"></div>
+                                <div className="skeleton skeleton-line w-40"></div>
+                                <div className="skeleton skeleton-line w-90 h-lg"></div>
                             </div>
 
                             <div className="about-text-skeleton">
-                                <div className="skeleton-line w-100"></div>
-                                <div className="skeleton-line w-95"></div>
-                                <div className="skeleton-line w-85"></div>
+                                <div className="skeleton skeleton-line w-100"></div>
+                                <div className="skeleton skeleton-line w-95"></div>
+                                <div className="skeleton skeleton-line w-85"></div>
                             </div>
 
                             <div className="about-content-skeleton">
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="about-quote-skeleton">
-                                            <div className="skeleton-line w-100"></div>
-                                            <div className="skeleton-line w-80"></div>
+                                            <div className="skeleton skeleton-line w-100"></div>
+                                            <div className="skeleton skeleton-line w-80"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="about-bottom-skeleton">
-                                <div className="skeleton-btn"></div>
+                                <div className="skeleton skeleton-btn"></div>
                             </div>
 
                         </div>
