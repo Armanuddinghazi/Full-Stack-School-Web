@@ -30,11 +30,6 @@ const Team = () => {
     fetchTeam();
   }, []);
 
-  useEffect(() => {
-    apiClient.get("/headertop")
-      .then(res => setData(res.data))
-      .catch(err => console.error(err));
-  }, []);
 
    if (loading) return <TeamSkeleton />;
 
@@ -77,21 +72,6 @@ const Team = () => {
                     />
                   </div>
 
-                  <div className="team-social">
-                    <a href={data?.socialLinks?.facebook || "#"} target="_blank">
-                      <i className="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href={data?.socialLinks?.instagram || "#"} target="_blank">
-                      <i className="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href={data?.socialLinks?.twitter || "#"} target="_blank">
-                      <i className="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href={data?.socialLinks?.whatsapp ? `https://wa.me/${data?.socialLinks?.whatsapp}` : "#"} target="_blank">
-                      <i className="fa-brands fa-whatsapp"></i>
-                    </a>
-                  </div>
-
                   <div className="team-content">
                     <div className="team-bio">
                       <h5>
@@ -100,10 +80,6 @@ const Team = () => {
                       <span>{item.role}</span>
                     </div>
                   </div>
-
-                  <span className="team-social-btn">
-                    <i className="far fa-share-nodes"></i>
-                  </span>
                 </div>
               </div>
             ))}

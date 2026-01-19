@@ -1658,8 +1658,8 @@ label {
 }
 
 .hero-single {
-  padding-top: 150px;
-  padding-bottom: 240px;
+  padding-top: 100px;
+  padding-bottom: 200px;
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -2624,6 +2624,8 @@ label {
 
 .gallery-img img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-radius: 50px 50px 50px 0;
 }
 
@@ -2716,6 +2718,174 @@ label {
   cursor: pointer;
 }
 
+
+
+
+/* Gallery Card section css  */
+
+
+/* =========================
+   Gallery Card Design 
+   ========================= */
+.gallery-card {
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    background: #fff;
+    border-radius: 50px 50px 50px 0;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Wrapper to ensure equal size */
+.gallery-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Fixed height for all images */
+    overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px 50px 50px 0;
+    object-fit: cover; /* Ensures image fills the box without stretching */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+/* Zoom Effect on Hover */
+.gallery-card:hover .gallery-img-wrapper img {
+    transform: scale(1.1);
+    border-radius: 50px 50px 50px 0;
+
+}
+
+/* =========================
+   Overlay Animation 
+   ========================= */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark tint */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(2px); /* Slight blur behind overlay */
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Plus Button Design */
+.view-btn {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    color: var(--theme-color, #ff5e14); /* Use your theme color variable */
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transform: scale(0) rotate(-180deg);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.gallery-card:hover .view-btn {
+    transform: scale(1) rotate(0deg);
+}
+
+.view-btn:hover {
+    background: var(--theme-color, #ff5e14);
+    color: #fff;
+}
+
+/* =========================
+   Lightbox Modal (Popup)
+   ========================= */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    background: #fff; /* Fallback */
+}
+
+.close-btn {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: var(--theme-color, #ff5e14);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .gallery-img-wrapper {
+        height: 250px;
+    }
+}
 
 /*====================
 26. Choose css 
@@ -6229,6 +6399,20 @@ Skeleton card css
   color: var(--color-dark);
 }
 
+
+
+/*====================
+ mandatory-disclousre css 
+======================*/
+
+.mandatory-disclousre .tuition-wrap h4{
+   text-transform: uppercase;
+   font-size: 19.5px;
+}
+.mandatory-disclousre .table thead tr th,
+.mandatory-disclousre .table tbody tr td{
+  font-size: 15px;
+}
 /*====================
 65. Alumni css 
 ======================*/

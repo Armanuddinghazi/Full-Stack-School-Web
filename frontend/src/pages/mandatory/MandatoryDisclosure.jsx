@@ -22,7 +22,7 @@ const MandatoryDisclosure = () => {
                 ]}
             />
 
-            <div className="tuition-fee py-50">
+            <div className="mandatory-disclousre py-50">
                 <div className="container">
 
                     <div className="tuition-wrap">
@@ -46,7 +46,7 @@ const MandatoryDisclosure = () => {
                                                     <td>{rIndex + 1}</td>
                                                     {row.cells.map((cell, cIndex) => (
                                                         <td key={cIndex}>
-                                                            <div className="d-flex justify-content-between">
+                                                            <div className="d-flex ">
                                                                 <span>{cell?.text}</span>
                                                             {cell?.file && (
                                                                     <a
@@ -54,6 +54,7 @@ const MandatoryDisclosure = () => {
                                                                         target="_blank"
                                                                         className={`btn btn-sm ${cell.fileType === "pdf" ? "btn-success": "btn-primary"}  btn-radius-8  light ms-2`}
                                                                     >
+                                                                        <i class={`fa-light me-1 ${cell.fileType === "pdf" ? "fa-file-pdf" : "fa-image"}`}></i>
                                                                         {cell.fileType === "pdf" ? "View PDF" : "View Image"}
                                                                     </a>
                                                                 )}                                                      

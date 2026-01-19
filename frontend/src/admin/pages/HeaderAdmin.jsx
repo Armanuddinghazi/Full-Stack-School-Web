@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '../../api/apiClient';
 import { toast } from 'react-toastify';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 
 const HeaderAdmin = () => {
     const BASE_URL = import.meta.env.VITE_API_URL_IMG;
@@ -16,7 +17,6 @@ const HeaderAdmin = () => {
     // File state for logo upload
     const [logoFile, setLogoFile] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState('');
 
     useEffect(() => {
         fetchData();
@@ -25,7 +25,6 @@ const HeaderAdmin = () => {
     const fetchData = async () => {
         try {
             const res = await apiClient.get('/header');
-            // if (res.data) setFormData(res.data);
             if (res.data && Object.keys(res.data).length > 0) {
                 setFormData({
                     ...formData,
@@ -100,6 +99,16 @@ const HeaderAdmin = () => {
         setFormData({ ...formData, menuItems: updated });
     };
 
+    // --- DRAG AND DROP HANDLER ---
+    const handleOnDragEnd = (result) => {
+        if (!result.destination) return;
+
+        const items = Array.from(formData.menuItems);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+
+        setFormData({ ...formData, menuItems: items });
+    };
 
     const handleSave = async () => {
         setLoading(true);
@@ -222,42 +231,67 @@ const HeaderAdmin = () => {
                     <div className="card-body">
 
 
-                        {formData.menuItems.map((menu, mIndex) => (
-                            <div key={mIndex} className="menu-column-card">
-                                <div className="d-flex justify-content-between mb-3">
-                                    <span className="badge bg-dark">Main Menu Item {mIndex + 1}</span>
-                                    <button className="delete-btn-top btn btn-sm btn-radius-8 btn-danger light " onClick={() => removeMenu(mIndex)}>
-                                        <i className="fa-solid fa-trash me-1"></i> Delete Menu</button>
-                                </div>
+                       <DragDropContext onDragEnd={handleOnDragEnd}>
+                        <Droppable droppableId="menu-items">
+                            {(provided) => (
+                                <div {...provided.droppableProps} ref={provided.innerRef}>
+                                    {formData.menuItems.map((menu, mIndex) => (
+                                        <Draggable key={mIndex} draggableId={`menu-${mIndex}`} index={mIndex}>
+                                            {(provided) => (
+                                                <div
+                                                    className="menu-column-card mb-3"
+                                                    ref={provided.innerRef}
+                                                    {...provided.draggableProps}
+                                                    style={{ ...provided.draggableProps.style, backgroundColor: '#f9f9f9', border: '1px solid #ddd', padding: '15px', borderRadius: '8px' }}
+                                                >
+                                                    <div className="d-flex justify-content-between mb-3">
+                                                        <div className="d-flex align-items-center">
+                                                            {/* Drag Handle Icon */}
+                                                            <span {...provided.dragHandleProps} className="me-3" style={{ cursor: 'grab', color: '#888' }}>
+                                                                <i className="fa-solid fa-grip-vertical fa-lg"></i>
+                                                            </span>
+                                                            <span className="badge bg-dark">Menu Item {mIndex + 1}</span>
+                                                        </div>
+                                                        <button className="delete-btn-top btn btn-sm btn-radius-8 btn-danger light" onClick={() => removeMenu(mIndex)}>
+                                                            <i className="fa-solid fa-trash me-1"></i> Delete
+                                                        </button>
+                                                    </div>
 
-                                {/* Parent Menu Inputs */}
-                                <div className="row mb-3">
-                                    <div className="col-md-6">
-                                        <input placeholder="Label (e.g. Home)" className="form-control" value={menu.label} onChange={(e) => handleMenuChange(mIndex, 'label', e.target.value)} />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input placeholder="Link (e.g. /home or #)" className="form-control" value={menu.path} onChange={(e) => handleMenuChange(mIndex, 'path', e.target.value)} />
-                                    </div>
-                                </div>
+                                                    {/* Parent Menu Inputs */}
+                                                    <div className="row mb-3">
+                                                        <div className="col-md-6">
+                                                            <input placeholder="Label (e.g. Home)" className="form-control" value={menu.label} onChange={(e) => handleMenuChange(mIndex, 'label', e.target.value)} />
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <input placeholder="Link (e.g. /home or #)" className="form-control" value={menu.path} onChange={(e) => handleMenuChange(mIndex, 'path', e.target.value)} />
+                                                        </div>
+                                                    </div>
 
-                                {/* Child Menus */}
-                                <div className="ps-4 border-start">
-                                    <h6 className="text-muted">Dropdown Items (Optional)</h6>
-                                    {menu.children.map((child, cIndex) => (
-                                        <div key={cIndex} className="link-item-row mb-2">
-                                            <input placeholder="Sub Menu Label" className="form-control" value={child.label} onChange={(e) => handleChildMenuChange(mIndex, cIndex, 'label', e.target.value)} />
-                                            <input placeholder="Sub Menu Link" className="form-control" value={child.path} onChange={(e) => handleChildMenuChange(mIndex, cIndex, 'path', e.target.value)} />
-                                            <button className="btn btn-danger  light py-2" onClick={() => removeChildMenu(mIndex, cIndex)}>
-                                                <i className="fa-slab fa-regular fa-xmark"></i>
-                                            </button>
-                                        </div>
+                                                    {/* Child Menus */}
+                                                    <div className="ps-4 border-start">
+                                                        <h6 className="text-muted">Dropdown Items (Optional)</h6>
+                                                        {menu.children.map((child, cIndex) => (
+                                                            <div key={cIndex} className="link-item-row mb-2">
+                                                                <input placeholder="Sub Menu Label" className="form-control" value={child.label} onChange={(e) => handleChildMenuChange(mIndex, cIndex, 'label', e.target.value)} />
+                                                                <input placeholder="Sub Menu Link" className="form-control" value={child.path} onChange={(e) => handleChildMenuChange(mIndex, cIndex, 'path', e.target.value)} />
+                                                                <button className="btn btn-danger light py-2" onClick={() => removeChildMenu(mIndex, cIndex)}>
+                                                                    <i className="fa-slab fa-regular fa-xmark"></i>
+                                                                </button>
+                                                            </div>
+                                                        ))}
+                                                        <button className="btn btn-sm btn-primary btn-radius-8 mt-2" onClick={() => addChildMenu(mIndex)}>
+                                                            <i className="fa-solid fa-plus me-1"></i> Add Dropdown Item
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </Draggable>
                                     ))}
-                                    <button className="btn btn-sm btn-primary btn-radius-8 mt-2" onClick={() => addChildMenu(mIndex)}>
-                                        <i className="fa-solid fa-plus me-1"></i>
-                                        Add Dropdown Item</button>
+                                    {provided.placeholder}
                                 </div>
-                            </div>
-                        ))}
+                            )}
+                        </Droppable>
+                    </DragDropContext>
                     </div>
                 </div>
 
@@ -265,7 +299,7 @@ const HeaderAdmin = () => {
                 <div className="card custom-card mb-4">
                     <div className="card-header card-header-custom d-flex align-items-center bg-primary text-white fw-semibold">
                         <i className="fa-solid fa-pen-to-square me-2"></i>
-                        <h5 className="mb-0">Action Button (Apply Now)</h5>
+                        <h5 className="mb-0">Action Button </h5>
                     </div>
                     <div className="card-body">
                         <div className="row">

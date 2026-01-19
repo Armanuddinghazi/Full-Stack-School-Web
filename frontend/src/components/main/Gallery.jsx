@@ -59,7 +59,7 @@ const Gallery = () => {
                     </div>
 
                     {/* Gallery Grid */}
-                    <div className="row popup-gallery">
+                    <div className="row g-4">
                         {gallery.map((item, index) => (
                             <div
                                 key={item._id}
@@ -67,8 +67,8 @@ const Gallery = () => {
                                 data-aos="fade-up"
                                 data-aos-delay={(index + 1) * 100}
                             >
-                                <div className="gallery-item">
-                                    <div className="gallery-img">
+                                <div className="gallery-card">
+                                    <div className="gallery-img-wrapper">
                                         <img
                                             src={`${API_URL}${item.image}`}
                                             alt=""
@@ -94,7 +94,7 @@ const Gallery = () => {
             </div >
 
 
-            {activeImage && (
+            {/* {activeImage && (
                 <div className="gallery-modal" onClick={() => setActiveImage(null)}>
                     <div className="gallery-modal-content">
                         <img src={activeImage} alt="Preview" />
@@ -102,7 +102,18 @@ const Gallery = () => {
                     </div>
                 </div>
             )
-            }
+            } */}
+
+            {activeImage && (
+                <div className="lightbox-modal" onClick={() => setActiveImage(null)}>
+                    <div className="lightbox-content" >
+                        <button className="close-btn" >
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                        <img src={activeImage} alt="Full View" />
+                    </div>
+                </div>
+            )}
 
         </>
     );

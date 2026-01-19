@@ -8,25 +8,16 @@ const tableOptions = [
     { key: "result_x", label: "Result Class X" },
     { key: "result_xii", label: "Result Class XII" },
     { key: "staff_teaching", label: "Staff Teaching" },
+    { key: "school_infra", label: "School Infrastructure" },
 ];
 
 const DisclosureAdmin = () => {
     const [tableKey, setTableKey] = useState("general_info");
     const [title, setTitle] = useState("");
     const [columns, setColumns] = useState([]);
-    const [rows, setRows] = useState([]);
+    const [rows, setRows] = useState([]);       
     const [files, setFiles] = useState([]);
     const [loading, setLoading] = useState(false);
-
-    console.log("FILES STATE 👉", files);
-    /* 🔹 normalize rows */
-    const normalizeRows = (rowsData, cols) =>
-        rowsData.map((r) => ({
-            cells: Array.from({ length: cols.length }).map(
-                (_, i) =>
-                    r.cells?.[i] || { text: "", file: "", fileType: "" }
-            ),
-        }));
 
     const fetchTable = async (key) => {
         try {
@@ -34,8 +25,26 @@ const DisclosureAdmin = () => {
             const res = await apiClient.get(`/disclosure/${key}`);
             if (res.data) {
                 setTitle(res.data.title || "");
-                setColumns(res.data.columns || []);
-                setRows(normalizeRows(res.data.rows || [], res.data.columns || []));
+                
+                // Ensure columns exist
+                const fetchedCols = res.data.columns || [];
+                setColumns(fetchedCols);
+
+                const fetchedRows = res.data.rows || [];
+                
+                const validatedRows = fetchedRows.map(r => {
+                    const baseCells = Array(fetchedCols.length).fill(null).map(() => ({ text: "", file: "", fileType: "" }));
+                    
+                    if(r.cells) {
+                        r.cells.forEach((cell, idx) => {
+                            if(idx < baseCells.length) baseCells[idx] = cell;
+                        });
+                    }
+                    return { cells: baseCells };
+                });
+
+                setRows(validatedRows);
+
             } else {
                 setColumns([]);
                 setRows([]);
@@ -52,43 +61,102 @@ const DisclosureAdmin = () => {
         fetchTable(tableKey);
     }, [tableKey]);
 
-    /* 🔹 file handler */
+
+    // ===========================
+    //   COLUMN HANDLERS
+    // ===========================
+
+    const handleAddColumn = () => {
+        // 1. Add new column header
+        const newCols = [...columns, ""];
+        setColumns(newCols);
+
+        // 2. Add an empty cell to EVERY existing row
+        const newRows = rows.map(row => ({
+            ...row,
+            cells: [...row.cells, { text: "", file: "", fileType: "" }]
+        }));
+        setRows(newRows);
+    };
+
+    const handleRemoveColumn = (colIndex) => {
+        // 1. Remove column header
+        const newCols = columns.filter((_, i) => i !== colIndex);
+        setColumns(newCols);
+
+        // 2. Remove the corresponding cell from EVERY row
+        const newRows = rows.map(row => ({
+            ...row,
+            cells: row.cells.filter((_, i) => i !== colIndex)
+        }));
+        setRows(newRows);
+    };
+
+    const handleColumnNameChange = (val, index) => {
+        const newCols = [...columns];
+        newCols[index] = val;
+        setColumns(newCols);
+    };
+
+    // ===========================
+    //   ROW HANDLERS
+    // ===========================
+
+    const handleAddRow = () => {
+        // Create a new row with empty cells matching the current column count
+        const newRow = {
+            cells: Array(columns.length).fill(null).map(() => ({ text: "", file: "", fileType: "" }))
+        };
+        setRows([...rows, newRow]);
+    };
+
+    const handleRemoveRow = (rowIndex) => {
+        setRows(rows.filter((_, i) => i !== rowIndex));
+    };
+
+
+    // ===========================
+    //   CELL DATA HANDLERS
+    // ===========================
+    
+    const handleTextChange = (val, rIndex, cIndex) => {
+        const tempRows = [...rows];
+        // Ensure cell exists
+        if(tempRows[rIndex] && tempRows[rIndex].cells[cIndex]) {
+             tempRows[rIndex].cells[cIndex].text = val;
+             setRows(tempRows);
+        }
+    };
+
     const handleFileChange = (file, rIndex, cIndex) => {
         if (!file) return;
-
         const fileType = file.type.includes("pdf") ? "pdf" : "image";
 
         const tempRows = [...rows];
-        tempRows[rIndex].cells[cIndex].file = file.name; 
+        tempRows[rIndex].cells[cIndex].file = file.name;
         tempRows[rIndex].cells[cIndex].fileType = fileType;
         setRows(tempRows);
 
         setFiles((prev) => [
             ...prev,
-            {
-                fieldname: `files`, 
-                file,
-                rIndex,
-                cIndex
-            }
+            { fieldname: `files`, file, rIndex, cIndex }
         ]);
     };
 
-    /* 🔹 save */
     const save = async () => {
         try {
+            setLoading(true);
             const fd = new FormData();
             fd.append("data", JSON.stringify({ tableKey, title, columns, rows }));
             files.forEach((f) => fd.append(f.fieldname, f.file));
-            console.log("---- FormData values ----");
-            for (let pair of fd.entries()) {
-                console.log(pair[0], pair[1]);
-            }
+            
             await apiClient.post("/disclosure", fd);
             toast.success("Table saved successfully");
             setFiles([]);
         } catch {
             toast.error("Save failed");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -112,122 +180,81 @@ const DisclosureAdmin = () => {
                             <div className="row g-3">
                                 <div className="col-lg-6">
                                     <label>Select Table Name</label>
-                                    <select
-                                        className="form-select"
-                                        value={tableKey}
-                                        onChange={(e) => setTableKey(e.target.value)}
-                                    >
+                                    <select className="form-select" value={tableKey} onChange={(e) => setTableKey(e.target.value)}>
                                         {tableOptions.map((t) => (
-                                            <option key={t.key} value={t.key}>
-                                                {t.label}
-                                            </option>
+                                            <option key={t.key} value={t.key}>{t.label}</option>
                                         ))}
                                     </select>
                                 </div>
 
                                 <div className="col-lg-6">
                                     <label>Title</label>
-                                    <input
-                                        className="form-control"
-                                        value={title}
-                                        onChange={(e) => setTitle(e.target.value)}
-                                    />
+                                    <input className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
                                 </div>
 
-                                {/* COLUMNS */}
-                                <h5 className="mb-0">Columns</h5>
+                                {/* COLUMNS MANAGEMENT */}
+                                <h5 className="mb-0 mt-4">Columns Configuration</h5>
                                 <div className="col-lg-12">
                                     {columns.map((col, i) => (
                                         <div key={i} className="d-flex mb-2">
                                             <input
                                                 className="form-control me-2"
                                                 value={col}
-                                                placeholder={`Columns ${i + 1}`}
-                                                onChange={(e) => {
-                                                    const temp = [...columns];
-                                                    temp[i] = e.target.value;
-                                                    setColumns(temp);
-                                                    setRows(normalizeRows(rows, temp));
-                                                }}
+                                                placeholder={`Column ${i + 1} Name`}
+                                                onChange={(e) => handleColumnNameChange(e.target.value, i)}
                                             />
-                                            <button
-                                                className="btn btn-danger light"
-                                                onClick={() => {
-                                                    const newCols = columns.filter((_, idx) => idx !== i);
-                                                    setColumns(newCols);
-                                                    setRows(normalizeRows(rows, newCols));
-                                                }}
-                                            >
+                                            <button className="btn btn-danger light" onClick={() => handleRemoveColumn(i)}>
                                                 <i className="fa-slab fa-regular fa-xmark"></i>
                                             </button>
                                         </div>
                                     ))}
-
-                                    <button
-                                        className="btn btn-primary light py-2 btn-radius-8 mb-3 mt-2"
-                                        onClick={() => {
-                                            const newCols = [...columns, ""];
-                                            setColumns(newCols);
-                                            setRows(normalizeRows(rows, newCols));
-                                        }}
-                                    >
+                                    <button className="btn btn-primary light py-2 btn-radius-8 mb-3 mt-2" onClick={handleAddColumn}>
                                         <i className="fa-solid fa-plus me-1"></i> Add Column
                                     </button>
                                 </div>
 
-                                {/* ROWS */}
-                                <h5 className="mb-0">Rows</h5>
+                                {/* ROWS MANAGEMENT */}
+                                <h5 className="mb-0 mt-4">Rows Data</h5>
                                 <div className="col-lg-12">
                                     {rows.map((row, rIndex) => (
-                                        <div key={rIndex} className="border p-2 mb-2">
-                                            {columns.map((_, cIndex) => (
+                                        <div key={rIndex} className="border p-3 mb-3 rounded bg-light">
+                                            <div className="d-flex justify-content-between mb-2">
+                                                <strong>Row {rIndex + 1}</strong>
+                                                <button className="btn btn-danger btn-sm light btn-radius-8" onClick={() => handleRemoveRow(rIndex)}>
+                                                    <i className="fa-sharp fa-solid fa-trash"></i> Remove Row
+                                                </button>
+                                            </div>
+                                            
+                                            {/* Render Cells based on Columns */}
+                                            {row.cells.map((cell, cIndex) => (
                                                 <div key={cIndex} className="mb-2">
-                                                    <input
-                                                        className="form-control mb-1"
-                                                        value={row.cells[cIndex].text}
-                                                        onChange={(e) => {
-                                                            const temp = [...rows];
-                                                            temp[rIndex].cells[cIndex].text = e.target.value;
-                                                            setRows(temp);
-                                                        }}
-                                                    />
-
-                                                    <input
-                                                        type="file"
-                                                        className="form-control"
-                                                        onChange={(e) =>
-                                                            handleFileChange(e.target.files[0], rIndex, cIndex)
-                                                        }
-                                                    />
+                                                    <label className="form-label text-muted" style={{fontSize: '12px'}}>
+                                                        {columns[cIndex] || `Column ${cIndex+1}`}
+                                                    </label>
+                                                    <div className="row g-2">
+                                                        <div className="col-lg-6">
+                                                            <input
+                                                            className="form-control w-100"
+                                                            placeholder="Text Data"
+                                                            value={cell.text}
+                                                            onChange={(e) => handleTextChange(e.target.value, rIndex, cIndex)}
+                                                        />
+                                                        </div>
+                                                        <div className="col-lg-6">
+                                                             <input
+                                                                type="file"
+                                                                className="form-control"
+                                                                onChange={(e) => handleFileChange(e.target.files[0], rIndex, cIndex)}
+                                                            />
+                                                            {cell.file && <small className="txt-success mb-0">{cell.file}</small>}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             ))}
-
-                                            <button
-                                                className="btn btn-danger light btn-radius-8 py-2 mt-1 btn-sm"
-                                                onClick={() =>
-                                                    setRows(rows.filter((_, i) => i !== rIndex))
-                                                }
-                                            >
-                                                <i className="fa-sharp fa-solid fa-trash"></i> Delete Row
-                                            </button>
                                         </div>
                                     ))}
 
-                                    <button
-                                        className="btn btn-success light py-2 btn-radius-8 mb-3 mt-2"
-                                        onClick={() =>
-                                            setRows([
-                                                ...rows,
-                                                {
-                                                    cells: Array(columns.length).fill({
-                                                        text: "",
-                                                        file: "",
-                                                        fileType: "",
-                                                    }),
-                                                },
-                                            ])
-                                        }
-                                    >
+                                    <button className="btn btn-success light py-2 btn-radius-8 mb-3 mt-2" onClick={handleAddRow}>
                                         <i className="fa-solid fa-plus me-1"></i> Add Row
                                     </button>
                                 </div>

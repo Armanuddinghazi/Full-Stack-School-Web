@@ -6,11 +6,16 @@ const HeroAdmin = () => {
   const [slides, setSlides] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
+  const MAX_FILE_SIZE_MB = 2; 
+  const MAX_WIDTH = 1920;     
+  const MAX_HEIGHT = 1280;
+
   const [data, setData] = useState({
     title: "",
     subtitle: "",
     description: "",
     image: null
+    
   });
 
   // 🔹 Fetch slides
@@ -32,6 +37,39 @@ const HeroAdmin = () => {
       description: "",
       image: null
     });
+    document.getElementById("bannerImgInput").value = "";
+  };
+
+  // IMAGE VALIDATION HANDLER 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const fileSizeMB = file.size / 1024 / 1024;
+    if (fileSizeMB > MAX_FILE_SIZE_MB) {
+      toast.error(`File size too big! Max allowed is ${MAX_FILE_SIZE_MB}MB.`);
+      e.target.value = ""; 
+      return;
+    }
+
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+      if (img.width > MAX_WIDTH || img.height > MAX_HEIGHT) {
+        toast.error(`Image dimensions too large! Max allowed: ${MAX_WIDTH}x${MAX_HEIGHT}px.`);
+        e.target.value = ""; 
+        return;
+      }
+      
+      setData({ ...data, image: file });
+    };
+
+    img.onerror = () => {
+      toast.error("Invalid image file.");
+      e.target.value = "";
+    };
   };
 
   // 🔹 Add new banner
@@ -185,16 +223,23 @@ const HeroAdmin = () => {
                     </div>
 
                     <div className="col-12">
-                      <label className="form-label">Banner Image
+                      <div className="alert alert-info py-2 small">
+                       <i className="fa-solid fa-circle-info me-1"></i>
+                       <strong>Required:</strong> Max Size <b>2MB</b>. 
+                       Max Dimension <b>1920x1280 px</b>.
+                    </div>
+                      {/* <label className="form-label">Banner Image
                         <small className="text-muted small d-block">
                           Recommended size: <b>1920 × 1280 px</b>
                         </small>
-                      </label>
+                      </label> */}
                       <input
+                        id="bannerImgInput"
                         type="file"
-                        placeholder="Banner image"
+                        accept="image/*"
                         className="form-control"
-                        onChange={e => setData({ ...data, image: e.target.files[0] })}
+                        onChange={handleImageChange}
+                        // onChange={e => setData({ ...data, image: e.target.files[0] })}
                       />
                     </div>
 

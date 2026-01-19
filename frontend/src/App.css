@@ -229,6 +229,9 @@ body {
   background-color: #1362fc;
   border-color: rgb(19 98 252 / 10%);
 }
+.txt-success{
+  color: #03d330;
+}
 /* Mobile */
 .cursor-menu {
   display: none;
