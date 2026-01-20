@@ -29,7 +29,7 @@ const Footer = () => {
         <footer className="footer-area">
             <div className="footer-widget">
                 <div className="container">
-                    <div className="row footer-widget-wrapper pt-100 pb-70">
+                    <div className="row footer-widget-wrapper pt-50 pb-70">
 
                         {/* 1. Logo & About Us Section */}
                         <div className="col-md-6 col-lg-5" data-aos="fade-right">

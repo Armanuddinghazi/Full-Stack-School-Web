@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const [openDashboard, setOpenDashboard] = useState(false);
+  const [openGallery, setOpenGallery] = useState(false);
 
   return (
     <>
@@ -97,6 +98,39 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               )}
             </li>
 
+ <li>
+              <a href="#"
+                className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenGallery(!openGallery);
+                }}>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div>
+                   <i className="fa-sharp fa-solid fa-image"></i>
+                    <span>Gallery</span>
+                  </div>
+                  <span className="fa-regular fa-chevron-right "></span>
+                </div>
+              </a>
+              {openGallery && (
+                <ul className="submenu">
+                  <li>
+                    <NavLink to="/admin/gallery-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                    <i class="fa-sharp fa-solid fa-photo-film"></i>
+                      <span>Photo Gallery</span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/admin/video-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                      <i class="fa-sharp fa-solid fa-video"></i>
+                      <span>Video Gallery</span>
+                    </NavLink>
+                  </li>
+                </ul>
+              )}
+            </li>
+
             <li>
               <NavLink to="/admin/about-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                 <i className="fa-sharp fa-solid fa-circle-info"></i>
@@ -122,13 +156,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <NavLink to="/admin/team-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                 <i className="fa-sharp fa-solid fa-users"></i>
                 <span>Team</span>
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/admin/gallery-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                <i className="fa-sharp fa-solid fa-image"></i>
-                <span>Gallery</span>
               </NavLink>
             </li>
 

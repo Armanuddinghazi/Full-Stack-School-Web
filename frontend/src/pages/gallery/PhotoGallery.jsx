@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../../api/apiClient";
-import { highlightLastWords } from "../../utils/highlightLastWords";
-import useSection from "../../hooks/useSection";
-import GallerySkeleton from "../ui/GallerySkeleton";
+import aboutBg from "../../assets/img/breadcrumb/01.jpg";
+import Breadcrumb from '../../components/ui/Breadcrumb'
 
-const API_URL = import.meta.env.VITE_API_URL_IMG;
-
-const Gallery = () => {
-
-    const section = useSection('gallery')
+const PhotoGallery = () => {
+    const API_URL = import.meta.env.VITE_API_URL_IMG;
     const [gallery, setGallery] = useState([]);
     const [activeImage, setActiveImage] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [visibleCount, setVisibleCount] = useState(6);
 
     const fetchGallery = async () => {
         try {
@@ -19,8 +16,6 @@ const Gallery = () => {
             setGallery(res.data);
         } catch (err) {
             console.error("gallery fetch error", err);
-        } finally {
-                setLoading(false);
         }
     };
 
@@ -28,37 +23,29 @@ const Gallery = () => {
         fetchGallery();
     }, []);
 
-    if (loading) return <GallerySkeleton />;
+    const handleLoadMore = () => {
+        setVisibleCount((prevCount) => prevCount + 6);
+    };
+
 
     return (
         <>
+            <Breadcrumb
+                title="Our Photo Gallery"
+                bgImage={aboutBg}
+                items={[
+                    { label: "Home", path: "/" },
+                    { label: "Our Photo Gallery", active: true }
+                ]}
+            />
+
             <div className="gallery-area py-120">
                 <div className="container">
 
-                    {/* Heading */}
-                    <div className="row">
-                        <div className="col-lg-6 mx-auto">
-                            <div className="site-heading text-center" data-aos="fade-up">
-                                {section && (
-                                    <>
-                                        <span className="site-title-tagline">
-                                            <i className="far fa-book-open-reader"></i> {section.tagline}
-                                        </span>
-                                        <h2 className="site-title">
-                                            {highlightLastWords(section.heading, 1)}
-                                        </h2>
-                                        <p>
-                                            {section.paragraph}
-                                        </p>
-                                    </>
-                                )}
-                            </div>
-                        </div>
-                    </div>
 
                     {/* Gallery Grid */}
                     <div className="row g-4">
-                        {gallery.slice(0, 6).map((item, index) => (
+                        {gallery.slice(0, visibleCount).map((item, index) => (
                             <div
                                 key={item._id}
                                 className="col-md-4"
@@ -88,6 +75,19 @@ const Gallery = () => {
                         ))}
                     </div>
 
+                    {visibleCount < gallery.length && (
+                        <div className="row mt-5">
+                            <div className="col-12 text-center" data-aos="zoom-in">
+                                <button
+                                    className="theme-btn"
+                                    onClick={handleLoadMore}
+                                    
+                                >
+                                    Load More <i className="fas fa-spinner fa-pulse ms-2" style={{ display: loading ? 'inline-block' : 'none' }}></i>
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div >
             {activeImage && (
@@ -100,9 +100,8 @@ const Gallery = () => {
                     </div>
                 </div>
             )}
-
         </>
-    );
-};
+    )
+}
 
-export default Gallery;
+export default PhotoGallery

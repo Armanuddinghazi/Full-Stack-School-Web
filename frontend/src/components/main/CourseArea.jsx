@@ -68,7 +68,6 @@ const CourseArea = () => {
           </div>
 
           {/* Courses */}
-          <div className="row">
             <div className="row">
                 {courses.slice(0, 6).map((course, index) => (
                   <div
@@ -138,9 +137,6 @@ const CourseArea = () => {
                   </div>
                 ))}
             </div>
-
-          </div>
-
         </div>
       </div>
     </>

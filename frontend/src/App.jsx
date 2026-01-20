@@ -52,6 +52,9 @@ import Careers from './pages/careers/Career';
 import FreeStructure from './pages/infrastructure/FreeStructure';
 import FooterAdmin from './admin/pages/FooterAdmin';
 import HeaderAdmin from './admin/pages/HeaderAdmin';
+import PhotoGallery from './pages/gallery/PhotoGallery';
+import VideoGallery from './pages/gallery/VideoGallery';
+import AdminVideoManager from './admin/pages/AdminVideoManager';
 
 
 const PrivateRoute = ({ children }) => {
@@ -105,6 +108,8 @@ function App() {
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/free-structure" element={<FreeStructure/>} />
+          <Route path="/photo-gallery" element={<PhotoGallery/>} />
+          <Route path="/video-gallery" element={<VideoGallery/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
@@ -132,6 +137,7 @@ function App() {
           <Route path="contact-admin" element={<ContactAdmin />} />
           <Route path="team-admin" element={<TeamAdmin />} />
           <Route path="gallery-admin" element={<GalleryAdmin />} />
+          <Route path="video-admin" element={<AdminVideoManager />} />
           <Route path="counter-admin" element={<CounterAdmin />} />
           <Route path="blog-admin" element={<BlogAdmin />} />
           <Route path="notice-admin" element={<NoticeAdmin />} />
