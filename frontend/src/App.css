@@ -232,10 +232,19 @@ body {
 .txt-success{
   color: #03d330;
 }
+.txt-success-label{
+  color: #01d12e!important;
+}
 /* Mobile */
 .cursor-menu {
   display: none;
   cursor: pointer;
+}
+@media screen and (max-width: 420px){
+  .create_label{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 @media (max-width: 991px) {
   .cursor-menu {

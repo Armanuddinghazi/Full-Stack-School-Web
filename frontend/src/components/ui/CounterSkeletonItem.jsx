@@ -2,7 +2,7 @@ import React from "react";
 
 const CounterSkeletonItem = () => {
   return (
-    <div className="col-lg-3 col-sm-6">
+    <div className="col-lg-3 col-sm-6 mb-3">
       <div className="counter-box-skeleton ">
 
          <div className="icon mb-4 d-flex">

@@ -84,7 +84,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   </li>
                   <li>
                     <NavLink to="/admin/scholarship-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                      <i class="fa-solid fa-graduation-cap"></i>
+                      <i className="fa-solid fa-graduation-cap"></i>
                       <span> Scholarship </span>
                     </NavLink>
                   </li>
@@ -117,13 +117,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                 <ul className="submenu">
                   <li>
                     <NavLink to="/admin/gallery-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                    <i class="fa-sharp fa-solid fa-photo-film"></i>
+                    <i className="fa-sharp fa-solid fa-photo-film"></i>
                       <span>Photo Gallery</span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/admin/video-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                      <i class="fa-sharp fa-solid fa-video"></i>
+                      <i className="fa-sharp fa-solid fa-video"></i>
                       <span>Video Gallery</span>
                     </NavLink>
                   </li>
@@ -180,7 +180,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             </li>
             <li>
               <NavLink to="/admin/footer-admin" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                <i class="fa-solid fa-circle-location-arrow"></i>
+                <i className="fa-solid fa-circle-location-arrow"></i>
                 <span>Footer</span>
               </NavLink>
             </li>

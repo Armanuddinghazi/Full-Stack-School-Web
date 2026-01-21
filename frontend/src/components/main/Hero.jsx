@@ -13,9 +13,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-const BASE_URL = import.meta.env.VITE_API_URL_IMG;
 
 const Hero = () => {
+  const BASE_URL = import.meta.env.VITE_API_URL_IMG;
+
   const [slides, setSlides] = useState([]);
   const [heroLoading, setHeroLoading] = useState(true);
 

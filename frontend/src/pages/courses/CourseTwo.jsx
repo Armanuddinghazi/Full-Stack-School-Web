@@ -17,14 +17,8 @@ const CourseTwo = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const pageSize = 4;
 
-    const filteredCourses = courses.filter(course =>
-        course.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-
-    const paginatedCourses = filteredCourses.slice(startIndex, endIndex);
 
     const fetchCourses = async () => {
         try {
@@ -38,6 +32,20 @@ const CourseTwo = () => {
     useEffect(() => {
         fetchCourses();
     }, []);
+
+
+    const categories = ["All", ...new Set(courses.map(c => c.tag).filter(tag => tag))];
+
+    const filteredCourses = courses.filter(course => {
+        const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesCategory = selectedCategory === "All" || course.tag === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
+
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginatedCourses = filteredCourses.slice(startIndex, endIndex);
 
     return (
         <>
@@ -147,27 +155,33 @@ const CourseTwo = () => {
                                     ))
                                 ) : (
                                     <div className="col-12 text-center">
-                                        <p className="text-muted mt-4">No courses found</p>
+                                        <p className="text-muted mt-4">
+                                            <i className="fa-duotone fa-solid fa-face-frown me-1"></i>
+                                            No courses found in <span className="text-clr">"{selectedCategory}"</span>
+                                        </p>
                                     </div>
                                 )}
                             </div>
                             {/* pagination  */}
-                            <div className="d-flex justify-content-center mt-4">
-                                <Pagination
-                                    current={currentPage}
-                                    total={filteredCourses.length}
-                                    pageSize={pageSize}
-                                    onChange={(page) => setCurrentPage(page)}
-                                    showLessItems
-                                />
-                            </div>
+                            {filteredCourses.length > pageSize && (
+                                <div className="d-flex justify-content-center mt-4">
+                                    <Pagination
+                                        current={currentPage}
+                                        total={filteredCourses.length}
+                                        pageSize={pageSize}
+                                        onChange={(page) => setCurrentPage(page)}
+                                        showLessItems
+                                    />
+                                </div>
+                            )}
                             {/* pagination end  */}
                         </div>
                         <div className="col-xl-4 col-lg-4">
                             <div className="course-sidebar">
                                 <div className="widget search" data-aos="fade-left">
                                     <h5 className="widget-title">Search</h5>
-                                    <form className="search-form">
+                                    <form className="search-form"
+                                    onSubmit={(e) => e.preventDefault()}>
                                         <input type="text"
                                             className="form-control"
                                             value={searchTerm}
@@ -176,21 +190,42 @@ const CourseTwo = () => {
                                                 setCurrentPage(1);
                                             }}
                                             placeholder="Search Here..." />
-                                        <button type="submit"><i className="far fa-search"></i></button>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                if (searchTerm) {
+                                                    setSearchTerm(""); 
+                                                    setCurrentPage(1); 
+                                                }
+                                            }}
+                                        >
+                                            <i className={`far ${searchTerm ? "fa-xmark" : "fa-search"}`}></i>
+                                        </button>
                                     </form>
                                 </div>
                                 <div className="widget category" data-aos="fade-left" data-aos-delay="100">
                                     <h4 className="widget-title">Course Category</h4>
+
                                     <div className="category-list">
-                                        <span><i className="far fa-long-arrow-right"></i>Business And Finance</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Law And Criminology</span>
-                                        <span><i className="far fa-long-arrow-right"></i>IT And Data Science</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Health And Medicine</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Art And Design</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Information Technology</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Acting And Drama</span>
-                                        <span><i className="far fa-long-arrow-right"></i>Human Resource</span>
+                                        {categories.map((cat, index) => (
+                                            <span
+                                                key={index}
+                                                onClick={() => {
+                                                    setSelectedCategory(cat);
+                                                    setCurrentPage(1);
+                                                }}
+                                                style={{
+                                                    cursor: 'pointer',
+                                                    color: selectedCategory === cat ? 'var(--theme-color2)' : '',
+                                                    fontWeight: selectedCategory === cat ? 'bold' : ''
+                                                }}
+                                            >
+                                                <i className={`far ${selectedCategory === cat ? 'fa-check' : 'fa-long-arrow-right'}`}></i>
+                                                {cat}
+                                            </span>
+                                        ))}
                                     </div>
+
                                 </div>
 
                             </div>
