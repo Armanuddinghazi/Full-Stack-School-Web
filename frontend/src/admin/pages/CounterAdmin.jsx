@@ -119,7 +119,7 @@ const CounterAdmin = () => {
                 {editId && (
                   <button className="btn btn-danger light py-2 btn-radius-8" onClick={resetForm}>
                     <i className="fa-solid fa-xmark me-1"></i>
-                    Cancel
+                    Cancel Edit
                   </button>
                 )}
 

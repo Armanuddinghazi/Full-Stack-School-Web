@@ -13,9 +13,9 @@ const AdminHeader = ({ toggleSidebar }) => {
         <>
             <div className="admin-header">
                 <div className="header-left d-flex justify-content-between align-items-center gap-3">
-                    <h2 className="dashboard_bar mb-0 ">
+                    {/* <h2 className="dashboard_bar mb-0 ">
                         School <span>Admin</span>
-                    </h2>
+                    </h2> */}
                     <div className="cursor-menu" onClick={toggleSidebar}><span><i className="fa-duotone fa-solid fa-bars fs-3"></i></span></div>
                 </div>
                 <div className="header-content">

@@ -646,7 +646,6 @@ const DisclosureAdmin = () => {
         };
         setRows([...rows, newRow]);
     };
-
     const handleRemoveRow = (rowIndex) => {
         setRows(rows.filter((_, i) => i !== rowIndex));
     };
@@ -658,7 +657,6 @@ const DisclosureAdmin = () => {
             setRows(tempRows);
         }
     };
-
     const handleFileChange = (file, rIndex, cIndex) => {
         if (!file) return;
         const fileType = file.type.includes("pdf") ? "pdf" : "image";

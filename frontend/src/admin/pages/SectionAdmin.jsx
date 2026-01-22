@@ -95,6 +95,7 @@ const SectionAdmin = () => {
                       <option value="features">Feature</option>
                       <option value="applypage">How To Apply</option>
                       <option value="infrastructure">Infrastructure</option>
+                      <option value="testimonials">Testimonial</option>
                     </select>
                    
                   </div>

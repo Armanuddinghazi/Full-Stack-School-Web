@@ -31,7 +31,7 @@ const Blog = () => {
 
   return (
     <>
-      <div className="blog-area py-120">
+      <div className="blog-area  bg  py-120">
         <div className="container">
           {/* Heading */}
           <div className="row">

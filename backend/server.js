@@ -40,6 +40,8 @@ app.use("/api/infrastructure", require("./routes/infraRoutes"));
 app.use("/api/scholarshipSection", require("./routes/scholarshipSectionRoutes"));
 app.use("/api/scholarshipCards", require("./routes/scholarshipCardRoutes"));
 app.use("/api/careers", require("./routes/careerRoutes"));
+app.use("/api/mission-vision", require("./routes/missionVisionRoutes"));
+app.use("/api/testimonials", require("./routes/testimonialRoutes"));
 app.use("/api/theme", require("./routes/themeRoutes"));
 app.use("/api/footer", require("./routes/footerRoutes"));
 

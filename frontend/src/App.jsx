@@ -55,6 +55,8 @@ import HeaderAdmin from './admin/pages/HeaderAdmin';
 import PhotoGallery from './pages/gallery/PhotoGallery';
 import VideoGallery from './pages/gallery/VideoGallery';
 import AdminVideoManager from './admin/pages/AdminVideoManager';
+import MissionAdmin from './admin/pages/MissionAdmin';
+import TestimonialAdmin from './admin/pages/TestimonialAdmin';
 
 
 const PrivateRoute = ({ children }) => {
@@ -149,6 +151,8 @@ function App() {
           <Route path="applypage-admin" element={<AdminApplyPage />} />
           <Route path="infra-admin" element={<InfraAdmin />} />
           <Route path="scholarship-admin" element={<ScholarShipAdmin />} />
+          <Route path="mission-vision-admin" element={<MissionAdmin />} />
+          <Route path="testimonial-admin" element={<TestimonialAdmin />} />
           <Route path="footer-admin" element={<FooterAdmin />} />
           <Route path="theme-admin" element={<ThemeAdmin />} />
         </Route>

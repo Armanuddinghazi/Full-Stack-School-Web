@@ -1,5 +1,3 @@
-
-
 /*=====================================================
 Table of contents
 =======================================================
@@ -79,21 +77,19 @@ Table of contents
 
 =======================================================*/
 
-
 /*====================
 1. Google fonts
 ======================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap");
 
 /*====================
 2. Theme variables
 ======================*/
 
 :root {
-  --body-font: 'Roboto', sans-serif;
-  --heading-font: 'Yantramanav', sans-serif;
+  --body-font: "Roboto", sans-serif;
+  --heading-font: "Yantramanav", sans-serif;
   --theme-color: #116e50;
   --theme-color2: #fd751b;
   --main-header-bg: #fff;
@@ -107,31 +103,29 @@ Table of contents
   /* --theme-color: #116E63;
   --theme-color2: #FDA31B; */
   --theme-color-light: rgb(17, 110, 99, 0.09);
-  --theme-bg-light: #F2F3F5;
+  --theme-bg-light: #f2f3f5;
   --theme-notice-bg-color: #0b3d91;
   --theme-notice-text-color: #fff;
-  --body-text-color: #757F95;
+  --body-text-color: #757f95;
   --color-white: #ffffff;
-  --color-dark: #19232B;
+  --color-dark: #19232b;
   --hero-overlay-color: #000000;
   --slider-arrow-bg: rgba(255, 255, 255, 0.2);
   --box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
   --box-shadow2: 0 0 15px rgba(0, 0, 0, 0.17);
-  --transition: all .5s ease-in-out;
-  --transition2: all .3s ease-in-out;
+  --transition: all 0.5s ease-in-out;
+  --transition2: all 0.3s ease-in-out;
   --border-info-color: rgba(0, 0, 0, 0.08);
   --border-info-color2: rgba(0, 0, 0, 0.05);
   --border-white-color: rgba(255, 255, 255, 0.08);
   --border-white-color2: rgba(255, 255, 255, 0.05);
   /* --footer-bg: #012758; */
   --footer-bg: #013a58;
-  --footer-bg2: #116E63;
-  --footer-text-color: #F5FAFF;
+  --footer-bg2: #116e63;
+  --footer-text-color: #f5faff;
 
   --card-bg: #fff;
 }
-
-
 
 /*====================
 3. General css
@@ -158,18 +152,18 @@ body {
 }
 
 body {
-  font-family: var(--body-font)!important;
-  font-style: normal!important;
-  font-size: 16px!important;
-  font-weight: normal!important;
-  color: var(--body-text-color)!important;
-  line-height: 1.8!important;
+  font-family: var(--body-font) !important;
+  font-style: normal !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  color: var(--body-text-color) !important;
+  line-height: 1.8 !important;
 }
 
 a {
-  color:  var(--color-dark);
+  color: var(--color-dark);
   display: inline-block;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 a,
@@ -190,8 +184,8 @@ a:hover {
 }
 
 ul {
-  margin: 0!important;
-  padding: 0!important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 li {
@@ -204,7 +198,7 @@ h3,
 h4,
 h5,
 h6 {
-  color:  var(--color-dark);
+  color: var(--color-dark);
   margin: 0px;
   font-weight: 600;
   font-family: var(--heading-font);
@@ -286,12 +280,10 @@ label {
   opacity: 1;
 }
 
-
 /* Custom css code  */
-.text-clr{
+.text-clr {
   color: var(--theme-color2);
 }
-
 
 /*====================
 4. Preloader
@@ -336,59 +328,59 @@ label {
 }
 
 .loader-book-page:nth-child(1) {
-  -webkit-animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.6s infinite;
-  animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.6s infinite;
+  -webkit-animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.6s
+    infinite;
+  animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.6s infinite;
 }
 
 .loader-book-page:nth-child(2) {
-  -webkit-animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.45s infinite;
-  animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.45s infinite;
+  -webkit-animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.45s
+    infinite;
+  animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.45s infinite;
 }
 
 .loader-book-page:nth-child(3) {
-  -webkit-animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
-  animation: loader-book 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
+  -webkit-animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.2s
+    infinite;
+  animation: loader-book 1.2s cubic-bezier(0, 0.39, 1, 0.68) 1.2s infinite;
 }
 
 @-webkit-keyframes loader-book {
   0% {
-    -webkit-transform: rotateY( 0deg);
-    transform: rotateY( 0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   20% {
     background: var(--theme-color2);
   }
   40% {
     background: var(--theme-color2);
-    -webkit-transform: rotateY( -180deg);
-    transform: rotateY( -180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
   100% {
     background: var(--theme-color);
-    -webkit-transform: rotateY( -180deg);
-    transform: rotateY( -180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
 }
 
 @keyframes loader-book {
   0% {
-    transform: rotateY( 0deg);
+    transform: rotateY(0deg);
   }
   20% {
     background: var(--theme-color2);
   }
   40% {
     background: var(--theme-color2);
-    transform: rotateY( -180deg);
+    transform: rotateY(-180deg);
   }
   100% {
     background: var(--theme-color);
-    transform: rotateY( -180deg);
+    transform: rotateY(-180deg);
   }
 }
-
-
-
 
 /*===================
 5. Theme default css
@@ -432,9 +424,6 @@ label {
 .bg {
   background: var(--theme-bg-light);
 }
-
-
-
 
 /*====================
 6. Margin & padding
@@ -659,8 +648,6 @@ label {
   margin-left: 300px;
 }
 
-
-
 /*====================
 7. Site title css
 ======================*/
@@ -681,7 +668,7 @@ label {
   border-bottom: 2px solid var(--theme-color2);
 }
 
-.site-title-tagline i{
+.site-title-tagline i {
   line-height: 0;
   font-size: 20px;
 }
@@ -690,13 +677,13 @@ label {
   font-weight: 800;
   text-transform: capitalize;
   font-size: 55px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   margin-top: 10px;
   margin-bottom: 0;
   position: relative;
 }
 
-.site-title span{
+.site-title span {
   color: var(--theme-color2);
 }
 
@@ -708,28 +695,25 @@ label {
   display: inline-block;
   position: relative;
   width: 90px;
-  height: 10px; 
+  height: 10px;
   border: 3px solid rgba(33, 46, 84, 1);
   border-right-color: transparent;
 }
 
-.heading-divider.light{
+.heading-divider.light {
   border-color: rgba(255, 255, 255, 0.2);
   border-right-color: transparent;
 }
 
 .heading-divider::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 30px;
   background-color: var(--theme-color);
   top: 0;
   bottom: 0;
   left: 18px;
 }
-
-
-
 
 /*====================
 8. Theme button
@@ -753,7 +737,7 @@ label {
   box-shadow: var(--box-shadow);
   z-index: 1;
 }
-.theme-btn.arrow-btn{
+.theme-btn.arrow-btn {
   padding: 5px 15px;
   display: inline-block;
   font-size: 22px;
@@ -763,7 +747,7 @@ label {
   content: "";
   height: 300px;
   width: 300px;
-  background:  var(--btn-bg-hover);
+  background: var(--btn-bg-hover);
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -789,21 +773,18 @@ label {
   margin-right: 5px;
 }
 
-.theme-btn2{
+.theme-btn2 {
   background: var(--color-white);
   color: var(--color-dark);
 }
 
-.theme-btn2::before{
+.theme-btn2::before {
   background: var(--theme-color);
 }
 
-.theme-btn2:hover{
+.theme-btn2:hover {
   color: var(--color-white);
 }
-
-
-
 
 /*====================
 9. Container
@@ -815,11 +796,9 @@ label {
   .container-md,
   .container-lg,
   .container-xl {
-    max-width: 1200px!important;
+    max-width: 1200px !important;
   }
 }
-
-
 
 /*====================
 10. Scroll top css
@@ -848,23 +827,20 @@ label {
   z-index: 1;
 }
 
-#scroll-top.active{
+#scroll-top.active {
   opacity: 1;
   visibility: visible;
   bottom: 20px;
 }
-#scroll-top:hover{
+#scroll-top:hover {
   background-color: var(--theme-color);
 }
-
 
 @media all and (min-width: 768px) and (max-width: 1199px) {
   #scroll-top.active {
     bottom: 100px;
   }
 }
-
-
 
 /*====================
 11. Header top css
@@ -909,7 +885,7 @@ label {
   }
 }
 
-.header-top::before{
+.header-top::before {
   content: "";
   position: absolute;
   left: 0;
@@ -932,14 +908,14 @@ label {
   gap: 20px;
 }
 
-.header-top-contact ul li{
+.header-top-contact ul li {
   display: flex;
   gap: 10px;
-  border-right: 1px solid rgba(255, 255, 255, .2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   padding-right: 20px;
 }
 
-.header-top-contact ul li:last-child{
+.header-top-contact ul li:last-child {
   border: none;
   padding-right: 0;
 }
@@ -949,12 +925,12 @@ label {
   font-weight: 400;
 }
 
-.header-top-contact ul li a i{
+.header-top-contact ul li a i {
   color: var(--theme-color2);
   margin-right: 5px;
 }
 
-.header-top-social span{
+.header-top-social span {
   color: var(--icon-color);
   font-weight: 500;
 }
@@ -967,22 +943,21 @@ label {
   font-size: 16px;
   background: var(--header-social-icon-bg);
   text-align: center;
-  margin-left: 8px!important;
+  margin-left: 8px !important;
   border-radius: 50px;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .header-top-social a:hover {
   color: var(--header-social-icon-hover);
 }
 
-
 @media all and (max-width: 1199px) {
-  .header-top-contact ul{
+  .header-top-contact ul {
     gap: 10px;
   }
 
-  .header-top-social a{
+  .header-top-social a {
     width: 34px;
     height: 34px;
     line-height: 37px;
@@ -996,15 +971,13 @@ label {
   }
 }
 
-
-
 /*====================
  Notice css
 ======================*/
 
 .notice-bar {
   width: 100%;
-  background: var(--theme-notice-bg-color); 
+  background: var(--theme-notice-bg-color);
   color: var(--theme-notice-text-color);
   overflow: hidden;
   white-space: nowrap;
@@ -1045,20 +1018,20 @@ label {
     font-size: 13px;
     padding: 8px 0;
   }
-  .about-left{
-  margin-right: 0px!important;
-}
+  .about-left {
+    margin-right: 0px !important;
+  }
 }
 
 /*====================
 12. Custom Navbar css
 ======================*/
-.mobile-nav-wrap{
+.mobile-nav-wrap {
   display: none;
 }
 
 @media screen and (max-width: 991px) {
- /* .mobile-nav-wrap{
+  /* .mobile-nav-wrap{
   position: fixed;
   top: 0;
   left: 0;
@@ -1078,9 +1051,8 @@ label {
   margin-top: 20px!important;
 } */
 
-
-/* --- Mobile Sidebar Overlay --- */
-.mobile-nav-overlay {
+  /* --- Mobile Sidebar Overlay --- */
+  .mobile-nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -1092,41 +1064,41 @@ label {
     visibility: hidden;
     transition: all 0.3s ease-in-out;
     backdrop-filter: blur(3px);
-}
+  }
 
-.mobile-nav-overlay.active {
+  .mobile-nav-overlay.active {
     opacity: 1;
     visibility: visible;
-}
+  }
 
-/* --- Mobile Sidebar Wrapper --- */
-.mobile-nav-wrap {
+  /* --- Mobile Sidebar Wrapper --- */
+  .mobile-nav-wrap {
     position: fixed;
     top: 0;
-    left: -320px; 
+    left: -320px;
     width: 300px;
     height: 100vh;
     background: #fff;
     z-index: 999;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     overflow-y: auto;
     padding-bottom: 50px;
     display: block;
-}
+  }
 
-.mobile-nav-wrap.active {
+  .mobile-nav-wrap.active {
     left: 0; /* Slide In */
-}
+  }
 
-/* --- Header inside Sidebar --- */
-.sidebar-logo {
+  /* --- Header inside Sidebar --- */
+  .sidebar-logo {
     padding: 15px;
     border-bottom: 1px solid #eee;
     background: #f9f9f9;
-}
+  }
 
-.close-btn-mobile {
+  .close-btn-mobile {
     width: 37px;
     height: 37px;
     border-radius: 50%;
@@ -1137,26 +1109,26 @@ label {
     cursor: pointer;
     transition: 0.3s;
     background: #fff;
-}
-.close-btn-mobile:hover {
+  }
+  .close-btn-mobile:hover {
     background: var(--theme-color2);
     color: #fff;
     transform: rotate(360deg);
     border-color: var(--theme-color2);
-}
+  }
 
-/* --- Mobile Menu Links --- */
-.mobile-menu-list {
+  /* --- Mobile Menu Links --- */
+  .mobile-menu-list {
     padding: 10px 0;
     list-style: none;
     margin: 0;
-}
+  }
 
-.mobile-menu-item {
+  .mobile-menu-item {
     border-bottom: 1px solid #f5f5f5;
-}
+  }
 
-.mobile-nav-link {
+  .mobile-nav-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1166,33 +1138,34 @@ label {
     text-decoration: none;
     cursor: pointer;
     transition: 0.3s;
-}
+  }
 
-.mobile-nav-link:hover, .mobile-nav-link.active-menu {
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active-menu {
     color: var(--theme-color2); /* Theme Color */
     background: #fafafa;
-}
+  }
 
-/* --- Dropdown Animation --- */
-.dropdown-arrow {
+  /* --- Dropdown Animation --- */
+  .dropdown-arrow {
     font-size: 12px;
     transition: transform 0.3s ease;
-}
+  }
 
-.mobile-nav-link.active-menu .dropdown-arrow {
+  .mobile-nav-link.active-menu .dropdown-arrow {
     transform: rotate(90deg);
-}
+  }
 
-.mobile-sub-menu {
+  .mobile-sub-menu {
     list-style: none;
     padding: 0;
     margin: 0;
     background: #fdfdfd;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
-}
+  }
 
-.mobile-sub-item a {
+  .mobile-sub-item a {
     display: block;
     padding: 12px 20px 12px 40px;
     color: #444;
@@ -1200,12 +1173,12 @@ label {
     font-size: 14px;
     text-decoration: none;
     border-top: 1px solid #f0f0f0;
-}
+  }
 
-.mobile-sub-item a:hover {
+  .mobile-sub-item a:hover {
     color: var(--theme-color2);
     padding-left: 45px; /* Slide effect */
-}
+  }
 }
 /*====================
 12. Navbar css
@@ -1213,12 +1186,12 @@ label {
 
 .navbar {
   background: var(--main-header-bg);
-  padding-top: 0px!important;
-  padding-bottom: 0px!important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
   z-index: 999;
 }
 
-.custom-nav{
+.custom-nav {
   background: var(--color-white);
   position: relative;
 }
@@ -1228,7 +1201,6 @@ label {
   box-shadow: var(--box-shadow2);
   animation: slide-down 0.7s;
 }
-
 
 @keyframes slide-down {
   0% {
@@ -1279,7 +1251,7 @@ label {
   display: inline-block;
   margin-left: 5px;
   vertical-align: baseline;
-  font-family: 'Font Awesome 6 Pro';
+  font-family: "Font Awesome 6 Pro";
   content: "\f107";
   font-weight: 600;
   border: none;
@@ -1287,9 +1259,9 @@ label {
 }
 
 @media screen and (max-width: 991px) {
-  .navbar{
-    padding-top: 0px!important;
-    padding-bottom: 0px!important;
+  .navbar {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
   }
 }
 @media all and (max-width: 1199px) {
@@ -1314,7 +1286,7 @@ label {
     padding: 30px 0 30px 0; */
     font-size: 17px;
     font-weight: 600;
-    color:  var(--color-dark);
+    color: var(--color-dark);
     text-transform: capitalize;
   }
 
@@ -1326,7 +1298,7 @@ label {
     display: block;
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
     margin-top: 0;
     border: none;
     left: -15px;
@@ -1350,12 +1322,12 @@ label {
     font-size: 16px;
     padding: 8px 25px;
     font-weight: 500;
-    color:  var(--color-white);
+    color: var(--color-white);
     position: relative;
     overflow: hidden;
     text-transform: capitalize;
-    transition: all .3s ease-in-out;
-    background: transparent!important;
+    transition: all 0.3s ease-in-out;
+    background: transparent !important;
   }
 
   .navbar .nav-item .dropdown-menu .dropdown-item:hover {
@@ -1391,7 +1363,7 @@ label {
   }
 
   .navbar .nav-item:hover .dropdown-menu {
-    transition: .3s;
+    transition: 0.3s;
     opacity: 1;
     visibility: visible;
     top: 100%;
@@ -1430,7 +1402,7 @@ label {
   .nav-right-link {
     position: relative;
     font-size: 20px;
-    color:  var(--color-dark);
+    color: var(--color-dark);
     transition: var(--transition);
   }
 
@@ -1459,7 +1431,7 @@ label {
     margin-right: 15px;
   }
 
-  .nav-right .cart-btn span{
+  .nav-right .cart-btn span {
     position: absolute;
     right: -9px;
     top: -2px;
@@ -1472,9 +1444,7 @@ label {
     background: var(--theme-color);
     color: var(--color-white);
   }
-
 }
-
 
 /* mobile menu */
 .mobile-menu-right {
@@ -1509,7 +1479,7 @@ label {
   }
 
   .navbar .nav-item .nav-link {
-    color:  var(--color-dark);
+    color: var(--color-dark);
     font-weight: 700;
     transition: var(--transition);
   }
@@ -1536,17 +1506,17 @@ label {
     color: var(--color-dark);
   }
 
-  .mobile-menu-right .nav-right-link:hover{
+  .mobile-menu-right .nav-right-link:hover {
     color: var(--theme-color);
   }
 
-  .search-area.open{
+  .search-area.open {
     top: 50px !important;
   }
 
   .navbar-toggler-mobile-icon {
     font-size: 25px;
-    color:  var(--color-dark);
+    color: var(--color-dark);
     font-weight: 500;
   }
 
@@ -1557,72 +1527,67 @@ label {
   .nav-right {
     display: none;
   }
-
 }
-
 
 /*============================
 13. Mega menu
 ==============================*/
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
   .nav-item.mega-menu {
     position: static;
   }
-  
-  .navbar .nav-item.mega-menu .dropdown-menu{
+
+  .navbar .nav-item.mega-menu .dropdown-menu {
     width: 98%;
     left: 12px;
-  } 
+  }
 
-  .mega-menu .mega-content{
+  .mega-menu .mega-content {
     padding: 30px;
   }
 
-  .mega-menu .mega-content h5{
+  .mega-menu .mega-content h5 {
     color: var(--theme-color2);
     font-size: 22px;
     margin-bottom: 20px;
   }
 
-  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item{
+  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item {
     padding-left: 0;
   }
 
-  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item::before{
+  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item::before {
     left: 0;
   }
 
-  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item:hover{
+  .navbar .nav-item.mega-menu .dropdown-menu .dropdown-item:hover {
     padding-left: 15px;
   }
 
-  .menu-about-logo{
+  .menu-about-logo {
     margin-top: 15px;
     margin-bottom: 15px;
   }
 
-  .menu-about-logo img{
+  .menu-about-logo img {
     width: 180px;
   }
 
-  .menu-about p{
+  .menu-about p {
     color: var(--color-white);
   }
 }
 
-
-@media (max-width: 991px){
-  .menu-about-logo{
+@media (max-width: 991px) {
+  .menu-about-logo {
     display: none;
   }
 
-  .mega-menu .mega-content h5{
+  .mega-menu .mega-content h5 {
     margin: 15px 0;
   }
 }
-
-
 
 /*============================
 14. Multi level dropdown menu
@@ -1681,8 +1646,6 @@ label {
   }
 }
 
-
-
 /*====================
 15. Search popup css 
 ======================*/
@@ -1696,9 +1659,9 @@ label {
   z-index: 99999;
   margin-top: -540px;
   transform: translateY(-100%);
-  background-color: rgba(0, 0, 0, .8);
-  transition: all 1500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-  transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 1500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 .sidenav-bar-visible .search-popup {
@@ -1733,7 +1696,7 @@ label {
   visibility: hidden;
 }
 
-.search-popup .close-search:hover{
+.search-popup .close-search:hover {
   background: var(--theme-color);
 }
 
@@ -1767,7 +1730,7 @@ label {
   overflow: hidden;
 }
 
-.search-popup .form-group input[type="text"], 
+.search-popup .form-group input[type="text"],
 .search-popup .form-group input[type="search"] {
   position: relative;
   width: 100%;
@@ -1802,8 +1765,6 @@ label {
   color: var(--color-white);
 }
 
-
-
 /*====================
 16. Main section css 
 ======================*/
@@ -1811,8 +1772,6 @@ label {
 .main {
   margin-top: 0rem;
 }
-
-
 
 /*====================
 17. Hero css 
@@ -1842,7 +1801,7 @@ label {
   height: 100%;
   left: -0.5px;
   top: 0;
-  background: rgba(11, 28, 57, .7);
+  background: rgba(11, 28, 57, 0.7);
   z-index: -1;
 }
 
@@ -1858,7 +1817,7 @@ label {
   text-transform: capitalize;
 }
 
-.hero-single .hero-content .hero-title span{
+.hero-single .hero-content .hero-title span {
   color: var(--theme-color2);
 }
 
@@ -1888,7 +1847,7 @@ label {
   justify-content: start;
 }
 
-.hero-single .hero-img::before{
+.hero-single .hero-img::before {
   content: "";
   position: absolute;
   width: 500px;
@@ -1901,7 +1860,7 @@ label {
   z-index: -1;
 }
 
-.hero-single .hero-img{
+.hero-single .hero-img {
   position: absolute;
   right: 100px;
   bottom: 120px;
@@ -1913,7 +1872,7 @@ label {
   margin-top: 0px;
 }
 
-.hero-slider.owl-theme .owl-nav [class*=owl-] {
+.hero-slider.owl-theme .owl-nav [class*="owl-"] {
   color: var(--color-white);
   font-size: 25px;
   margin: 0;
@@ -1929,7 +1888,7 @@ label {
   transition: var(--transition);
 }
 
-.hero-slider.owl-theme .owl-nav [class*=owl-]:hover {
+.hero-slider.owl-theme .owl-nav [class*="owl-"]:hover {
   background: var(--color-white);
   color: var(--theme-color);
 }
@@ -1950,7 +1909,6 @@ label {
 }
 
 @media all and (max-width: 1199px) {
-
   .hero-single .hero-content .hero-title {
     font-size: 37px;
   }
@@ -1969,11 +1927,9 @@ label {
   .hero-slider.owl-theme .owl-nav .owl-next {
     right: 40px;
   }
-
 }
 
 @media all and (max-width: 991px) {
-
   .hero-single .hero-content .hero-title {
     font-size: 50px;
   }
@@ -1986,15 +1942,13 @@ label {
     margin-top: 50px;
   }
 
-  .hero-single .hero-img::before{
+  .hero-single .hero-img::before {
     width: 250px;
     height: 250px;
   }
-
 }
 
 @media all and (max-width: 767px) {
-
   .hero-single .hero-content .hero-sub-title {
     font-size: 18px;
   }
@@ -2002,22 +1956,17 @@ label {
   .hero-single .hero-content .hero-btn {
     gap: 1rem;
   }
-
 }
-@media  (max-width: 380px) {
-  .hero-single .hero-content .hero-btn  {
+@media (max-width: 380px) {
+  .hero-single .hero-content .hero-btn {
     flex-wrap: wrap;
   }
-
 }
-
-
 
 .hero-content > * {
   opacity: 0;
   transform: translateY(30px);
 }
-
 
 .owl-item.active .hero-content.animate > * {
   opacity: 1;
@@ -2093,41 +2042,39 @@ label {
   }
 }
 
-
-
 /*====================
 19. About css 
 ======================*/
 
-.about-area{
+.about-area {
   position: relative;
 }
 
-.about-left{
+.about-left {
   margin-right: 20px;
 }
 
-.about-img{
+.about-img {
   display: flex;
   gap: 30px;
   position: relative;
 }
 
-.about-img .img-1{
+.about-img .img-1 {
   border-radius: 80px 80px 0 80px;
 }
 
-.about-img .img-2{
+.about-img .img-2 {
   border-radius: 50%;
   border: 2px dashed var(--theme-color2);
   padding: 8px;
 }
 
-.about-img .img-3{
+.about-img .img-3 {
   border-radius: 0 80px 80px 80px;
 }
 
-.about-experience{
+.about-experience {
   display: flex;
   align-items: center;
   text-align: center;
@@ -2138,7 +2085,7 @@ label {
   box-shadow: 0 0 40px 5px rgb(0 0 0 / 10%);
 }
 
-.about-experience-icon{
+.about-experience-icon {
   color: var(--theme-color);
   font-size: 65px;
   width: 90px;
@@ -2151,7 +2098,7 @@ label {
   margin-bottom: 5px;
 }
 
-.about-experience-icon img{
+.about-experience-icon img {
   width: 65px;
 }
 
@@ -2186,7 +2133,7 @@ label {
   box-shadow: -5px 5px 0 var(--theme-color-light);
 }
 
-.about-item-icon img{
+.about-item-icon img {
   width: 45px;
   filter: brightness(0) invert(1);
 }
@@ -2201,7 +2148,7 @@ label {
   color: var(--color-dark);
 }
 
-.about-quote{
+.about-quote {
   position: relative;
   color: var(--color-dark);
   padding: 20px 22px;
@@ -2209,7 +2156,7 @@ label {
   border-radius: 20px;
 }
 
-.about-quote i{
+.about-quote i {
   position: absolute;
   font-size: 45px;
   color: var(--theme-color);
@@ -2217,20 +2164,20 @@ label {
   bottom: -15px;
 }
 
-.about-bottom{
+.about-bottom {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
   margin-top: 30px;
 }
 
-.about-phone{
+.about-phone {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.about-phone .icon{
+.about-phone .icon {
   width: 48px;
   height: 48px;
   line-height: 48px;
@@ -2242,24 +2189,23 @@ label {
   box-shadow: -5px 5px 0 var(--theme-color-light);
 }
 
-.about-phone .number{
+.about-phone .number {
   line-height: 1;
 }
 
-.about-phone .number span{
+.about-phone .number span {
   color: var(--theme-color2);
   font-weight: 500;
 }
 
-.about-phone .number h6{
+.about-phone .number h6 {
   font-size: 20px;
   margin-top: 8px;
 }
 
-.about-phone .number h6 a{
+.about-phone .number h6 a {
   color: var(--theme-color);
 }
-
 
 @media all and (max-width: 991px) {
   .about-right {
@@ -2273,17 +2219,96 @@ label {
   }
 }
 
+/*====================
+Misson And Vision css 
+======================*/
 
+
+
+/* Section Styling */
+.mv-section {
+  background-color: #e0934017;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+/* Tagline Styling */
+.tagline {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--theme-color2);
+  display: inline-block;
+  margin-bottom: 10px;
+  background: rgba(13, 110, 253, 0.1);
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+
+/* Card Design */
+.mv-card {
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 40px 30px;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+/* Icon Circle Design */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--theme-color2), var(--theme-color));
+  color: white;
+  border-radius: 50px 50px 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  transition: transform 0.4s ease;
+}
+
+.mv-card:hover .icon-box {
+  transform: rotateY(180deg);
+}
+
+/* Typography */
+.mv-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.mv-text {
+  color: var(--secondary-color);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Decorative Background element behind title */
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+}
 
 /*====================
 20. Course css 
 ======================*/
 
-.course-area{
+.course-area {
   position: relative;
 }
 
-.course-item{
+.course-item {
   position: relative;
   background: var(--card-bg);
   padding: 20px;
@@ -2292,7 +2317,7 @@ label {
   box-shadow: var(--box-shadow);
 }
 
-.course-tag{
+.course-tag {
   position: absolute;
   right: -15px;
   top: 15px;
@@ -2306,11 +2331,11 @@ label {
   z-index: 1;
 }
 
-.course-img{
+.course-img {
   position: relative;
 }
 
-.course-img img{
+.course-img img {
   border-radius: 40px 40px 40px 0;
 }
 
@@ -2328,73 +2353,72 @@ label {
   transition: var(--transition);
 }
 
-.course-item:hover .course-img::before{
-	opacity: 0.5;
-	visibility: visible;
+.course-item:hover .course-img::before {
+  opacity: 0.5;
+  visibility: visible;
 }
 
 .course-img a {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
-	border-radius: 100%;
-	line-height: 50px;
-	padding: 0;
-	margin: -25px 0 0 -25px;
-	color: var(--color-white);
-	background: var(--theme-color2);
-	transform: scale(3);
-	opacity: 0;
-	visibility: hidden;
-	transition: var(--transition);
-	z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 100%;
+  line-height: 50px;
+  padding: 0;
+  margin: -25px 0 0 -25px;
+  color: var(--color-white);
+  background: var(--theme-color2);
+  transform: scale(3);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 1;
 }
 
-.course-item:hover .course-img a{
-	transform: scale(1);
-	opacity: 1;
-	visibility: visible;
+.course-item:hover .course-img a {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
 }
 
-.course-item:hover .course-img a:hover{
-	background: var(--color-white);
-	color: var(--theme-color2);
+.course-item:hover .course-img a:hover {
+  background: var(--color-white);
+  color: var(--theme-color2);
 }
 
-.course-meta{
+.course-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 15px 0;
 }
 
-.course-meta-left{
+.course-meta-left {
   font-weight: 500;
 }
 
-.course-meta-left i{
+.course-meta-left i {
   color: var(--theme-color2);
 }
 
-.course-rating{
+.course-rating {
   color: var(--theme-color2);
   font-weight: 500;
 }
 
-.course-title{
+.course-title {
   margin-bottom: 10px;
   color: var(--color-dark);
 }
-
 
 /* .course-title:hover{
   color: var(--theme-color2);
 } */
 
-.course-bottom{
+.course-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2404,17 +2428,17 @@ label {
   border-top: 1px solid var(--border-info-color);
 }
 
-.course-bottom-left span{
+.course-bottom-left span {
   margin-right: 10px;
   font-weight: 500;
 }
 
-.course-bottom-left i{
+.course-bottom-left i {
   color: var(--theme-color2);
   margin-right: 8px;
 }
 
-.course-price{
+.course-price {
   display: inline-block;
   background: var(--theme-color2);
   color: var(--color-white);
@@ -2423,26 +2447,26 @@ label {
   font-weight: 500;
 }
 
-.course-sidebar .form-select{
+.course-sidebar .form-select {
   padding: 12px 15px;
   box-shadow: none;
   border-radius: 8px;
 }
 
-.course-sidebar .form-select:focus{
+.course-sidebar .form-select:focus {
   border-color: var(--theme-color);
 }
 
-.course-sidebar .form-check-input{
+.course-sidebar .form-check-input {
   margin-top: 7.5px;
   box-shadow: none;
 }
 
-.course-sidebar .form-check-input:focus{
+.course-sidebar .form-check-input:focus {
   border-color: var(--theme-color);
 }
 
-.course-sidebar .form-check-label{
+.course-sidebar .form-check-label {
   color: var(--color-dark);
 }
 
@@ -2452,68 +2476,65 @@ label {
   }
 }
 
-
-
-
 /*====================
 21. Course single css 
 ======================*/
 
-.course-details-img{
+.course-details-img {
   position: relative;
 }
 
-.course-details-img .play-btn{
+.course-details-img .play-btn {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.course-details img{
+.course-details img {
   border-radius: 20px;
 }
 
-.course-single-info .single-info{
+.course-single-info .single-info {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.course-single-info .author img{
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
+.course-single-info .author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
 
-.course-single-info .single-info i{
-	width: 50px;
-	height: 50px;
-	line-height: 45px;
-	border-radius: 100%;
-	font-size: 29px;
-	color: var(--theme-color2);
-	border: 2px solid var(--theme-color2);
-	font-size: 20px;
+.course-single-info .single-info i {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  border-radius: 100%;
+  font-size: 29px;
+  color: var(--theme-color2);
+  border: 2px solid var(--theme-color2);
+  font-size: 20px;
   text-align: center;
 }
 
-.course-single-info .single-info-content{
+.course-single-info .single-info-content {
   margin-top: 5px;
 }
 
-.course-single-info .single-info h4{
-	font-size: 16px;
-	text-transform: uppercase;
+.course-single-info .single-info h4 {
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-.course-single-list i{
+.course-single-list i {
   color: var(--theme-color2);
   margin-right: 12px;
 }
 
-.course-feature-list a{
+.course-feature-list a {
   display: block;
   padding: 10px 0;
   font-weight: 500;
@@ -2521,30 +2542,28 @@ label {
   border-bottom: 1px solid var(--border-info-color);
 }
 
-.course-feature-list a:last-child{
+.course-feature-list a:last-child {
   border-bottom: none;
 }
 
-.course-feature-list a span{
+.course-feature-list a span {
   float: right;
 }
 
-.course-feature-list a i{
+.course-feature-list a i {
   color: var(--theme-color2);
   width: 24px;
 }
 
-.course-single-sidebar .theme-btn{
+.course-single-sidebar .theme-btn {
   width: 100%;
   margin-top: 30px;
 }
 
-.course-single-sidebar .theme-btn::before{
+.course-single-sidebar .theme-btn::before {
   width: 350px;
   height: 350px;
 }
-
-
 
 /*====================
 22. Feature css 
@@ -2555,7 +2574,7 @@ label {
   z-index: 1;
 }
 
-.fa-negative{
+.fa-negative {
   margin-top: -150px;
   margin-right: 20px;
 }
@@ -2569,7 +2588,7 @@ label {
   z-index: 1;
 }
 
-.feature-item .count{
+.feature-item .count {
   position: absolute;
   right: 30px;
   top: 0px;
@@ -2598,12 +2617,12 @@ label {
   transform: rotateY(360deg);
 }
 
-.feature-icon img{
+.feature-icon img {
   width: 48px;
   filter: brightness(0) invert(1);
 }
 
-.feature-content{
+.feature-content {
   flex: 1;
 }
 
@@ -2614,7 +2633,7 @@ label {
   margin-bottom: 10px;
 }
 
-.feature-content p{
+.feature-content p {
   color: var(--color-dark);
 }
 
@@ -2624,19 +2643,16 @@ label {
     margin-left: 20px;
   }
 
-  .feature-item.active::before{
+  .feature-item.active::before {
     transform: scale(1);
   }
 }
-
-
-
 
 /* ========================
 23. Portfolio css 
 =========================== */
 
-.portfolio-area{
+.portfolio-area {
   position: relative;
 }
 
@@ -2677,7 +2693,7 @@ label {
   transition: 0.3s;
 }
 
-.portfolio-item:hover .portfolio-info{
+.portfolio-item:hover .portfolio-info {
   bottom: 30px;
 }
 
@@ -2709,12 +2725,10 @@ label {
   border-radius: 50px;
 }
 
-.portfolio-btn:hover{
+.portfolio-btn:hover {
   background: var(--theme-color2);
   color: var(--color-white);
 }
-
-
 
 /* ======================
 24. Portfolio single
@@ -2760,7 +2774,7 @@ label {
   font-size: 28px;
 }
 
-.new-portfolio .theme-btn::before{
+.new-portfolio .theme-btn::before {
   background: var(--color-dark);
 }
 
@@ -2773,12 +2787,9 @@ label {
   font-weight: 700;
 }
 
-.portfolio-details img{
+.portfolio-details img {
   border-radius: 20px;
 }
-
-
-
 
 /* ========================
 25. Gallery css 
@@ -2825,7 +2836,7 @@ label {
 
 .gallery-content:hover::before {
   opacity: 0.9;
-  visibility: visible
+  visibility: visible;
 }
 
 .gallery-link {
@@ -2858,7 +2869,6 @@ label {
   transform: translate(-50%, -50%) scale(1);
 }
 
-
 .gallery-link {
   background: none;
   border: none;
@@ -2890,186 +2900,191 @@ label {
   cursor: pointer;
 }
 
-
-
-
 /* Gallery Card section css  */
-
 
 /* =========================
    Gallery Card Design 
    ========================= */
 .gallery-card {
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
-    background: #fff;
-    border-radius: 50px 50px 50px 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  background: #fff;
+  border-radius: 50px 50px 50px 0;
 }
 
 .gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Image Wrapper to ensure equal size */
 .gallery-img-wrapper {
-    position: relative;
-    width: 100%;
-    height: 320px; /* Fixed height for all images */
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 320px; /* Fixed height for all images */
+  overflow: hidden;
 }
 
 .gallery-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50px 50px 50px 0;
-    object-fit: cover; /* Ensures image fills the box without stretching */
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px 50px 50px 0;
+  object-fit: cover; /* Ensures image fills the box without stretching */
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
 }
 
 /* Zoom Effect on Hover */
 .gallery-card:hover .gallery-img-wrapper img {
-    transform: scale(1.1);
-    border-radius: 50px 50px 50px 0;
-
+  transform: scale(1.1);
+  border-radius: 50px 50px 50px 0;
 }
 
 /* =========================
    Overlay Animation 
    ========================= */
 .gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark tint */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(2px); /* Slight blur behind overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark tint */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(2px); /* Slight blur behind overlay */
 }
 
 .gallery-card:hover .gallery-overlay {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Plus Button Design */
 .view-btn {
-    width: 60px;
-    height: 60px;
-    background: #fff;
-    color: var(--theme-color, #ff5e14); /* Use your theme color variable */
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    transform: scale(0) rotate(-180deg);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  color: var(--theme-color, #ff5e14); /* Use your theme color variable */
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transform: scale(0) rotate(-180deg);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .gallery-card:hover .view-btn {
-    transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .view-btn:hover {
-    background: var(--theme-color, #ff5e14);
-    color: #fff;
+  background: var(--theme-color, #ff5e14);
+  color: #fff;
 }
 
 /* =========================
    Lightbox Modal (Popup)
    ========================= */
 .lightbox-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px); /* Glassmorphism effect */
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s ease;
-    padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px); /* Glassmorphism effect */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
 }
 
 .lightbox-content {
-    position: relative;
-    max-width: 900px;
-    width: 100%;
-    animation: zoomIn 0.3s ease;
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  animation: zoomIn 0.3s ease;
 }
 
 .lightbox-content img {
-    width: 100%;
-    height: auto;
-    max-height: 85vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    background: #fff; /* Fallback */
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: #fff; /* Fallback */
 }
 
 .close-btn {
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
-    transition: transform 0.3s;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .close-btn:hover {
-    transform: rotate(90deg) scale(1.1);
-    color: var(--theme-color, #ff5e14);
+  transform: rotate(90deg) scale(1.1);
+  color: var(--theme-color, #ff5e14);
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-    .gallery-img-wrapper {
-        height: 250px;
-    }
+  .gallery-img-wrapper {
+    height: 250px;
+  }
 }
 
 /*====================
 26. Choose css 
 ======================*/
 
-.choose-area{
+.choose-area {
   position: relative;
   background: var(--footer-bg);
   z-index: 1;
 }
 
-.choose-area::before{
+.choose-area::before {
   content: "";
   position: absolute;
   left: 0;
@@ -3084,7 +3099,7 @@ label {
   z-index: -1;
 }
 
-.choose-content-wrap{
+.choose-content-wrap {
   margin-top: 30px;
 }
 
@@ -3093,7 +3108,7 @@ label {
   margin-left: 50px;
 }
 
-.choose-img::before{
+.choose-img::before {
   content: "";
   position: absolute;
   left: -15px;
@@ -3104,11 +3119,11 @@ label {
   border-radius: 30% 0 30% 30%;
 }
 
-.choose-img img{
+.choose-img img {
   border-radius: 30% 0 30% 30%;
 }
 
-.choose-item{
+.choose-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -3119,7 +3134,7 @@ label {
   overflow: hidden;
 }
 
-.choose-item-icon{
+.choose-item-icon {
   width: 80px;
   height: 80px;
   line-height: 75px;
@@ -3130,27 +3145,27 @@ label {
   margin-left: -12px;
 }
 
-.choose-item-icon i{
+.choose-item-icon i {
   color: var(--theme-color);
   font-size: 50px;
 }
 
-.choose-item-icon img{
+.choose-item-icon img {
   width: 45px;
   filter: brightness(0) invert(1);
 }
 
-.choose-item-info{
+.choose-item-info {
   flex: 1;
 }
 
-.choose-item-info h4{
+.choose-item-info h4 {
   color: var(--color-dark);
   margin-bottom: 10px;
   font-size: 21px;
 }
 
-.choose-video-wrap{
+.choose-video-wrap {
   height: 100%;
   width: 100%;
   display: flex;
@@ -3159,28 +3174,26 @@ label {
 }
 
 @media all and (max-width: 991px) {
-  .choose-content-info{
+  .choose-content-info {
     margin-right: 100px;
   }
 
-  .choose-video-wrap{
+  .choose-video-wrap {
     padding-top: 210px;
   }
 
-  .choose-img{
+  .choose-img {
     margin-top: 50px;
     margin-left: 10px;
   }
 }
 
 @media all and (max-width: 767px) {
-  .choose-content-info{
+  .choose-content-info {
     margin-right: 0px;
     /* margin-right: 40px; */
   }
 }
-
-
 
 /*====================
 27. Testimonial css 
@@ -3190,26 +3203,27 @@ label {
   position: relative;
 }
 
-.ts-bg{
-  background-image: url(../img/testimonial/bg.jpg);
+.ts-bg {
+  background-image: url(assets/img/testimonial/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-.ts-bg::before{
+.ts-bg::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(1, 39, 88, .85);
+  background: var(--theme-color);
+  opacity: 0.9;
 }
 
 .testimonial-item {
-  background: var(--color-white);
+  background: var(--card-bg);
   border-radius: 40px 40px 40px 0;
   padding: 25px 25px;
   margin: 6px;
@@ -3217,7 +3231,7 @@ label {
   border-bottom: 5px solid var(--theme-color2);
 }
 
-.testimonial-content{
+.testimonial-content {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -3230,7 +3244,7 @@ label {
   font-weight: 500;
 }
 
-.testimonial-author-info{
+.testimonial-author-info {
   margin: 15px 0 10px 0;
 }
 
@@ -3247,7 +3261,7 @@ label {
 
 .testimonial-author-info h4 {
   font-size: 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   margin-bottom: 2px;
 }
 
@@ -3294,13 +3308,10 @@ label {
   margin-bottom: 15px;
 }
 
-.testimonial-area2.ts-bg{
+.testimonial-area2.ts-bg {
   padding-top: 120px;
   background-attachment: fixed;
 }
-
-
-
 
 /*====================
 28. Counter css 
@@ -3316,7 +3327,7 @@ label {
   z-index: 1;
 }
 
-.counter-area::before{
+.counter-area::before {
   content: "";
   position: absolute;
   background: var(--theme-color);
@@ -3324,7 +3335,7 @@ label {
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: .7;
+  opacity: 0.7;
   z-index: -1;
 }
 
@@ -3347,16 +3358,16 @@ label {
   height: 100px;
   line-height: 88px;
   color: var(--color-white);
-  background:  var(--theme-color2);
+  background: var(--theme-color2);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
 
-.counter-box .icon img{
+.counter-box .icon img {
   width: 60px;
   filter: brightness(0) invert(1);
 }
 
-.counter-box .icon::before{
+.counter-box .icon::before {
   content: "";
   position: absolute;
   left: 10px;
@@ -3370,7 +3381,7 @@ label {
   z-index: -1;
 }
 
-.counter-box:hover .icon::before{
+.counter-box:hover .icon::before {
   left: 0;
   top: 0;
 }
@@ -3397,14 +3408,11 @@ label {
   }
 }
 
-
-
-
 /*====================
 29. Cta css 
 ======================*/
 
-.cta-area{
+.cta-area {
   position: relative;
   background-image: url(../img/cta/01.jpg);
   background-repeat: no-repeat;
@@ -3412,14 +3420,14 @@ label {
   background-size: cover;
 }
 
-.cta-content{
+.cta-content {
   position: relative;
   padding: 80px 40px;
   margin-top: -40px;
   z-index: 1;
 }
 
-.cta-content::before{
+.cta-content::before {
   content: "";
   position: absolute;
   left: 0;
@@ -3431,7 +3439,7 @@ label {
   z-index: -1;
 }
 
-.cta-content::after{
+.cta-content::after {
   content: "";
   position: absolute;
   left: 8px;
@@ -3443,34 +3451,32 @@ label {
   z-index: -1;
 }
 
-.cta-content h1{
+.cta-content h1 {
   color: var(--color-white);
   font-size: 45px;
 }
 
-.cta-content p{
+.cta-content p {
   color: var(--color-white);
   margin-top: 15px;
   margin-bottom: 30px;
   font-size: 18px;
 }
 
-.cta-btn .theme-btn{
+.cta-btn .theme-btn {
   background: var(--color-white);
   color: var(--color-dark);
 }
 
-.cta-btn .theme-btn:hover{
+.cta-btn .theme-btn:hover {
   color: var(--color-white);
 }
-
-
 
 /* ===================
 30. Event css 
 ====================== */
 
-.event-item{
+.event-item {
   position: relative;
   background: var(--color-white);
   border-radius: 50px 50px 50px 0;
@@ -3479,57 +3485,57 @@ label {
   box-shadow: var(--box-shadow);
 }
 
-.event-location{
+.event-location {
   margin-bottom: 12px;
 }
 
-.event-location i{
+.event-location i {
   color: var(--theme-color2);
 }
 
-.event-img{
+.event-img {
   position: relative;
   overflow: hidden;
   border-radius: 40px 40px 40px 0;
 }
 
-.event-img img{
+.event-img img {
   border-radius: 40px 40px 40px 0;
   box-shadow: var(--box-shadow);
 }
 
-.event-item:hover .event-img img{
+.event-item:hover .event-img img {
   transform: scale(1.1);
-} 
+}
 
-.event-meta{
+.event-meta {
   display: flex;
   gap: 15px;
   margin: 14px 0;
 }
 
-.event-meta i{
+.event-meta i {
   color: var(--theme-color2);
   margin-right: 5px;
 }
 
-.event-title{
+.event-title {
   margin-bottom: 10px;
 }
 
-.event-title:hover{
+.event-title:hover {
   color: var(--theme-color2);
 }
 
-.event-btn{
+.event-btn {
   margin-top: 20px;
 }
 
-.event-btn .theme-btn{
+.event-btn .theme-btn {
   padding: 11px 15px;
 }
 
-.event-slider .event-item{
+.event-slider .event-item {
   box-shadow: none;
   margin-bottom: 0;
 }
@@ -3555,94 +3561,92 @@ label {
 }
 
 .event-slider .owl-nav {
-	width: 100%;
-	opacity: 0;
-	visibility: hidden;
-	transition: var(--transition);
-	margin: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  margin: 0;
 }
 
-.event-slider:hover .owl-nav{
-	display: block;
-	opacity:1;
-	visibility:visible;
+.event-slider:hover .owl-nav {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .event-slider .owl-nav button {
-	height: 48px;
-	width: 48px;
-	line-height: 45px !important;
-	top: 50%;
-	background: var(--theme-color2) !important;
-	color: var(--color-white) !important;
-	font-size: 25px !important;
-	position: absolute;
-	border: none;
-	margin: 0;
-	padding: 0;
-	transition: var(--transition);
-	border-radius: 100%;
-	margin-top: -24px;
+  height: 48px;
+  width: 48px;
+  line-height: 45px !important;
+  top: 50%;
+  background: var(--theme-color2) !important;
+  color: var(--color-white) !important;
+  font-size: 25px !important;
+  position: absolute;
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+  border-radius: 100%;
+  margin-top: -24px;
 }
 
-.event-slider .owl-nav button:hover{
-	background: var(--theme-color) !important;
+.event-slider .owl-nav button:hover {
+  background: var(--theme-color) !important;
 }
 
-.event-slider .owl-nav .owl-prev{
-	left:-75px;
+.event-slider .owl-nav .owl-prev {
+  left: -75px;
 }
 
-.event-slider .owl-nav .owl-prev:hover{
-	left:-65px;
+.event-slider .owl-nav .owl-prev:hover {
+  left: -65px;
 }
 
-.event-slider .owl-nav .owl-next{
-	right:-75px;
+.event-slider .owl-nav .owl-next {
+  right: -75px;
 }
 
-.event-slider .owl-nav .owl-next:hover{
-	right:-65px;
+.event-slider .owl-nav .owl-next:hover {
+  right: -65px;
 }
-
-
 
 /* ===================
 31. Event single css 
 ====================== */
 
-.event-details img{
+.event-details img {
   border-radius: 20px;
 }
 
-.event-map{
+.event-map {
   margin-bottom: 20px;
 }
 
-.event-map iframe{
+.event-map iframe {
   border-radius: 20px;
   height: 400px;
   width: 100%;
 }
 
-.event-content-single{
+.event-content-single {
   margin-bottom: 20px;
 }
 
-.event-content-single h5{
+.event-content-single h5 {
   margin-bottom: 5px;
 }
 
-.event-content-single i{
+.event-content-single i {
   color: var(--theme-color2);
   margin-right: 5px;
 }
 
-.event-single-info p{
+.event-single-info p {
   margin-bottom: 20px;
 }
 
-.event-author-info{
+.event-author-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3652,21 +3656,19 @@ label {
   margin-top: 50px;
 }
 
-.event-author-info img{
+.event-author-info img {
   border-radius: 50%;
 }
 
-.event-author-info h5{
+.event-author-info h5 {
   margin-top: 5px;
 }
-
-
 
 /*====================
 32. Enroll css 
 ======================*/
 
-.enroll-area{
+.enroll-area {
   position: relative;
   background-image: url(./assets/img/enroll/01.jpg);
   background-repeat: no-repeat;
@@ -3675,76 +3677,74 @@ label {
   z-index: 1;
 }
 
-.enroll-area::before{
+.enroll-area::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   background: var(--footer-bg);
-  opacity: .8;
+  opacity: 0.8;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
-.enroll-left{
+.enroll-left {
   margin-right: 30px;
 }
 
-.enroll-form{
+.enroll-form {
   background: var(--color-white);
   border-radius: 80px 80px 80px 0;
   box-shadow: var(--box-shadow);
 }
 
-.enroll-form form{
+.enroll-form form {
   padding: 30px;
 }
 
-.enroll-form-header{
+.enroll-form-header {
   background: var(--theme-color2);
   border-radius: 50px 50px 50px 0;
   padding: 20px 30px;
 }
 
-.enroll-form-header h3{
+.enroll-form-header h3 {
   color: var(--color-white);
 }
 
-.enroll-form-header p{
+.enroll-form-header p {
   color: var(--color-white);
 }
 
 .enroll-form .form-group {
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .enroll-form .form-group .form-control {
   padding: 16px 22px;
   font-size: 16px;
   border-radius: 12px;
-  color: #6C757D;
+  color: #6c757d;
   background-color: var(--theme-bg-light);
   border: none;
-  box-shadow: none
+  box-shadow: none;
 }
 
-.enroll-form .form-group .form-select{
+.enroll-form .form-group .form-select {
   padding: 15px 22px;
   background-color: var(--theme-bg-light);
-  color: #6C757D;
+  color: #6c757d;
   border: none;
   box-shadow: none;
   border-radius: 8px;
 }
 
 @media all and (max-width: 991px) {
-  .enroll-left{
+  .enroll-left {
     margin-right: 0px;
   }
 }
-
-
 
 /* ===================
 33. Skill css 
@@ -3781,17 +3781,15 @@ label {
   background: var(--theme-color2);
 }
 
-
-
 /* ===================
 34. Department css 
 ====================== */
 
-.department-area{
+.department-area {
   position: relative;
 }
 
-.department-item{
+.department-item {
   position: relative;
   background: var(--card-bg);
   border-radius: 50px 50px 50px 0;
@@ -3799,9 +3797,9 @@ label {
   margin-bottom: 25px;
   overflow: hidden;
   box-shadow: var(--box-shadow);
-} 
+}
 
-.department-item::before{
+.department-item::before {
   content: "";
   position: absolute;
   right: -10px;
@@ -3811,53 +3809,53 @@ label {
   border-radius: 50%;
   border: 10px solid var(--theme-color2);
   transition: var(--transition);
-  opacity: .2;
+  opacity: 0.2;
 }
 
-.department-item:hover::before{
+.department-item:hover::before {
   opacity: 1;
 }
 
-.department-icon{
+.department-icon {
   margin-bottom: 20px;
 }
 
-.department-icon img{
+.department-icon img {
   width: 60px !important;
 }
 
-.department-title{
+.department-title {
   margin-bottom: 10px;
 }
-.department-title  a {
+.department-title a {
   color: var(--color-dark);
   font-size: 21px;
   font-weight: 600;
 }
-.department-title:hover{
+.department-title:hover {
   color: var(--theme-color2);
 }
 
-.department-btn{
+.department-btn {
   margin-top: 10px;
 }
 
-.department-btn a{
+.department-btn a {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-  color: var(--color-dark);;
+  color: var(--color-dark);
 }
 
-.department-btn a:hover{
+.department-btn a:hover {
   color: var(--theme-color2);
 }
 
-.department-btn a i{
+.department-btn a i {
   margin-left: 5px;
 }
 
-.department-slider .department-item{
+.department-slider .department-item {
   box-shadow: none;
   margin-bottom: 0;
 }
@@ -3883,57 +3881,55 @@ label {
 }
 
 .department-slider .owl-nav {
-	width: 100%;
-	opacity: 0;
-	visibility: hidden;
-	transition: var(--transition);
-	margin: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  margin: 0;
 }
 
-.department-slider:hover .owl-nav{
-	display: block;
-	opacity:1;
-	visibility:visible;
+.department-slider:hover .owl-nav {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .department-slider .owl-nav button {
-	height: 48px;
-	width: 48px;
-	line-height: 45px !important;
-	top: 50%;
-	background: var(--theme-color2) !important;
-	color: var(--color-white) !important;
-	font-size: 25px !important;
-	position: absolute;
-	border: none;
-	margin: 0;
-	padding: 0;
-	transition: var(--transition);
-	border-radius: 100%;
-	margin-top: -54px;
+  height: 48px;
+  width: 48px;
+  line-height: 45px !important;
+  top: 50%;
+  background: var(--theme-color2) !important;
+  color: var(--color-white) !important;
+  font-size: 25px !important;
+  position: absolute;
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+  border-radius: 100%;
+  margin-top: -54px;
 }
 
-.department-slider .owl-nav button:hover{
-	background: var(--theme-color) !important;
+.department-slider .owl-nav button:hover {
+  background: var(--theme-color) !important;
 }
 
-.department-slider .owl-nav .owl-prev{
-	left:-75px;
+.department-slider .owl-nav .owl-prev {
+  left: -75px;
 }
 
-.department-slider .owl-nav .owl-prev:hover{
-	left:-65px;
+.department-slider .owl-nav .owl-prev:hover {
+  left: -65px;
 }
 
-.department-slider .owl-nav .owl-next{
-	right:-75px;
+.department-slider .owl-nav .owl-next {
+  right: -75px;
 }
 
-.department-slider .owl-nav .owl-next:hover{
-	right:-65px;
+.department-slider .owl-nav .owl-next:hover {
+  right: -65px;
 }
-
-
 
 /*==================
 35. Department single
@@ -3947,7 +3943,7 @@ label {
 .department-download a {
   border: 2px solid var(--theme-color2);
   padding: 12px 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   display: block;
   margin-bottom: 20px;
   border-radius: 30px 30px 30px 0;
@@ -3965,35 +3961,30 @@ label {
 }
 
 .department-details h3 {
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
-.department-details img{
+.department-details img {
   border-radius: 20px;
 }
-
-
-
 
 /*====================
 36. Partner css 
 ======================*/
 
-.partner-area{
+.partner-area {
   position: relative;
 }
-
-
 
 /*====================
 37. Blog css 
 ======================*/
 
-.blog-area{
+.blog-area {
   position: relative;
 }
 
-.blog-item{
+.blog-item {
   position: relative;
   margin-bottom: 25px;
   padding: 20px 20px 15px 20px;
@@ -4003,21 +3994,21 @@ label {
   transition: var(--transition);
 }
 
-.blog-item-img{
+.blog-item-img {
   position: relative;
   overflow: hidden;
   border-radius: 30px 30px 30px 0;
 }
 
-.blog-item-img img{
+.blog-item-img img {
   border-radius: 30px 30px 30px 0;
 }
 
-.blog-item:hover .blog-item-img img{
+.blog-item:hover .blog-item-img img {
   transform: scale(1.1);
-} 
+}
 
-.blog-date{
+.blog-date {
   position: absolute;
   padding: 4px 12px 4px 12px;
   right: -10px;
@@ -4035,8 +4026,8 @@ label {
 }
 
 .blog-item-meta ul {
-  padding: 8px 0!important;
-  margin: 12px 0!important;
+  padding: 8px 0 !important;
+  margin: 12px 0 !important;
   border-bottom: 1px solid var(--border-info-color);
   padding-bottom: 14px;
 }
@@ -4048,10 +4039,9 @@ label {
   position: relative;
   color: var(--color-dark);
 }
-.blog-item-meta ul li a{
+.blog-item-meta ul li a {
   color: var(--color-dark);
   font-weight: 400;
-
 }
 .blog-item-meta ul li i {
   margin-right: 5px;
@@ -4086,14 +4076,11 @@ label {
   color: var(--theme-color2);
 }
 
-
-
-
 /*========================
 38. Blog single css
 ==========================*/
 
-.blog-single-content img{
+.blog-single-content img {
   border-radius: 20px;
 }
 
@@ -4114,7 +4101,7 @@ label {
   gap: 20px;
 }
 
-.blog-meta .blog-meta-left ul li{
+.blog-meta .blog-meta-left ul li {
   font-weight: 500;
 }
 
@@ -4134,7 +4121,7 @@ label {
 
 .blog-details-title {
   font-size: 34px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .blockqoute {
@@ -4182,7 +4169,7 @@ label {
 
 .blog-details-tags ul a {
   background: var(--theme-bg-light);
-  color:  var(--color-dark);
+  color: var(--color-dark);
   padding: 6px 18px;
   border-radius: 8px;
   transition: var(--transition);
@@ -4208,7 +4195,7 @@ label {
   width: 320px;
 }
 
-.blog-author-img img{
+.blog-author-img img {
   border-radius: 40px 40px 40px 0;
 }
 
@@ -4320,8 +4307,6 @@ label {
   border-color: var(--theme-color2);
 }
 
-
-
 @media all and (max-width: 767px) {
   .blog-meta {
     flex-direction: column;
@@ -4343,7 +4328,7 @@ label {
     padding: 25px;
   }
 
-  .author-info{
+  .author-info {
     margin-top: 25px;
   }
 
@@ -4356,7 +4341,7 @@ label {
     border-radius: 10px;
   }
 
-  .blog-comments-single img{
+  .blog-comments-single img {
     margin: 0 auto 20px auto;
   }
 
@@ -4364,8 +4349,6 @@ label {
     margin-left: 0px;
   }
 }
-
-
 
 /*=======================
 39. Widget sidebar css
@@ -4383,12 +4366,12 @@ label {
   margin-bottom: 30px;
   position: relative;
   font-size: 22px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .widget .widget-title::before {
   position: absolute;
-  content: '';
+  content: "";
   width: 15px;
   border-bottom: 3px solid var(--theme-color2);
   bottom: 0;
@@ -4397,7 +4380,7 @@ label {
 
 .widget .widget-title::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 30px;
   border-bottom: 3px solid var(--theme-color2);
   bottom: 0;
@@ -4488,7 +4471,7 @@ label {
 .widget .recent-post-bio span i {
   margin-right: 5px;
 }
-.widget .recent-post-bio h6 a{
+.widget .recent-post-bio h6 a {
   color: var(--color-dark);
 }
 .widget .recent-post-bio h6 a:hover {
@@ -4514,7 +4497,7 @@ label {
 
 .widget .tag-list a {
   background: var(--color-white);
-  color:  var(--color-dark);
+  color: var(--color-dark);
   padding: 5px 15px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -4528,8 +4511,6 @@ label {
   color: var(--color-white);
 }
 
-
-
 /*===================
 40. Contact us css 
 =====================*/
@@ -4542,12 +4523,12 @@ label {
   z-index: 1;
 }
 
-.contact-img{
+.contact-img {
   position: relative;
   padding-left: 20px;
 }
 
-.contact-img::before{
+.contact-img::before {
   content: "";
   position: absolute;
   left: 0;
@@ -4560,12 +4541,12 @@ label {
   z-index: -1;
 }
 
-.contact-img img{
+.contact-img img {
   width: 100%;
   clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 50%, 10% 0);
 }
 
-.contact-form{
+.contact-form {
   padding: 25px;
 }
 
@@ -4577,7 +4558,7 @@ label {
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 10px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .contact-form .form-group {
@@ -4618,12 +4599,12 @@ label {
   position: relative;
   margin-bottom: 25px;
   border-radius: 50px 50px 50px 0;
-  background:var(--card-bg);
+  background: var(--card-bg);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
 }
 
-.contact-info::before{
+.contact-info::before {
   content: "";
   position: absolute;
   left: 20px;
@@ -4635,7 +4616,7 @@ label {
   z-index: -1;
 }
 
-.contact-info-icon{
+.contact-info-icon {
   font-size: 35px;
   color: var(--card-bg);
   width: 70px;
@@ -4647,7 +4628,7 @@ label {
   background: var(--theme-color);
 }
 
-.contact-info-icon::before{
+.contact-info-icon::before {
   content: "";
   position: absolute;
   left: -15px;
@@ -4662,11 +4643,11 @@ label {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
-.contact-info p{
-  color:  var(--color-dark);
+.contact-info p {
+  color: var(--color-dark);
   font-size: 16px;
 }
 .contact-info p a {
@@ -4679,9 +4660,6 @@ label {
     margin-bottom: 50px;
   }
 }
-
-
-
 
 /*===================
 41. Team css 
@@ -4707,7 +4685,7 @@ label {
   transform: translateY(-10px);
 }
 
-.team-img img{
+.team-img img {
   border-radius: 50px 50px 50px 0;
 }
 
@@ -4733,7 +4711,7 @@ label {
 }
 
 .team-bio h5 a:hover {
-  color:  var(--theme-color);
+  color: var(--theme-color);
 }
 
 .team-social-btn {
@@ -4751,7 +4729,7 @@ label {
   transition: var(--transition);
 }
 
-.team-item:hover .team-social-btn{
+.team-item:hover .team-social-btn {
   background: var(--theme-color2);
 }
 
@@ -4785,18 +4763,18 @@ label {
 }
 
 .team-social a:hover {
-  background:  var(--theme-color);
+  background: var(--theme-color);
   color: var(--color-white);
 }
 
-.team-area2 .team-item{
+.team-area2 .team-item {
   padding: 0px 30px 30px 30px;
   background: transparent;
   box-shadow: none;
   overflow: unset;
 }
 
-.team-area2 .team-item::before{
+.team-area2 .team-item::before {
   content: "";
   position: absolute;
   left: 0;
@@ -4809,89 +4787,85 @@ label {
   z-index: -1;
 }
 
-.team-area2 .team-img img{
+.team-area2 .team-img img {
   border-radius: 50px 50px 50px 0;
 }
 
-.team-area2 .team-content{
+.team-area2 .team-content {
   margin-top: 30px;
 }
 
-.team-area2 .team-social-btn{
+.team-area2 .team-social-btn {
   bottom: 39px;
 }
 
-.team-area2 .team-social-btn{
+.team-area2 .team-social-btn {
   right: 0;
 }
-
-
 
 /* ===================
 42. Team single css 
 ====================== */
 
-.team-single-img img{
+.team-single-img img {
   border-radius: 50px 50px 50px 0;
 }
 
-.team-details{
+.team-details {
   padding: 45px;
   background: var(--theme-bg-light);
   border-radius: 50px 50px 50px 0;
 }
 
-.team-details strong{
+.team-details strong {
   color: var(--theme-color2);
 }
 
-.team-details-info{
+.team-details-info {
   margin: 20px 0;
 }
 
-.team-details-info li{
+.team-details-info li {
   margin-bottom: 10px;
 }
 
-.team-details-info a:hover{
+.team-details-info a:hover {
   color: var(--theme-color2);
 }
 
-.team-details-info a i{
+.team-details-info a i {
   margin-right: 10px;
   color: var(--theme-color2);
 }
 
-.team-details-social a{
+.team-details-social a {
   margin-right: 15px;
   font-size: 20px;
   color: var(--theme-color2);
   display: inline-block;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-.team-details-social a:hover{
+.team-details-social a:hover {
   color: var(--theme-color);
 }
 
-.biography{
+.biography {
   padding-right: 20px;
   margin-bottom: 30px;
 }
 
-.team-skill .progress-box h5{
-  color: var(--color-dark)
+.team-skill .progress-box h5 {
+  color: var(--color-dark);
 }
 
-.team-skill .pull-right{
+.team-skill .pull-right {
   color: var(--theme-color2);
 }
 
-.team-skill .progress-box .progress{
+.team-skill .progress-box .progress {
   background: var(--theme-bg-light);
 }
-
-
 
 /*====================
 43. Video css 
@@ -4908,7 +4882,7 @@ label {
 .video-content::before {
   content: "";
   position: absolute;
-  background: rgba(3, 2, 7, .2);
+  background: rgba(3, 2, 7, 0.2);
   border-radius: 80px 80px 80px 0;
   width: 100%;
   height: 100%;
@@ -4948,17 +4922,15 @@ label {
   }
 }
 
-
-
 /*===================
 44. Pricing css 
 =====================*/
 
-.pricing-area{
+.pricing-area {
   position: relative;
 }
 
-.pricing-item{
+.pricing-item {
   position: relative;
   padding: 20px 40px;
   text-align: center;
@@ -4967,7 +4939,7 @@ label {
   margin-bottom: 25px;
 }
 
-.pricing-item::before{
+.pricing-item::before {
   content: "";
   position: absolute;
   left: 50px;
@@ -4978,7 +4950,7 @@ label {
   background: var(--theme-color);
 }
 
-.pricing-icon{
+.pricing-icon {
   width: 100px;
   height: 100px;
   line-height: 90px;
@@ -4990,12 +4962,12 @@ label {
   font-size: 70px;
 }
 
-.pricing-icon img{
+.pricing-icon img {
   width: 60px;
   filter: brightness(0) invert(1);
 }
 
-.pricing-icon::before{
+.pricing-icon::before {
   content: "";
   position: absolute;
   left: -8px;
@@ -5006,40 +4978,40 @@ label {
   border: 3px solid var(--theme-color2);
 }
 
-.pricing-header-content{
+.pricing-header-content {
   margin: 30px 0 20px 0;
 }
 
-.pricing-header-content h4{
+.pricing-header-content h4 {
   margin-bottom: 20px;
   color: var(--theme-color2);
   font-size: 30px;
 }
 
-.pricing-duration{
+.pricing-duration {
   color: var(--theme-color2);
   font-size: 16px;
 }
 
-.pricing-amount{
+.pricing-amount {
   font-size: 60px;
   color: var(--theme-color);
 }
 
-.pricing-feature ul{
+.pricing-feature ul {
   padding-top: 10px;
   margin-bottom: 25px;
   text-align: left;
   border-top: 1px solid var(--border-info-color);
 }
 
-.pricing-feature ul li{
+.pricing-feature ul li {
   position: relative;
   margin: 10px 0;
   padding-left: 25px;
 }
 
-.pricing-feature ul li::before{
+.pricing-feature ul li::before {
   content: "\f560";
   position: absolute;
   font-family: "Font Awesome 6 Pro";
@@ -5048,44 +5020,41 @@ label {
   top: 0;
 }
 
-.pricing-feature .theme-btn{
+.pricing-feature .theme-btn {
   width: 100%;
 }
 
-.pricing-item.active{
+.pricing-item.active {
   background: var(--theme-color);
 }
 
-.pricing-item.active::before{
+.pricing-item.active::before {
   background: var(--theme-color2);
 }
 
-.pricing-item.active .pricing-amount{
+.pricing-item.active .pricing-amount {
   color: var(--color-white);
 }
 
-.pricing-item.active ul li{
+.pricing-item.active ul li {
   color: var(--color-white);
 }
 
-.pricing-item.active ul li::before{
+.pricing-item.active ul li::before {
   color: var(--color-white);
 }
 
-.pricing-item.active .theme-btn{
+.pricing-item.active .theme-btn {
   background: var(--theme-color2);
 }
 
-.pricing-item.active .theme-btn:hover{
+.pricing-item.active .theme-btn:hover {
   color: var(--theme-color);
 }
 
-.pricing-item.active .theme-btn::before{
+.pricing-item.active .theme-btn::before {
   background: var(--color-white);
 }
-
-
-
 
 /*====================
 45. Faq css 
@@ -5126,7 +5095,7 @@ label {
   background: transparent;
   font-weight: 600;
   font-size: 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   box-shadow: none !important;
 }
 
@@ -5147,8 +5116,6 @@ label {
     font-size: 16px;
   }
 }
-
-
 
 /*====================
 46. Breadcrumb css
@@ -5210,8 +5177,8 @@ label {
 
 .site-breadcrumb .breadcrumb-menu li::before {
   position: absolute;
-  content: '\f101';
-  font-family: 'Font Awesome 6 Pro';
+  content: "\f101";
+  font-family: "Font Awesome 6 Pro";
   right: -21px;
   top: 1px;
   text-align: center;
@@ -5241,9 +5208,6 @@ label {
   }
 }
 
-
-
-
 /*====================
 47. Pagination css 
 ======================*/
@@ -5257,7 +5221,7 @@ label {
 
 .pagination .page-link {
   border: none;
-  background:  var(--theme-color2);
+  background: var(--theme-color2);
   color: var(--color-white);
   margin: 0 10px;
   border-radius: 12px !important;
@@ -5274,53 +5238,51 @@ label {
   color: var(--color-white);
 }
 
-
 /* Rc Pagination css  */
 .rc-pagination-prev,
 .rc-pagination-next,
-.rc-pagination-item{
-  border: none!important;
-  background:  var(--theme-color2)!important;
-  color: #fff!important;
-  margin: 0 4px!important;
+.rc-pagination-item {
+  border: none !important;
+  background: var(--theme-color2) !important;
+  color: #fff !important;
+  margin: 0 4px !important;
   border-radius: 12px !important;
-  width: 40px!important;
-  height: 40px!important;
-  line-height: 40px!important;
-  text-align: center!important;
-  transition: var(--transition)!important;
-  font-size: 18px!important;
-
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  text-align: center !important;
+  transition: var(--transition) !important;
+  font-size: 18px !important;
 }
 .rc-pagination-item a {
-  color: #fff!important;
+  color: #fff !important;
 }
-.rc-pagination-item:hover{
-  background: var(--theme-color)!important;
+.rc-pagination-item:hover {
+  background: var(--theme-color) !important;
 }
-.rc-pagination-prev .rc-pagination-item-link, .rc-pagination-next .rc-pagination-item-link{
-  display: block!important;
+.rc-pagination-prev .rc-pagination-item-link,
+.rc-pagination-next .rc-pagination-item-link {
+  display: block !important;
   border-radius: 12px !important;
-  background: var(--theme-color2)!important;
-  line-height: 40px!important;
-  border: none!important;
+  background: var(--theme-color2) !important;
+  line-height: 40px !important;
+  border: none !important;
 }
 .rc-pagination-next .rc-pagination-item-link:hover,
-.rc-pagination-prev .rc-pagination-item-link:hover{
-  background: var(--theme-color)!important;
+.rc-pagination-prev .rc-pagination-item-link:hover {
+  background: var(--theme-color) !important;
 }
 .rc-pagination-prev button:after,
-.rc-pagination-next button:after{
-  display: block!important;
-  font-size: 25px!important;
-  color: #fff!important;
-  margin-top: -5px!important;
+.rc-pagination-next button:after {
+  display: block !important;
+  font-size: 25px !important;
+  color: #fff !important;
+  margin-top: -5px !important;
 }
-.rc-pagination-item-active{
-  color: #fff!important;
-  background: var(--theme-color)!important;
+.rc-pagination-item-active {
+  color: #fff !important;
+  background: var(--theme-color) !important;
 }
-
 
 /*====================
 48. Auth css 
@@ -5334,7 +5296,7 @@ label {
   box-shadow: var(--box-shadow);
 }
 
-.login-form::before{
+.login-form::before {
   content: "";
   position: absolute;
   left: 0;
@@ -5376,11 +5338,11 @@ label {
 
 .login-form .login-footer a {
   color: var(--theme-color);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .login-form .login-footer a:hover {
-  color:  var(--theme-color2);
+  color: var(--theme-color2);
 }
 
 .login-form .form-group {
@@ -5389,7 +5351,7 @@ label {
 }
 
 .login-form label {
-  color:  var(--color-dark);
+  color: var(--color-dark);
   margin-bottom: 5px;
 }
 
@@ -5398,19 +5360,19 @@ label {
   border-radius: 8px;
   padding: 12px 18px;
   box-shadow: none;
-  transition: .5s;
+  transition: 0.5s;
 }
-.login-form .form-group .password-form{
-  position: relative!important;
+.login-form .form-group .password-form {
+  position: relative !important;
 }
-.login-form .form-group .eye-btn{
-  position: absolute!important;
+.login-form .form-group .eye-btn {
+  position: absolute !important;
   top: 52%;
   right: 4%;
   cursor: pointer;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
-.login-form .form-group .eye-btn:hover{
+.login-form .form-group .eye-btn:hover {
   color: var(--theme-color2);
 }
 .login-form .form-group .form-control:focus {
@@ -5421,24 +5383,24 @@ label {
   box-shadow: none;
 }
 
-.login-form .form-check-input:focus{
+.login-form .form-check-input:focus {
   border-color: var(--theme-color);
 }
 
 .login-form .forgot-pass {
   color: var(--theme-color);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .login-form .forgot-pass:hover {
-  color:  var(--theme-color2);
+  color: var(--theme-color2);
 }
 
 .login-form .theme-btn {
   width: 100%;
 }
 
-.login-form .theme-btn::before{
+.login-form .theme-btn::before {
   width: 420px;
   height: 420px;
 }
@@ -5453,7 +5415,7 @@ label {
 
 .login-form .form-check-label a {
   color: var(--theme-color);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .login-form .form-check-label a:hover {
@@ -5461,12 +5423,12 @@ label {
 }
 
 .form-check-input:checked {
-  background-color: var(--theme-color)!important;
+  background-color: var(--theme-color) !important;
   border-color: var(--theme-color);
 }
 
 .social-login {
-  border-top: 1px solid #F1F1F1;
+  border-top: 1px solid #f1f1f1;
   margin-top: 15px;
 }
 
@@ -5492,17 +5454,14 @@ label {
 }
 
 .social-login-list a:hover {
-  background:  var(--color-dark);
+  background: var(--color-dark);
 }
-
 
 @media only screen and (max-width: 991px) {
   .login-form {
     padding: 40px 20px;
   }
 }
-
-
 
 /*====================
 49. Coming soon css 
@@ -5525,8 +5484,8 @@ label {
 
 .coming-soon:before {
   position: absolute;
-  content: '';
-  background: rgba(0, 0, 0, .7);
+  content: "";
+  background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
   top: 0;
@@ -5565,7 +5524,7 @@ label {
   padding-left: 30px;
   padding-right: 30px;
   font-weight: 500;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .coming-soon .newsletter-form button:hover {
@@ -5588,7 +5547,7 @@ label {
   border-radius: 50px;
   border: 2px solid var(--color-white);
   display: inline-block;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .coming-social a:hover {
@@ -5618,9 +5577,6 @@ label {
   color: var(--color-white);
 }
 
-
-
-
 /*====================
 50. Error css 
 ======================*/
@@ -5637,7 +5593,7 @@ label {
 }
 
 .error-wrapper h1 span {
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .error-wrapper h2 {
@@ -5653,15 +5609,11 @@ label {
   margin-top: 30px;
 }
 
-
 @media all and (max-width: 767px) {
   .error-wrapper h1 {
     font-size: 160px;
   }
 }
-
-
-
 
 /*====================
 51. Terms/privacy css 
@@ -5692,23 +5644,21 @@ label {
   margin-bottom: 16px;
 }
 
-
-
 /*====================
 52. How Apply
 ======================*/
 
-.how-apply{
+.how-apply {
   position: relative;
 }
 
-.how-apply .content-img{
+.how-apply .content-img {
   margin-left: 30px;
   position: relative;
   z-index: 1;
 }
 
-.how-apply .content-img::before{
+.how-apply .content-img::before {
   content: "";
   position: absolute;
   left: 0;
@@ -5721,139 +5671,135 @@ label {
   z-index: -1;
 }
 
-.how-apply .content-img img{
+.how-apply .content-img img {
   border-radius: 100px 100px 100px 0;
   width: 100%;
 }
 
-.how-apply .content-list li{
+.how-apply .content-list li {
   margin-top: 8px;
 }
 
-.how-apply .content-list i{
+.how-apply .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
-.how-apply .content-btn{
+.how-apply .content-btn {
   margin-top: 40px;
 }
 
-.apply-details .details-wrapper{
+.apply-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
-.apply-details .details-wrapper h3{
+.apply-details .details-wrapper h3 {
   color: var(--color-dark);
 }
 
-.apply-details .content-list li{
+.apply-details .content-list li {
   margin-top: 8px;
 }
 
-.apply-details .content-list i{
+.apply-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
 @media all and (max-width: 991px) {
-  .how-apply .content-img{
+  .how-apply .content-img {
     margin-left: 0px;
   }
 
-  .how-apply .content-info{
+  .how-apply .content-info {
     margin-bottom: 70px;
   }
 
-  .apply-details .details-left{
+  .apply-details .details-left {
     margin-bottom: 40px;
   }
 }
-
-
 
 /*====================
 53. Application css 
 ======================*/
 
-.application{
+.application {
   position: relative;
 }
 
-.application-form{
+.application-form {
   padding: 40px;
   border-radius: 10px;
   background: var(--color-white);
   box-shadow: var(--box-shadow);
 }
 
-.application-form h3{
+.application-form h3 {
   padding-bottom: 15px;
   margin-bottom: 30px;
   color: var(--theme-color2);
   border-bottom: 1px solid var(--border-info-color);
 }
 
-.application-form .form-group{
+.application-form .form-group {
   margin-bottom: 18px;
 }
 
-.application-form .form-group label{
+.application-form .form-group label {
   color: #212536;
   margin-bottom: 5px;
 }
 
 .application-form .form-control,
-.application-form .form-select{
+.application-form .form-select {
   padding: 12px 18px;
   border-radius: 8px;
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
 .application-form .form-control:focus,
-.application-form .form-select:focus{
+.application-form .form-select:focus {
   border-color: var(--theme-color2);
 }
 
-.application-form .form-check-input{
+.application-form .form-check-input {
   margin-top: 6.5px;
   box-shadow: none;
 }
 
-.application-form .form-check-input:focus{
+.application-form .form-check-input:focus {
   border-color: var(--theme-color);
 }
 
-.application-form .form-check a{
+.application-form .form-check a {
   color: var(--theme-color);
 }
 
-.application-form .form-check label{
+.application-form .form-check label {
   color: #212536;
   font-weight: 500;
 }
 
-.application-form .theme-btn{
+.application-form .theme-btn {
   margin-top: 30px;
 }
-
-
 
 /*====================
 54. Campus tour css 
 ======================*/
 
-.campus-tour{
+.campus-tour {
   position: relative;
 }
 
-.campus-tour .content-img{
+.campus-tour .content-img {
   margin-left: 30px;
   position: relative;
   z-index: 1;
 }
 
-.campus-tour .content-img::before{
+.campus-tour .content-img::before {
   content: "";
   position: absolute;
   left: 0;
@@ -5866,61 +5812,58 @@ label {
   z-index: -1;
 }
 
-.campus-tour .content-img img{
+.campus-tour .content-img img {
   border-radius: 100px 100px 100px 0;
   width: 100%;
 }
 
-.campus-tour .content-btn{
+.campus-tour .content-btn {
   margin-top: 40px;
 }
 
-.tour-details .details-wrapper{
+.tour-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
 
-.tour-details .content-list li{
+.tour-details .content-list li {
   margin-top: 8px;
 }
 
-.tour-details .content-list i{
+.tour-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
 @media all and (max-width: 991px) {
-  .campus-tour .content-img{
+  .campus-tour .content-img {
     margin-left: 0px;
   }
 
-  .campus-tour .content-info{
+  .campus-tour .content-info {
     margin-bottom: 70px;
   }
 
-  .tour-details .details-left{
+  .tour-details .details-left {
     margin-bottom: 40px;
   }
 }
-
-
-
 
 /*====================
 55. Campus life css 
 ======================*/
 
-.campus-life{
+.campus-life {
   position: relative;
 }
 
-.campus-life .content-img{
+.campus-life .content-img {
   margin-right: 30px;
   position: relative;
   z-index: 1;
 }
 
-.campus-life .content-img::before{
+.campus-life .content-img::before {
   content: "";
   position: absolute;
   left: -30px;
@@ -5932,56 +5875,55 @@ label {
   z-index: -1;
 }
 
-.campus-life .content-img img{
+.campus-life .content-img img {
   border-radius: 90px 90px 90px 0;
   width: 100%;
 }
 
-.campus-life .content-btn{
+.campus-life .content-btn {
   margin-top: 40px;
 }
 
-.campus-life-details .details-wrapper{
+.campus-life-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
-.campus-life-details .details-wrapper h3{
+.campus-life-details .details-wrapper h3 {
   color: var(--color-dark);
   font-weight: 500;
 }
-.campus-life-details .content-list li{
+.campus-life-details .content-list li {
   margin-top: 8px;
 }
 
-.campus-life-details .content-list i{
+.campus-life-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
-.campus-life-details .details-item{
+.campus-life-details .details-item {
   margin-bottom: 40px;
 }
 
-.campus-life-details .details-item img{
+.campus-life-details .details-item img {
   border-radius: 20px;
 }
 
 @media all and (max-width: 991px) {
-  .campus-life .content-info{
+  .campus-life .content-info {
     margin-top: 70px;
   }
 }
-
 
 /*====================
 56. Notice board css 
 ======================*/
 
-.notice-board{
+.notice-board {
   position: relative;
 }
 
-.notice-item{
+.notice-item {
   padding: 25px 25px;
   border-radius: 50px 50px 50px 0;
   margin-bottom: 25px;
@@ -5990,42 +5932,40 @@ label {
   transition: var(--transition);
 }
 
-.notice-item:hover{
+.notice-item:hover {
   border-color: var(--theme-color);
 }
 
-.notice-item h4:hover{
+.notice-item h4:hover {
   color: var(--theme-color);
 }
 
-.notice-meta{
+.notice-meta {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 15px;
 }
 
-.notice-meta i{
+.notice-meta i {
   color: var(--theme-color);
 }
-
-
 
 /*====================
 57. Student Activity css 
 ======================*/
 
-.activity{
+.activity {
   position: relative;
 }
 
-.activity .content-img{
+.activity .content-img {
   margin-left: 30px;
   position: relative;
   z-index: 1;
 }
 
-.activity .content-img::before{
+.activity .content-img::before {
   content: "";
   position: absolute;
   left: -30px;
@@ -6037,44 +5977,42 @@ label {
   z-index: -1;
 }
 
-.activity .content-img img{
+.activity .content-img img {
   border-radius: 90px 90px 90px 0;
   width: 100%;
 }
 
-.activity .content-btn{
+.activity .content-btn {
   margin-top: 40px;
 }
 
-.activity-details .details-wrapper{
+.activity-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
 
-.activity-details .content-list li{
+.activity-details .content-list li {
   margin-top: 8px;
 }
 
-.activity-details .content-list i{
+.activity-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
-.activity-details .details-item{
+.activity-details .details-item {
   margin-bottom: 40px;
 }
 
-.activity-details .details-item img{
+.activity-details .details-item img {
   border-radius: 20px;
 }
 
 @media all and (max-width: 991px) {
-  .activity .content-info{
+  .activity .content-info {
     margin-bottom: 70px;
   }
 }
-
-
 
 /*====================
 58. Facility css 
@@ -6105,7 +6043,7 @@ label {
   z-index: 1;
 }
 
-.facility-img img{
+.facility-img img {
   border-radius: 50px 50px 50px 0;
 }
 
@@ -6122,25 +6060,22 @@ label {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .facility-title a:hover {
   color: var(--theme-color);
 }
 
-.facility-arrow .theme-btn{
+.facility-arrow .theme-btn {
   padding: 12px 22px;
 }
-
-
-
 
 /*==================
 59. Facility single
 ====================*/
 
-.facility-details img{
+.facility-details img {
   border-radius: 20px;
 }
 
@@ -6152,7 +6087,7 @@ label {
 .facility-download a {
   border: 2px solid var(--theme-color2);
   padding: 12px 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   display: block;
   margin-bottom: 20px;
   border-radius: 50px 50px 50px 0;
@@ -6172,9 +6107,6 @@ label {
 .facility-details h3 {
   color: var(--color-dark);
 }
-
-
-
 
 /*====================
 60. Research css 
@@ -6206,7 +6138,7 @@ label {
   z-index: 1;
 }
 
-.research-img img{
+.research-img img {
   border-radius: 40px 40px 40px 0;
 }
 
@@ -6223,25 +6155,22 @@ label {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .research-title a:hover {
   color: var(--theme-color);
 }
 
-.research-arrow .theme-btn{
+.research-arrow .theme-btn {
   padding: 12px 22px;
 }
-
-
-
 
 /*==================
 61. Research single
 ====================*/
 
-.research-details img{
+.research-details img {
   border-radius: 20px;
 }
 
@@ -6253,7 +6182,7 @@ label {
 .research-download a {
   border: 2px solid var(--theme-color2);
   padding: 12px 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   display: block;
   margin-bottom: 20px;
   border-radius: 50px 50px 50px 0;
@@ -6274,21 +6203,17 @@ label {
   color: var(--color-dark);
 }
 
-
-.upload-resume h4{
+.upload-resume h4 {
   color: var(--theme-color2);
 }
 
-.text-lable{
-  color: var(--theme-color2)!important;
+.text-lable {
+  color: var(--theme-color2) !important;
 }
-
 
 /*====================
 Skeleton card css 
 ======================*/
-
-
 
 /* Hero Sekeleton  */
 
@@ -6353,7 +6278,6 @@ Skeleton card css
   0% { background-position: -400px 0; }
   100% { background-position: 400px 0; }
 } */
-
 
 /* =====================
    HERO SKELETON FIX
@@ -6421,11 +6345,6 @@ Skeleton card css
   height: 46px;
 }
 
-
-
-
-
-
 /*====================
 62. Club css 
 ======================*/
@@ -6456,7 +6375,7 @@ Skeleton card css
   z-index: 1;
 }
 
-.club-img img{
+.club-img img {
   border-radius: 40px 40px 40px 0;
 }
 
@@ -6465,28 +6384,27 @@ Skeleton card css
   margin-top: 15px;
   padding: 10px;
   border-radius: 14px;
-  background-color: rgba(0, 0, 0, 0.050);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .club-arrow {
   margin-top: 25px;
 }
 
-.club-title  {
+.club-title {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
 }
 
 .club-title a:hover {
   color: var(--theme-color);
 }
 
-.club-arrow .theme-btn{
+.club-arrow .theme-btn {
   padding: 12px 22px;
 }
-
 
 .club-text-wrapper {
   max-height: 0;
@@ -6509,14 +6427,11 @@ Skeleton card css
   transform: rotate(180deg);
 }
 
-
-
-
 /*==================
 63. Club single
 ====================*/
 
-.club-details img{
+.club-details img {
   border-radius: 20px;
 }
 
@@ -6528,7 +6443,7 @@ Skeleton card css
 .club-download a {
   border: 2px solid var(--theme-color2);
   padding: 12px 20px;
-  color:  var(--color-dark);
+  color: var(--color-dark);
   display: block;
   margin-bottom: 20px;
   border-radius: 50px 50px 50px 0;
@@ -6549,9 +6464,6 @@ Skeleton card css
   color: var(--color-dark);
 }
 
-
-
-
 /*====================
  Pre Loader css 
 ======================*/
@@ -6560,7 +6472,7 @@ Skeleton card css
 64. Tuition fee css 
 ======================*/
 
-.tuition-fee{
+.tuition-fee {
   position: relative;
 }
 
@@ -6572,35 +6484,33 @@ Skeleton card css
   color: var(--color-dark);
 }
 
-
-
 /*====================
  mandatory-disclousre css 
 ======================*/
 
-.mandatory-disclousre .tuition-wrap h4{
-   text-transform: uppercase;
-   font-size: 19.5px;
+.mandatory-disclousre .tuition-wrap h4 {
+  text-transform: uppercase;
+  font-size: 19.5px;
 }
 .mandatory-disclousre .table thead tr th,
-.mandatory-disclousre .table tbody tr td{
+.mandatory-disclousre .table tbody tr td {
   font-size: 15px;
 }
 /*====================
 65. Alumni css 
 ======================*/
 
-.alumni{
+.alumni {
   position: relative;
 }
 
-.alumni .content-img{
+.alumni .content-img {
   margin-right: 30px;
   position: relative;
   z-index: 1;
 }
 
-.alumni .content-img::before{
+.alumni .content-img::before {
   content: "";
   position: absolute;
   left: 30px;
@@ -6613,77 +6523,75 @@ Skeleton card css
   z-index: -1;
 }
 
-.alumni .content-img img{
+.alumni .content-img img {
   border-radius: 50px 50px 50px 0;
   width: 100%;
 }
 
-.alumni .content-btn{
+.alumni .content-btn {
   margin-top: 40px;
 }
 
-.alumni-details .details-wrapper{
+.alumni-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
-.alumni-details .details-wrapper h3{
+.alumni-details .details-wrapper h3 {
   color: var(--color-dark);
 }
-.alumni-details .content-list li{
+.alumni-details .content-list li {
   margin-top: 8px;
 }
 
-.alumni-details .content-list i{
+.alumni-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
-.alumni-details .details-item{
+.alumni-details .details-item {
   margin-bottom: 40px;
 }
 
-.alumni-details .details-item img{
+.alumni-details .details-item img {
   border-radius: 20px;
 }
 
 @media all and (max-width: 991px) {
-  .alumni .content-info{
+  .alumni .content-info {
     margin-top: 70px;
   }
 }
-
-
 
 /*====================
 66. Scholarship css 
 ======================*/
 
-.scholarship{
+.scholarship {
   position: relative;
 }
 
-.scholarship-content img{
+.scholarship-content img {
   border-radius: 20px;
 }
-.scholarship-content h3{
+.scholarship-content h3 {
   color: var(--color-dark);
 }
-.scholarship-item{
+.scholarship-item {
   margin-bottom: 25px;
   background-color: #f0efefb5;
   padding: 15px;
   border-radius: 25px;
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 }
-.scholarship-item:hover{
+.scholarship-item:hover {
   transform: translateY(-10px);
 }
 
-.scholarship-icon img{
+.scholarship-icon img {
   width: 60px;
 }
 
-.scholarship-item h4{
+.scholarship-item h4 {
   margin-top: 20px;
   margin-bottom: 10px;
   color: var(--color-dark);
@@ -6691,63 +6599,61 @@ Skeleton card css
   font-size: 22px;
 }
 
-.scholarship-details .details-wrapper{
+.scholarship-details .details-wrapper {
   border-top: 1px solid var(--border-info-color);
   padding-top: 60px;
 }
 
-.scholarship-details .content-list li{
+.scholarship-details .content-list li {
   margin-top: 8px;
 }
 
-.scholarship-details .content-list i{
+.scholarship-details .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
 
-.scholarship-details .details-item{
+.scholarship-details .details-item {
   margin-bottom: 40px;
 }
-
-
 
 /*====================
 67. Fund css 
 ======================*/
 
-.fund-area{
+.fund-area {
   position: relative;
 }
 
-.fund-content img{
+.fund-content img {
   border-radius: 20px;
 }
 
-.fund-contact{
+.fund-contact {
   margin: 20px 0;
   background: var(--theme-bg-light);
   padding: 30px;
   border-radius: 10px;
 }
 
-.fund-contact li{
+.fund-contact li {
   margin: 8px 0;
 }
 
-.fund-contact i{
+.fund-contact i {
   color: var(--theme-color2);
   margin-right: 5px;
 }
 
-.fund-btn{
+.fund-btn {
   margin-bottom: 20px;
 }
 
-.fund-btn .theme-btn{
+.fund-btn .theme-btn {
   width: 100%;
 }
 
-.fund-btn .theme-btn::before{
+.fund-btn .theme-btn::before {
   width: 400px;
   height: 400px;
 }
@@ -6757,43 +6663,38 @@ Skeleton card css
   margin-right: 10px;
 }
 
-
 /*====================
 68. Athletic css 
 ======================*/
 
-.athletic{
+.athletic {
   position: relative;
 }
 
-.athletic-content img{
+.athletic-content img {
   border-radius: 20px;
 }
-
-
 
 /*====================
 69. Health care css 
 ======================*/
 
-.health-care{
+.health-care {
   position: relative;
 }
 
-.health-care-content img{
+.health-care-content img {
   border-radius: 20px;
 }
 
-.health-care-content .content-list li{
+.health-care-content .content-list li {
   margin-top: 8px;
 }
 
-.health-care-content .content-list i{
+.health-care-content .content-list i {
   color: var(--theme-color);
   margin-right: 8px;
 }
-
-
 
 /*====================
 70. Footer css 
@@ -6805,12 +6706,12 @@ Skeleton card css
   z-index: 1;
 }
 
-.footer-shape{
+.footer-shape {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: .05;
+  opacity: 0.05;
   z-index: -1;
 }
 
@@ -6832,7 +6733,7 @@ Skeleton card css
   position: relative;
 }
 
-.copyright .copyright-wrapper{
+.copyright .copyright-wrapper {
   padding: 25px 0;
   border-top: 1px solid var(--border-white-color);
 }
@@ -6879,7 +6780,7 @@ Skeleton card css
 }
 
 .footer-widget-title::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 90px;
   height: 3px;
@@ -6890,7 +6791,7 @@ Skeleton card css
 }
 
 .footer-widget-title::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 30px;
   height: 3px;
@@ -6903,7 +6804,7 @@ Skeleton card css
 .footer-list {
   display: flex;
   flex-direction: column;
-  gap: .65rem;
+  gap: 0.65rem;
 }
 
 .footer-list li a {
@@ -6996,14 +6897,13 @@ Skeleton card css
   color: var(--theme-color2);
 }
 
-.subscribe-form .theme-btn::before{
+.subscribe-form .theme-btn::before {
   background: var(--color-white);
 }
 
-.subscribe-form .theme-btn:hover::after{
+.subscribe-form .theme-btn:hover::after {
   border-color: var(--theme-color2);
 }
-
 
 @media all and (max-width: 1199px) {
   .footer-widget-box {
@@ -7026,7 +6926,6 @@ Skeleton card css
     margin-left: 0;
     margin-right: 15px;
   }
-
 }
 
 @media all and (max-width: 767px) {
@@ -7039,10 +6938,10 @@ Skeleton card css
     margin-top: 20px;
   }
 
-  .copyright::before{
+  .copyright::before {
     width: 40%;
   }
-  .application-form{
+  .application-form {
     padding: 30px 18px;
   }
   .contact-form {
@@ -7050,68 +6949,65 @@ Skeleton card css
   }
 }
 
-
-
 /*====================
 71. Home 2
 ======================*/
 
-.home-2 .header{
+.home-2 .header {
   background: var(--theme-color);
 }
 
-.home-2 .header-top{
+.home-2 .header-top {
   padding: 12px 0 13px 0;
 }
 
-.home-2 .header-top::before{
+.home-2 .header-top::before {
   display: none;
 }
 
-.home-2 .header-top::after{
+.home-2 .header-top::after {
   display: none;
 }
 
-.home-2 .header-top-contact ul li{
+.home-2 .header-top-contact ul li {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-.home-2 .header-top-social a{
+.home-2 .header-top-social a {
   background: var(--color-white);
   color: var(--theme-color2);
 }
 
-.home-2 .header-top-social a:hover{
+.home-2 .header-top-social a:hover {
   background: var(--theme-color);
   color: var(--color-white);
 }
 
-.home-2 .hero-single{
+.home-2 .hero-single {
   padding-top: 200px;
   padding-bottom: 180px;
 }
 
-.home-2 .hero-single::before{
-  background: rgba(0, 0, 0, .65);
+.home-2 .hero-single::before {
+  background: rgba(0, 0, 0, 0.65);
 }
 
-.home-2 .hero-single .hero-title span{
+.home-2 .hero-single .hero-title span {
   -webkit-text-stroke: 2px var(--theme-color2);
   -webkit-text-fill-color: transparent;
 }
 
-
 @media all and (min-width: 1199px) {
-  .home-2 .navbar{
+  .home-2 .navbar {
     background: transparent;
     padding-right: 25px;
   }
-  
-  .home-2 .navbar.fixed-top{
+
+  .home-2 .navbar.fixed-top {
     padding-right: 0;
   }
-  
-  .home-2 .navbar::before{
+
+  .home-2 .navbar::before {
     content: "";
     position: absolute;
     left: 0;
@@ -7121,106 +7017,102 @@ Skeleton card css
     height: 100%;
     border-radius: 0 10px 10px 0;
   }
-  
-  .home-2 .main{
+
+  .home-2 .main {
     margin-top: -3rem;
   }
-  
 }
 
 @media all and (min-width: 992px) {
-  .home-2 .navbar .dropdown-menu{
+  .home-2 .navbar .dropdown-menu {
     border-top: none;
     border-radius: 20px;
     background: var(--color-white);
   }
-  
-  .home-2 .navbar .dropdown-menu .dropdown-item{
+
+  .home-2 .navbar .dropdown-menu .dropdown-item {
     color: var(--color-dark);
     border-bottom: 1px dashed var(--border-info-color);
   }
-  
-  .home-2 .navbar .dropdown-menu li:last-child .dropdown-item{
+
+  .home-2 .navbar .dropdown-menu li:last-child .dropdown-item {
     border-bottom: none;
   }
-  
-  .home-2 .menu-about p{
+
+  .home-2 .menu-about p {
     color: var(--color-dark);
   }
 }
 
 @media (max-width: 991px) {
   .navbar .dropdown-menu {
-      border-radius: 20px;
+    border-radius: 20px;
   }
 }
-
-
-
 
 /*====================
 72. Home 3
 ======================*/
 
-.home-3 .theme-btn{
+.home-3 .theme-btn {
   border-radius: 50px;
 }
 
-.home-3 .header-top{
+.home-3 .header-top {
   padding: 12px 0 14px 0;
   background: var(--theme-color);
 }
 
 .home-3 .header-top::before,
-.home-3 .header-top::after{
+.home-3 .header-top::after {
   display: none;
 }
 
-.home-3 .header-top-news{
+.home-3 .header-top-news {
   color: var(--color-white);
   text-transform: capitalize;
 }
 
-.home-3 .header-top-menu a{
+.home-3 .header-top-menu a {
   color: var(--color-white);
   margin-right: 6px;
   padding-right: 8px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.home-3 .header-top-menu a:last-child{
+.home-3 .header-top-menu a:last-child {
   border-right: none;
   margin-right: 0;
   padding-right: 0;
 }
 
-.home-3 .header-top-menu a:hover{
+.home-3 .header-top-menu a:hover {
   color: var(--theme-color);
 }
 
-.home-3 .hero-single{
+.home-3 .hero-single {
   padding-bottom: 150px;
 }
 
-.home-3 .hero-single::before{
-  background: rgba(0, 0, 0, .6);
+.home-3 .hero-single::before {
+  background: rgba(0, 0, 0, 0.6);
   opacity: unset;
 }
 
-.home-3 .hero-single .hero-title span{
+.home-3 .hero-single .hero-title span {
   -webkit-text-stroke: 2px var(--theme-color2);
   -webkit-text-fill-color: transparent;
 }
 
-.home-3 .counter-box .icon{
+.home-3 .counter-box .icon {
   border-radius: 30px 30px 30px 0;
 }
 
-.home-3 .counter-box .icon::before{
+.home-3 .counter-box .icon::before {
   border-radius: 30px 30px 30px 0;
 }
 
-.home-3 .footer-area{
+.home-3 .footer-area {
   position: relative;
   background-image: url(../img/footer/01.jpg);
   background-repeat: no-repeat;
@@ -7229,7 +7121,7 @@ Skeleton card css
   z-index: 1;
 }
 
-.home-3 .footer-area::before{
+.home-3 .footer-area::before {
   content: "";
   position: absolute;
   background: var(--footer-bg);
@@ -7237,7 +7129,5 @@ Skeleton card css
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: .95;
+  opacity: 0.95;
 }
-
-

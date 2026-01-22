@@ -9,6 +9,7 @@ import Choose from './Choose'
 import Gallery from './Gallery'
 import Department from './Department'
 import Blog from './BlogArea'
+import TestimonialSlider from './TestimonialSlider'
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
          <Gallery/>
          {/* <EnrollArea/> */}
          <Department/>
+         <TestimonialSlider/>
          <Blog/>
     </>
   )

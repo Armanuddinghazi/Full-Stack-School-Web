@@ -1,93 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import Breadcrumb from '../../components/ui/Breadcrumb'
-// import aboutBg from "../../assets/img/breadcrumb/01.jpg";
-// import apiClient from "../../api/apiClient";
-
-// const MandatoryDisclosure = () => {
-//     const [tables, setTables] = useState([]);
-//     const [loading, setLoading] = useState(true);
-
-//     useEffect(() => {
-//         apiClient.get("/disclosure")
-//             .then(res => setTables(res.data || []))
-//             .catch(err => console.error("Disclosure fetch error", err))
-//             .finally(() => {
-//                 setLoading(false);
-//             });
-//     }, []);
-//     return (
-//         <>
-//             <Breadcrumb
-//                 title="Mandatory Disclosure"
-//                 bgImage={aboutBg}
-//                 items={[
-//                     { label: "Home", path: "/" },
-//                     { label: "Mandatory Disclosure", active: true }
-//                 ]}
-//             />
-
-//             <div className="mandatory-disclousre py-50">
-//                 <div className="container">
-
-//                     <div className="tuition-wrap">
-//                         {loading && <div className="text-center">Loading tables...</div>}
-
-//                         {!loading && tables.length === 0 && (
-//                             <div className="text-center">No mandatory disclosure documents found.</div>
-//                         )}
-//                         {tables.map((table, index) => (
-//                             <div key={table._id || index} className="mb-5">
-//                                 <h4 className="mb-3" data-aos="fade-right">{table.title}</h4>
-
-//                                 <div className="table-responsive" data-aos="fade-right">
-//                                     <table className="table table-light  table-bordered">
-//                                         <thead className="table-dark">
-//                                             <tr>
-//                                                 <th>S.No</th>
-//                                                 {table.columns?.map((col, i) => (
-//                                                     <th key={i}>{col}</th>
-//                                                 ))}
-//                                             </tr>
-//                                         </thead>
-//                                         <tbody>
-//                                             {table.rows?.map((row, rIndex) => (
-//                                                 <tr key={rIndex}>
-//                                                     <td>{rIndex + 1}</td>
-//                                                     {row.cells?.map((cell, cIndex) => (
-//                                                         <td key={cIndex}>
-//                                                             <div className="d-flex ">
-//                                                                 <span>{cell?.text}</span>
-//                                                                 {cell?.file && (
-//                                                                     <a
-//                                                                         href={import.meta.env.VITE_API_URL_IMG + cell.file}
-//                                                                         target="_blank"
-//                                                                         className={`btn btn-sm ${cell.fileType === "pdf" ? "btn-success" : "btn-primary"}  btn-radius-8  light ms-2`}
-//                                                                     >
-//                                                                         <i class={`fa-light me-1 ${cell.fileType === "pdf" ? "fa-file-pdf" : "fa-image"}`}></i>
-//                                                                         {cell.fileType === "pdf" ? "View PDF" : "View Image"}
-//                                                                     </a>
-//                                                                 )}
-//                                                             </div>
-//                                                         </td>
-//                                                     ))}
-//                                                 </tr>
-//                                             ))}
-//                                         </tbody>
-//                                     </table>
-//                                 </div>
-
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default MandatoryDisclosure
-
-
 import React, { useEffect, useState } from "react";
 import Breadcrumb from '../../components/ui/Breadcrumb';
 import aboutBg from "../../assets/img/breadcrumb/01.jpg";
@@ -138,7 +48,7 @@ const MandatoryDisclosure = () => {
                         {!loading && tables.length === 0 && (
                             <div className="alert alert-info text-center py-4 shadow-sm" role="alert">
                                 <i className="fa-regular fa-folder-open me-2"></i>
-                                No mandatory disclosure documents found.
+                                No mandatory disclosure documents found. 
                             </div>
                         )}
 

@@ -70,8 +70,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        {/* 2. Dynamic Menu Columns (Quick Links, Campus, etc.) */}
-                        {/* Hum map function use karenge taki admin se column rename/add ho sake */}
+                        {/* 2. Dynamic Menu Columns  */}
                         {footerData.menuColumns?.map((column, index) => (
                             <div
                                 key={index}

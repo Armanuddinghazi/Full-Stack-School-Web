@@ -5,13 +5,15 @@ import { highlightLastWords } from "../../utils/highlightLastWords";
 import useSection from "../../hooks/useSection";
 import CourseSkeleton from "../ui/CourseSkeletonItem";
 
-const API_URL = import.meta.env.VITE_API_URL_IMG;
 
 const CourseArea = () => {
 
   const section = useSection("courses");
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const API_URL = import.meta.env.VITE_API_URL_IMG;
+
 
   // const fetchCourses = async () => {
   //   try {
@@ -30,7 +32,7 @@ const CourseArea = () => {
       console.error("Course fetch error", err);
       setCourses([]);
     } finally {
-          setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -38,7 +40,7 @@ const CourseArea = () => {
     fetchCourses();
   }, []);
 
-    if (loading) return <CourseSkeleton />;
+  if (loading) return <CourseSkeleton />;
 
   return (
     <>
@@ -68,75 +70,75 @@ const CourseArea = () => {
           </div>
 
           {/* Courses */}
-            <div className="row">
-                {courses.slice(0, 6).map((course, index) => (
-                  <div
-                    key={course._id}
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                    className="col-md-6 col-lg-4"
-                  >
-                    <div className="course-item">
+          <div className="row">
+            {courses.slice(0, 6).map((course, index) => (
+              <div
+                key={course._id}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+                className="col-md-6 col-lg-4"
+              >
+                <div className="course-item">
 
-                      <div className="course-img">
-                        <span className="course-tag">
-                          <i className="far fa-bookmark"></i> {course.tag}
-                        </span>
-                        <img
-                          src={`${API_URL}${course.image}`}
-                          alt={course.title}
-                          className="img-fluid"
-                        />
-                        <Link to="/course-one" className="btn">
-                          <i className="far fa-link"></i>
-                        </Link>
+                  <div className="course-img">
+                    <span className="course-tag">
+                      <i className="far fa-bookmark"></i> {course.tag}
+                    </span>
+                    <img
+                      src={`${API_URL}${course.image}`}
+                      alt={course.title}
+                      className="img-fluid"
+                    />
+                    <Link to="/course-one" className="btn">
+                      <i className="far fa-link"></i>
+                    </Link>
 
-                      </div>
+                  </div>
 
-                      <div className="course-content">
-                        <div className="course-meta">
-                          <span className="course-meta-left">
-                            <i className="far fa-book"></i> {course.lessons} Lessons
-                          </span>
+                  <div className="course-content">
+                    <div className="course-meta">
+                      <span className="course-meta-left">
+                        <i className="far fa-book"></i> {course.lessons} Lessons
+                      </span>
 
-                          <div className="course-rating">
-                            {[...Array(5)].map((_, i) => (
-                              <i
-                                key={i}
-                                className={
-                                  i < Math.round(course.rating)
-                                    ? "fas fa-star"
-                                    : "far fa-star"
-                                }
-                              ></i>
-                            ))}
-                            <span>({course.rating})</span>
-                          </div>
-                        </div>
-
-                        <h4 className="course-title">{course.title}</h4>
-
-                        <p className="course-text">
-                          {course.description?.slice(0, 150)}...
-                        </p>
-
-                        <div className="course-bottom">
-                          <div className="course-bottom-left">
-                            <span>
-                              <i className="far fa-users"></i> {course.seats} Seats
-                            </span>
-                            <span>
-                              <i className="far fa-clock"></i> {course.duration}
-                            </span>
-                          </div>
-
-                          <span className="course-price">₹ {course.price}</span>
-                        </div>
+                      <div className="course-rating">
+                        {[...Array(5)].map((_, i) => (
+                          <i
+                            key={i}
+                            className={
+                              i < Math.round(course.rating)
+                                ? "fas fa-star"
+                                : "far fa-star"
+                            }
+                          ></i>
+                        ))}
+                        <span>({course.rating})</span>
                       </div>
                     </div>
+
+                    <h4 className="course-title">{course.title}</h4>
+
+                    <p className="course-text">
+                      {course.description?.slice(0, 150)}...
+                    </p>
+
+                    <div className="course-bottom">
+                      <div className="course-bottom-left">
+                        <span>
+                          <i className="far fa-users"></i> {course.seats} Seats
+                        </span>
+                        <span>
+                          <i className="far fa-clock"></i> {course.duration}
+                        </span>
+                      </div>
+
+                      <span className="course-price">₹ {course.price}</span>
+                    </div>
                   </div>
-                ))}
-            </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

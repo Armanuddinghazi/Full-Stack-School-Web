@@ -314,7 +314,7 @@ const HeroAdmin = () => {
                           <tr>
                             <td colSpan="3" className="text-center text-muted py-4">
                               <i className="fa-duotone fa-solid fa-face-frown me-1"></i>
-                              No banners found
+                              No data found
                             </td>
                           </tr>
                         )}

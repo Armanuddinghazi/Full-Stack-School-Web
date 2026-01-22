@@ -91,7 +91,7 @@ const Hero = () => {
           
           .swiper-slide-active .hero-sub-title { animation: fadeInUp 1s ease forwards; }
           .swiper-slide-active .hero-title { animation: fadeInUp 1s ease 0.3s forwards; opacity: 0; }
-          .swiper-slide-active p { animation: fadeInUp 1s ease 0.5s forwards; opacity: 0; }
+          .swiper-slide-active .para-text { animation: fadeInUp 1s ease 0.5s forwards; opacity: 0; }
           .swiper-slide-active .hero-btn { animation: fadeInUp 1s ease 0.7s forwards; opacity: 0; }
 
           @keyframes fadeInUp {
@@ -149,7 +149,7 @@ const Hero = () => {
                           {highlightLastWords(slide.subtitle, 1)}
                         </h2>
 
-                        <p>{slide.description}</p>
+                        <p className="para-text">{slide.description}</p>
 
                         <div className="hero-btn">
                           <Link to="/about" className="theme-btn">
